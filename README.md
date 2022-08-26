@@ -1,0 +1,2 @@
+# Stafla
+Stundataflakerfi fyrir innu
