@@ -1,4 +1,4 @@
-# Eventr
+# Stafla
 
 Sveinn, Karl, Elvar, Fuad
 
