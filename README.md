@@ -20,6 +20,6 @@ Stafla er áætlað nemendur í Tækniskólanum sem þurfa aðstoð að samsetta
 Vantar
 
 ## Wireflows (Wireframes + flowchart) (60%)
-Vantar
+![Wireframe](https://github.com/vefthroun4/Stafla/blob/main/wireframe_vefthr4.svg)
 
 
