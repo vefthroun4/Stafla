@@ -14,7 +14,7 @@ def create_app(config=Config):
         os.makedirs(app.instance_path)
     except OSError:
         pass
-
+        
     db.init_app(app)
 
     return app
