@@ -6,10 +6,10 @@ import os
 # Blueprints
 from app.blueprints.home import home_blueprint
 
-app = Flask(__name__)
-db = SQLAlchemy(app)
+db = SQLAlchemy()
 
 def create_app(config=Config):
+    app = Flask(__name__)
     app.config.from_object(config)
 
     # Register bp
@@ -21,5 +21,6 @@ def create_app(config=Config):
     except OSError:
         pass
         
+    db.init_app(app)
 
     return app
