@@ -5,7 +5,7 @@ from config import Config
 import os
 
 # Blueprints
-from app.blueprints.home import home_blueprint
+from app.blueprints.home import home
 
 db = SQLAlchemy()
 migrate = Migrate()
@@ -15,7 +15,7 @@ def create_app(config=Config):
     app.config.from_object(config)
 
     # Register blueprints
-    app.register_blueprint(home_blueprint)
+    app.register_blueprint(home)
 
     # Try to setup instance folder if it does not exist
     try:
