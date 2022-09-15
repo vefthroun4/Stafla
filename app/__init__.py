@@ -1,8 +1,8 @@
+import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from config import Config
-import os
 
 # Blueprints
 from app.blueprints.home import home
@@ -13,9 +13,13 @@ from app.auth import auth
 db = SQLAlchemy()
 migrate = Migrate()
 
-def create_app(config=Config):
+def create_app():
     app = Flask(__name__)
-    app.config.from_object(config)
+
+    # Sets up config file
+    config_file = os.environ.get("CONFIG")
+    app.config.from_object(config_file or Config)
+
 
     # Register blueprints
     app.register_blueprint(home)
