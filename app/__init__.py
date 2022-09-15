@@ -6,6 +6,9 @@ import os
 
 # Blueprints
 from app.blueprints.home import home
+from app.blueprints.namsmat import namsmat
+from app.blueprints.admin import admin
+from app.auth import auth
 
 db = SQLAlchemy()
 migrate = Migrate()
@@ -16,6 +19,9 @@ def create_app(config=Config):
 
     # Register blueprints
     app.register_blueprint(home)
+    app.register_blueprint(namsmat)
+    app.register_blueprint(admin)
+    app.register_blueprint(auth, url_prefix="/auth")
 
     # Try to setup instance folder if it does not exist
     try:
