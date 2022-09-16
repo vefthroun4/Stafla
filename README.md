@@ -32,6 +32,6 @@ Hérna mun Stafla sýna þér eftir stillingum bestu áfanga sem eru til að tak
 
 
 ## Wireflows (Wireframes + flowchart + User story) (60%)
-![Wireframe](https://github.com/vefthroun4/Stafla/blob/main/wireframe_vefthr4.svg)
+![Wireframe](https://github.com/vefthroun4/Stafla/blob/main/wireframe_vefthr4.png)
 
 
