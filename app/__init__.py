@@ -39,6 +39,7 @@ def create_app():
     # Init modules        
     db.init_app(app)
     migrate.init_app(app, db)
+    login.init_app(app)
 
     # allows db and User objects to be accessed from the "flask shell" command
     #TODO Move to another folder specific for CLI commands
