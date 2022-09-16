@@ -3,18 +3,16 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from config import Config
+from flask_login import LoginManager
 
-# Blueprints
-from app.blueprints.home import home
-from app.blueprints.namsmat import namsmat
-from app.blueprints.admin import admin
-from app.auth import auth
-
+# Create module instances
 db = SQLAlchemy()
 migrate = Migrate()
+login = LoginManager()
 
 def create_app():
     app = Flask(__name__)
+
     # Try to setup instance folder if it does not exist
     try:
         os.makedirs(app.instance_path)
@@ -25,13 +23,17 @@ def create_app():
     config_file = os.environ.get("CONFIG")
     app.config.from_object(config_file or Config)
 
+    # Blueprints
+    from app.blueprints.home import home
+    from app.blueprints.namsmat import namsmat
+    from app.blueprints.admin import admin
+    from app.auth import auth
 
     # Register blueprints
     app.register_blueprint(home)
     app.register_blueprint(namsmat)
     app.register_blueprint(admin)
     app.register_blueprint(auth, url_prefix="/auth")
-
 
 
     # Init modules        
