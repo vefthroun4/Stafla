@@ -13,3 +13,4 @@ MarkupSafe==2.1.1
 python-dotenv==0.21.0
 SQLAlchemy==1.4.41
 Werkzeug==2.2.2
+Flask-wtf==1.0.1
