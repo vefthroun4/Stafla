@@ -41,3 +41,6 @@ microblog.log*
 
 # Use this file to set up environment variables on a per-use case
 .env
+
+#MacOS Extra
+.DS_Store
