@@ -1,6 +1,5 @@
-from flask import Blueprint, current_app
+from flask import Blueprint
 
-home = Blueprint("home", __name__)
+home = Blueprint("home", __name__, template_folder="templates")
 
 from app.blueprints.home import views
-    
