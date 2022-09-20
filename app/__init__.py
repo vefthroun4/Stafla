@@ -15,11 +15,6 @@ migrate = Migrate()
 
 def create_app():
     app = Flask(__name__)
-    # Try to setup instance folder if it does not exist
-    try:
-        os.makedirs(app.instance_path)
-    except OSError:
-        pass
 
     # Sets up config file
     config_file = os.environ.get("CONFIG")
@@ -32,7 +27,11 @@ def create_app():
     app.register_blueprint(admin)
     app.register_blueprint(auth, url_prefix="/auth")
 
-
+    # Try to setup instance folder if it does not exist
+    try:
+        os.makedirs(app.instance_path)
+    except OSError:
+        pass
 
     # Init modules        
     db.init_app(app)
