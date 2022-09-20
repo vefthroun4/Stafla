@@ -1,14 +1,19 @@
 <div class="ui menu">
     <div class="header item">
-      HEADER LOGO
+        <i class="tasks icon"></i>
     </div>
-    <a class="item">
-      BLANK
-    </a>
-    <a class="item">
-      Sign Up Page
-    </a>
-    <a href="{{url_for('auth.login')}}"class="item">
-      Login Page
-    </a>
+    <div class="ui centered category search">
+        <div class="ui icon input">
+          <input class="prompt" type="text" placeholder="Search animals...">
+          <i class="search icon"></i>
+        </div>
+        <div class="results"></div>
+      </div>
+      <a class="ui button">
+        Sign Up Page
+      </a>
+      <a href="{{url_for('auth.login')}}"class="ui primary button">
+        Login Page
+      </a>
   </div>
+   
