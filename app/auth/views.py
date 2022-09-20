@@ -5,11 +5,11 @@ from app.auth import auth
 
 @auth.route("/login")
 def login():
-    return "login"
+    return render_template("auth/login.html")
 
-@auth.route("/register")
+@auth.route("/signup")
 def register():
-    return "register"
+    return render_template("auth/signup.html")
 
 @auth.route("/logout")
 def logout():
