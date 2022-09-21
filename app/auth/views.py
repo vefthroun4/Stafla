@@ -1,20 +1,31 @@
-from flask import render_template, flash, url_for, request
+import email
+from flask import render_template, flash, url_for, request, redirect
 from app.models import User
 from flask_login import login_user, logout_user, current_user
 from app.auth import auth
+from app.auth.forms import LoginForm
 
-@auth.route("/login")
+@auth.route("/login", methods=("GET", "POST"))
 def login():
-    return render_template("auth/login.html")
+    if current_user.is_authenticated:
+        return redirect(url_for("index"))
+    form = LoginForm()
+    if form.validate_on_submit():
+        user = User.query.filter_by(email=form.email.data).first()
+        if user is None or not user.check_password():
+            flash("Invalid username or password")
+            return redirect(url_for("login"))
+        login_user(user)
+        return redirect(url_for("index"))
+    return render_template("auth/login.html", form=form)
 
-@auth.route("/signup")
+@auth.route("/signup", methods=("GET", "POST"))
 def register():
     return render_template("auth/signup.html")
 
 @auth.route("/logout")
 def logout():
-    if current_user.is_authenticated:
-        return "Logging out"
-    return "Not logged in"
+    logout_user()
+    return redirect(url_for("index"))
 
 
