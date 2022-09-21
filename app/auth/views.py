@@ -15,12 +15,12 @@ def login():
         if user is None or not user.check_password():
             flash("Invalid username or password")
             return redirect(url_for("login"))
+        login_user(user)
+
         next = request.args.get("next")
-        
         # Make sure next is not empty or pointing to another website
         if next is None or url_parse(next).netloc != "":
             return redirect(url_for("home.index"))
-        login_user(user)
         return redirect(next)
     return render_template("auth/login.html", form=form)
 
