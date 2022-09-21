@@ -27,12 +27,16 @@ def create_app():
     from app.blueprints.home import home
     from app.blueprints.namsmat import namsmat
     from app.blueprints.admin import admin
+
+
+
     from app.auth import auth
+
 
     # Register blueprints
     app.register_blueprint(home)
-    app.register_blueprint(namsmat)
-    app.register_blueprint(admin)
+    app.register_blueprint(namsmat, url_prefix="/namsmat")
+    app.register_blueprint(admin, url_prefix="/admin")
     app.register_blueprint(auth, url_prefix="/auth")
 
     # Try to setup instance folder if it does not exist
