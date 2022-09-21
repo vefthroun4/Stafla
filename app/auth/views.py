@@ -1,7 +1,7 @@
-import email
 from flask import render_template, flash, url_for, request, redirect
 from app.models import User
 from flask_login import login_user, logout_user, current_user
+from werkzeug.urls import url_parse
 from app.auth import auth
 from app.auth.forms import LoginForm
 
@@ -15,8 +15,13 @@ def login():
         if user is None or not user.check_password():
             flash("Invalid username or password")
             return redirect(url_for("login"))
+        next = request.args.get("next")
+        
+        # Make sure next is not empty or pointing to another website
+        if next is None or url_parse(next).netloc != "":
+            return redirect(url_for("home.index"))
         login_user(user)
-        return redirect(url_for("index"))
+        return redirect(next)
     return render_template("auth/login.html", form=form)
 
 @auth.route("/signup", methods=("GET", "POST"))

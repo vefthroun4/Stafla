@@ -28,7 +28,11 @@ def create_app():
     from app.blueprints.home import home
     from app.blueprints.namsmat import namsmat
     from app.blueprints.admin import admin
+
+
+
     from app.auth import auth
+
 
     # Register blueprints
     app.register_blueprint(home)
