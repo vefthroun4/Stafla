@@ -1,26 +1,151 @@
 {% extends "base.html" %}
 {%block content %}
-<h1>index deez nuts</h1>
-    <h2>This a test!!!</h2>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut ex libero laboriosam, similique eligendi atque pariatur, beatae, commodi error porro rem alias. Maxime magni explicabo quos, obcaecati excepturi eligendi quibusdam.
-    <h2>This a test!!!</h2>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut ex libero laboriosam, similique eligendi atque pariatur, beatae, commodi error porro rem alias. Maxime magni explicabo quos, obcaecati excepturi eligendi quibusdam.
-    <h2>This a test!!!</h2>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut ex libero laboriosam, similique eligendi atque pariatur, beatae, commodi error porro rem alias. Maxime magni explicabo quos, obcaecati excepturi eligendi quibusdam.
-    <h2>This a test!!!</h2>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut ex libero laboriosam, similique eligendi atque pariatur, beatae, commodi error porro rem alias. Maxime magni explicabo quos, obcaecati excepturi eligendi quibusdam.
-    <h2>This a test!!!</h2>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut ex libero laboriosam, similique eligendi atque pariatur, beatae, commodi error porro rem alias. Maxime magni explicabo quos, obcaecati excepturi eligendi quibusdam.
-    <h2>This a test!!!</h2>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut ex libero laboriosam, similique eligendi atque pariatur, beatae, commodi error porro rem alias. Maxime magni explicabo quos, obcaecati excepturi eligendi quibusdam.
-    <h2>This a test!!!</h2>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut ex libero laboriosam, similique eligendi atque pariatur, beatae, commodi error porro rem alias. Maxime magni explicabo quos, obcaecati excepturi eligendi quibusdam.
-    <h2>This a test!!!</h2>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut ex libero laboriosam, similique eligendi atque pariatur, beatae, commodi error porro rem alias. Maxime magni explicabo quos, obcaecati excepturi eligendi quibusdam.
-    <h2>This a test!!!</h2>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut ex libero laboriosam, similique eligendi atque pariatur, beatae, commodi error porro rem alias. Maxime magni explicabo quos, obcaecati excepturi eligendi quibusdam.
-    <h2>This a test!!!</h2>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut ex libero laboriosam, similique eligendi atque pariatur, beatae, commodi error porro rem alias. Maxime magni explicabo quos, obcaecati excepturi eligendi quibusdam.
-    <h2>This a test!!!</h2>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut ex libero laboriosam, similique eligendi atque pariatur, beatae, commodi error porro rem alias. Maxime magni explicabo quos, obcaecati excepturi eligendi quibusdam.
+<html>
+    <head>
+    <title>Homepage - Semantic</title>
+    <style type="text/css">
+  
+      .hidden.menu {
+        display: none;
+      }
+  
+      .masthead.segment {
+        min-height: 600px;
+        padding: 1em 0em;
+      }
+      .masthead .logo.item img {
+        margin-right: 1em;
+      }
+      .masthead .ui.menu .ui.button {
+        margin-left: 0.5em;
+      }
+      .masthead h1.ui.header {
+        margin-top: 1.7em;
+        margin-bottom: 0em;
+        font-size: 4em;
+        font-weight: normal;
+      }
+      .masthead h2 {
+        font-size: 1.7em;
+        font-weight: normal;
+      }
+ /*  
+      .ui.vertical.stripe {
+        padding: 8em 0em;
+      }
+      .ui.vertical.stripe h3 {
+        font-size: 2em;
+      }
+      .ui.vertical.stripe .button + h3,
+      .ui.vertical.stripe p + h3 {
+        margin-top: 3em;
+      }
+      .ui.vertical.stripe .floated.image {
+        clear: both;
+      }
+      .ui.vertical.stripe p {
+        font-size: 1.33em;
+      }
+      .ui.vertical.stripe .horizontal.divider {
+        margin: 3em 0em;
+      }
+  
+      .quote.stripe.segment {
+        padding: 0em;
+      }
+      .quote.stripe.segment .grid .column {
+        padding-top: 5em;
+        padding-bottom: 5em;
+      }
+  
+  
+      .secondary.pointing.menu .toc.item {
+        display: none;
+      } */
+  
+      @media only screen and (max-width: 700px) {
+        .ui.fixed.menu {
+          display: none !important;
+        }
+        .secondary.pointing.menu .item,
+        .secondary.pointing.menu .menu {
+          display: none;
+        }
+        .secondary.pointing.menu .toc.item {
+          display: block;
+        }
+        .masthead.segment {
+          min-height: 350px;
+        }
+        .masthead h1.ui.header {
+          font-size: 2em;
+
+        }
+        .masthead h2 {
+          margin-top: 0.5em;
+          font-size: 1.5em;
+        }
+      }
+  
+  
+    </style>
+  
+    <script src="assets/library/jquery.min.js"></script>
+    <script src="../dist/components/visibility.js"></script>
+    <script src="../dist/components/sidebar.js"></script>
+    <script src="../dist/components/transition.js"></script>
+  </head>
+  <body>
+    <div class="ui inverted vertical masthead center aligned segment" >
+      <div class="ui text container">
+        <h1 class="ui inverted header">
+          STAFLA YAYY!!
+        </h1>
+        <h2>Hallo Gæs</h2>
+        <div class="ui huge primary button">LETS GO!!<i class="right arrow icon"></i></div>
+      </div>
+    </div>
+    <div class="ui large top fixed menu transition visible centered">
+        <div class="ui huge menu">
+            <a href="{{url_for('home.index')}}" class="active item">
+              Home
+            </a>
+            <div class="item ui centered category search">
+              <div class="ui icon input">
+                <input class="prompt" type="text" placeholder="Search...">
+                <i class="search icon"></i>
+              </div>
+              <div class="results"></div>
+            </div>
+            <div class="right menu">
+              </div>
+              <div class="item">
+                <a href="{{url_for('auth.register')}}" class="ui button">
+                  Sign Up
+                </a>
+              </div>
+              <div class="item">
+              <a href="{{url_for('auth.login')}}"class="ui button">
+                Login
+              </a>
+            </div>
+            </div>
+      </div>
+    <div class="ui vertical stripe segment">
+      <div class="ui text container">
+        <h3 class="ui">How this site will effect lebrons legacy?</h3>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda, sed laudantium numquam dolores ipsa iusto alias. Earum tempore corrupti, similique perferendis tempora nemo, est possimus quam hic amet, molestiae sapiente.</p>
+        <a class="ui large button">Takki</a>
+        <h4 class="ui horizontal  divider">
+          <a href="#">Ahugavert</a>
+        </h4>
+        <h3 class="ui">Epli</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam aspernatur suscipit, assumenda eos omnis, blanditiis maiores at, quasi in voluptates ex debitis. Provident quasi, eligendi voluptatibus totam impedit beatae molestias!.</p>
+        <a class="ui large button">Takki</a>
+      </div>
+    </div>
+  
+  
+  </body>
+</html>
 {% endblock %}
