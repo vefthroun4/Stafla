@@ -5,24 +5,26 @@ Sveinn, Karl, Elvar, Fuad
 ## Notendasaga (40%)
 
 ### Hvað er Stafla?
-Stafla er kerfi sem smíðir saman áfanga sem best eru til að taka yfir önnina og líka fyrir allar þær annir sem nemandi þarf til þess að útskrifast.
+Stafla er kerfi sem hjalpar þer að setja saman afnanga og finna þæginlegustu leiðirnar fyrir þig til að útskrifast úr skólanum, Það er hægt að velja a milli þæginlegustu leiðina, vinsælustu leiðina eða leiðina sem hentar þér best eftir framhaldsskóla.
 
 ### Til hvers er Stafla áætlað?
-Stafla er áætlað nemendur í Tækniskólanum sem þurfa aðstoð að samsetta stundatöflu þeirra fyrir önnina og til að finna þægilegustu leiðina fyrir nemundur að setja hana upp, bæði til að losna við árekstra og þægilegustu timana.
+Stafala er áætluð fyrir nemendur og Stafla setur saman áfangana fyrir þig og gefur þér upplýsingar um þá áfanga, og margar mismundandi leiðir til að klara áfangana, hvort að þu viljir taka einhver áfanga á fyrstu eða fjórðu önninni þinni, Stafla getur gert það allt.
+
+**_hún getur einnig verið notuð fyrir kennara til að finna leiðir fyrir nemendur (SEINNA)_**
 
 ### Afhverju mundi fólk vilja nota Stafla?
-Það einfaldar að samsetja stundatöflu og í stað þess að eyða heila klukkustund í að skoða alla mögulega áfanga sem eru til í boði, mun Stafla gefa þér bestu áfanga sem eru hægt að taka yfir þessa önn með því markmið að útskrifast eins og fyrr og hægt er og mun gefa ýtri lýsingu varðandi áfangana.
+Afþvi maður sjálfur og eflaust fullt af nemendum hafa lent í þvi að eithvað varðandi stundatöflunnar fer úrskeðis, hvort að það séu fullt af árekstrum eða eithvað sem hentar þér bara alls ekki, Stafla mun vonandi minnka þessi mistök, og gera áfanga valið þitt og lífið þitt í skólanum einfaldara og þæginlegra.
 
 ## Útskýring á virkni vefsíðu
 
 ### Heimasíða
-Á heimasíðuni er hægt að skoða valmöguleikum á skólum sem eru í boði og hægt er að stilla upp sína eigin stundatöflu/námsmats töflu 
+Á heimasiðunni verður hægt að velja skóla og brautinna sem þú ert í til að byrja afanga valið þitt. það verður LogIn/SignIn líka á siðunni.
 
 ### Námsmats tafla
-Hérna mun Stafla sýna þér eftir stillingum bestu áfanga sem eru til að taka og gefur valmöguleika til að skoða áfangarlýsingar og breyta þeim fögum sem Stafla valdi fyrir þig.
+Hérna mun Stafla sýna þér eftir síum bestu áfanga sem eru til að taka og gefur valmöguleika til að skoða áfangalýsingar og áfangana sem Stafla sýndi þér og ef skal þurfa þá er hægt að breyta þeim áföngum sem Stafla valdi fyrir þig.
 
 ### Sign up & Sign in
-Það er hægt að búa til account til að geta vistað námsmats töflu sína og nálgast henni næsta önn.
+Það er hægt að búa til account til að geta vistað námsmats töflu sína og nálgast hennar seinna.
 
 ### Admin dashboard
 Á Admin dashboardinu er hægt að búa til eða breyta skóla/brautir/áföngum sem nemendar geta svo valið til að stilla upp sína eigin námsmats töflu.
