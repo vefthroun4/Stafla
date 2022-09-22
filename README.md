@@ -12,7 +12,7 @@ Stafala er áætluð fyrir nemendur og Stafla setur saman áfangana fyrir þig o
 
 **_hún getur einnig verið notuð fyrir kennara til að finna leiðir fyrir nemendur (SEINNA)_**
 
-### Afhverju mundi fólk vilja nota Stafla?
+### Afhverju mundi fólk vilja nota Stöflu?
 Afþvi maður sjálfur og eflaust fullt af nemendum hafa lent í þvi að eithvað varðandi stundatöflunnar fer úrskeðis, hvort að það séu fullt af árekstrum eða eithvað sem hentar þér bara alls ekki, Stafla mun vonandi minnka þessi mistök, og gera áfanga valið þitt og lífið þitt í skólanum einfaldara og þæginlegra.
 
 ## Útskýring á virkni vefsíðu
