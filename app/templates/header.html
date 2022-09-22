@@ -1,26 +1,53 @@
 
-  <div class="ui huge menu">
-    <a href="{{url_for('home.index')}}" class="ui button">
-      Home
-    </a>
-    <div class="item ui centered category search">
-      <div class="ui icon input">
-        <input class="prompt" type="text" placeholder="Search...">
-        <i class="search icon"></i>
+<body>
+  
+
+  <style>
+    .sticky {
+      position: fixed;
+      top: 0;
+      width: 100%;
+    }
+    
+    </style>
+  <div class="header" id="myHeader">
+    <div class="ui huge menu">
+      <a href="{{url_for('home.index')}}" class="active item">
+        Home
+      </a>
+      <div class="item ui centered category search">
+        <div class="ui icon input">
+          <input class="prompt" type="text" placeholder="Search...">
+          <i class="search icon"></i>
+        </div>
+        <div class="results"></div>
       </div>
-      <div class="results"></div>
-    </div>
-    <div class="right menu">
-      </div>
-      <div class="item">
-        <a href="{{url_for('auth.register')}}" class="ui button">
-          Sign Up
+      <div class="right menu">
+        </div>
+        <div class="item">
+          <a href="{{url_for('auth.register')}}" class="ui button">
+            Sign Up
+          </a>
+        </div>
+        <div class="item">
+        <a href="{{url_for('auth.login')}}"class="ui button">
+          Login
         </a>
       </div>
-      <div class="item">
-      <a href="{{url_for('auth.login')}}"class="ui button">
-        Login
-      </a>
-    </div>
+      </div>
     </div>
   </div>
+  <script>
+    window.onscroll = function() {myFunction()};
+    
+    var header = document.getElementById("myHeader");
+    var sticky = header.offsetTop;
+    function myFunction() {
+      if (window.pageYOffset > sticky) {
+        header.classList.add("sticky");
+      } else {
+        header.classList.remove("sticky");
+      }
+    }
+  </script>
+</body>
