@@ -12,6 +12,7 @@
     </div>
     <div class="right menu">
       </div>
+      {% if current_user.is_anonymous %}
       <div class="item">
         <a href="{{url_for('auth.register')}}" class="ui button">
           Sign Up
@@ -22,5 +23,8 @@
         Login
       </a>
     </div>
+    {% else %}
+      logaður inn
+    {% endif %}
     </div>
   </div>
