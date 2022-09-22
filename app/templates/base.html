@@ -6,23 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock%}</title>
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='semantic.min.css')}}">
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
-    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-    crossorigin="anonymous">
-    </script>
 </head>
 <body>
     {% include "header.html" %}
-    {% with messages = get_flashed_messages() %}
+    {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
-            {% for message in messages %}
-            <div class="error">{{ message }}</div>
+            {% for category, message in messages %}
+            <div class="ui {{ category }} message">
+                <i class="close icon"></i>
+                <div class="header">
+                  {{ message }}
+                </div>
+              </div>
             {% endfor %}
         {% endif %}
     {% endwith %}
     {% block content %}
     {% endblock %}
     {% include "footer.html" %}
+    {% include "scripts.html" %}
+    <script>
+        $('.message .close').on('click', function() {
+            $(this)
+                .closest('.message')
+                .transition('fade')
+                ;
+            })
+        ;
+    </script>
 </body>
 
 </html>

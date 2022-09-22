@@ -1,15 +1,52 @@
-{% extends "base.html" %} {% block title %}Sign Up{% endblock %}
-
+{% extends "base.html" %}
+{% block title %}Sign Up{% endblock %}
 {% block content %}
-<h1>This is the Sign up page</h1>
-
-<form method="POST">
-	<h3 align="center">Sign Up</h3>
-	<div class="form-group">
-		<label for="email">Email Address</label>
-		<input type="email" class="form-control"
-
+<div class="ui container">
+	<div class="ui bottom attached error message">
+		<i class="icon help"></i>
+		Already signed up? <a href="{{url_for('auth.login')}}">Login here</a> instead.
 	</div>
-</form>
+    <h2>Sign Up</h2>
+    <form class="ui form" action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <div class="field">
+            <label>{{form.email.label}}</label>
+            {{form.email(placeholder="Email")}}
+            {% for error in form.email.errors %}
+				<div class="ui red message">
+					<i class="close icon"></i>
+					<div class="header">
+					{{error}}
+					</div>
+				</div>
+            {% endfor %}
+        </div>
+        <div class="field">
+            <label>{{form.password.label}}</label>
+            {{form.password(placeholder="Password")}}
+            {% for error in form.password.errors %}
+				<div class="ui red message">
+					<i class="close icon"></i>
+					<div class="header">
+					{{error}}
+					</div>
+				</div>
+            {% endfor %}
+        </div>
+		<div class="field">
+            <label>{{form.confirm.label}}</label>
+            {{form.confirm(placeholder="Password")}}
+            {% for error in form.confirm.errors %}
+				<div class="ui red message">
+					<i class="close icon"></i>
+					<div class="header">
+					{{error}}
+					</div>
+				</div>
+            {% endfor %}
+        </div>
+        {{form.submit(class="ui button")}}
+    </form>
 
+</div>
 {% endblock %}
