@@ -1,19 +1,26 @@
-<div class="ui menu">
-    <div class="header item">
-        <i class="tasks icon"></i>
-    </div>
-    <div class="ui centered category search">
-        <div class="ui icon input">
-          <input class="prompt" type="text" placeholder="Search animals...">
-          <i class="search icon"></i>
-        </div>
-        <div class="results"></div>
+
+  <div class="ui huge menu">
+    <a href="{{url_for('home.index')}}" class="active item">
+      Home
+    </a>
+    <div class="item ui centered category search">
+      <div class="ui icon input">
+        <input class="prompt" type="text" placeholder="Search...">
+        <i class="search icon"></i>
       </div>
-      <a class="ui button">
-        Sign Up Page
+      <div class="results"></div>
+    </div>
+    <div class="right menu">
+      </div>
+      <div class="item">
+        <a href="{{url_for('auth.register')}}" class="ui button">
+          Sign Up
+        </a>
+      </div>
+      <div class="item">
+      <a href="{{url_for('auth.login')}}"class="ui button">
+        Login
       </a>
-      <a href="{{url_for('auth.login')}}"class="ui primary button">
-        Login Page
-      </a>
+    </div>
+    </div>
   </div>
-   
