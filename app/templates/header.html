@@ -1,15 +1,12 @@
 
 <body>
-  
-
   <style>
     .sticky {
       position: fixed;
       top: 0;
       width: 100%;
     }
-    
-    </style>
+  </style>
   <div class="header" id="myHeader">
     <div class="ui huge menu">
       <a href="{{url_for('home.index')}}" class="active item">
@@ -22,7 +19,6 @@
         </div>
         <div class="results"></div>
       </div>
-<<<<<<< HEAD
       <div class="right menu">
         </div>
         <div class="item">
@@ -33,22 +29,12 @@
         <div class="item">
         <a href="{{url_for('auth.login')}}"class="ui button">
           Login
-=======
-      <div class="results"></div>
-    </div>
-    <div class="right menu">
-      </div>
-      {% if current_user.is_anonymous %}
-      <div class="item">
-        <a href="{{url_for('auth.register')}}" class="ui button">
-          Sign Up
->>>>>>> 22c739eb1bf1c6c10e7ed540790fe8574675f9a9
         </a>
       </div>
       </div>
     </div>
-<<<<<<< HEAD
   </div>
+  
   <script>
     window.onscroll = function() {myFunction()};
     
@@ -63,10 +49,3 @@
     }
   </script>
 </body>
-=======
-    {% else %}
-      logaður inn
-    {% endif %}
-    </div>
-  </div>
->>>>>>> 22c739eb1bf1c6c10e7ed540790fe8574675f9a9
