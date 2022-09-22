@@ -8,10 +8,9 @@ from app.auth.forms import LoginForm
 @auth.route("/login", methods=("GET", "POST"))
 def login():
     if current_user.is_authenticated:
-        return redirect(url_for("index"))
+        return redirect(url_for("home.index"))
     form = LoginForm()
     if form.validate_on_submit():
-        print("K")
         user = User.query.filter_by(email=form.email.data).first()
         if user is None or not user.check_password(form.password.data):
             flash("Invalid username or password")
