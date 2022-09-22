@@ -8,7 +8,7 @@ Sveinn, Karl, Elvar, Fuad
 Stafla er kerfi sem hjalpar þer að setja saman afnanga og finna þæginlegustu leiðirnar fyrir þig til að útskrifast úr skólanum, Það er hægt að velja a milli þæginlegustu leiðina, vinsælustu leiðina eða leiðina sem hentar þér best eftir framhaldsskóla.
 
 ### Til hvers er Stafla áætlað?
-Stafala er áætluð fyrir nemendur og Stafla setur saman áfangana fyrir þig og gefur þér upplýsingar um þá áfanga, og margar mismundandi leiðir til að klara áfangana, hvort að þu viljir taka einhver áfanga á fyrstu eða fjórðu önninni þinni, Stafla getur gert það allt.
+Stafla er áætluð fyrir nemendur og Stafla setur saman áfangana fyrir þig og gefur þér upplýsingar um þá áfanga, og margar mismundandi leiðir til að klara áfangana, hvort að þu viljir taka einhver áfanga á fyrstu eða fjórðu önninni þinni, Stafla getur gert það allt.
 
 **_hún getur einnig verið notuð fyrir kennara til að finna leiðir fyrir nemendur (SEINNA)_**
 
