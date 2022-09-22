@@ -1,10 +1,10 @@
 {% extends "base.html" %}
+{% include "header.html" %}
 {%block content %}
 <html>
     <head>
-    <title>Homepage - Semantic</title>
+    <title>Homepage</title>
     <style type="text/css">
-  
       .hidden.menu {
         display: none;
       }
@@ -29,48 +29,8 @@
         font-size: 1.7em;
         font-weight: normal;
       }
- /*  
-      .ui.vertical.stripe {
-        padding: 8em 0em;
-      }
-      .ui.vertical.stripe h3 {
-        font-size: 2em;
-      }
-      .ui.vertical.stripe .button + h3,
-      .ui.vertical.stripe p + h3 {
-        margin-top: 3em;
-      }
-      .ui.vertical.stripe .floated.image {
-        clear: both;
-      }
-      .ui.vertical.stripe p {
-        font-size: 1.33em;
-      }
-      .ui.vertical.stripe .horizontal.divider {
-        margin: 3em 0em;
-      }
-  
-      .quote.stripe.segment {
-        padding: 0em;
-      }
-      .quote.stripe.segment .grid .column {
-        padding-top: 5em;
-        padding-bottom: 5em;
-      }
-  
-  
-      .secondary.pointing.menu .toc.item {
-        display: none;
-      } */
-  
+      /* Vantar */
       @media only screen and (max-width: 700px) {
-        .ui.fixed.menu {
-          display: none !important;
-        }
-        .secondary.pointing.menu .item,
-        .secondary.pointing.menu .menu {
-          display: none;
-        }
         .secondary.pointing.menu .toc.item {
           display: block;
         }
@@ -86,16 +46,10 @@
           font-size: 1.5em;
         }
       }
-  
-  
     </style>
-  
-    <script src="assets/library/jquery.min.js"></script>
-    <script src="../dist/components/visibility.js"></script>
-    <script src="../dist/components/sidebar.js"></script>
-    <script src="../dist/components/transition.js"></script>
   </head>
   <body>
+    <!-- Midja Banner -->
     <div class="ui inverted vertical masthead center aligned segment" >
       <div class="ui text container">
         <h1 class="ui inverted header">
@@ -105,47 +59,24 @@
         <div class="ui huge primary button">LETS GO!!<i class="right arrow icon"></i></div>
       </div>
     </div>
-    <div class="ui large top fixed menu transition visible centered">
-        <div class="ui huge menu">
-            <a href="{{url_for('home.index')}}" class="active item">
-              Home
-            </a>
-            <div class="item ui centered category search">
-              <div class="ui icon input">
-                <input class="prompt" type="text" placeholder="Search...">
-                <i class="search icon"></i>
-              </div>
-              <div class="results"></div>
-            </div>
-            <div class="right menu">
-              </div>
-              <div class="item">
-                <a href="{{url_for('auth.register')}}" class="ui button">
-                  Sign Up
-                </a>
-              </div>
-              <div class="item">
-              <a href="{{url_for('auth.login')}}"class="ui button">
-                Login
-              </a>
-            </div>
-            </div>
-      </div>
+
+    <!-- Bottom Text & Info -->
     <div class="ui vertical stripe segment">
       <div class="ui text container">
         <h3 class="ui">How this site will effect lebrons legacy?</h3>
         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda, sed laudantium numquam dolores ipsa iusto alias. Earum tempore corrupti, similique perferendis tempora nemo, est possimus quam hic amet, molestiae sapiente.</p>
-        <a class="ui large button">Takki</a>
-        <h4 class="ui horizontal  divider">
-          <a href="#">Ahugavert</a>
-        </h4>
         <h3 class="ui">Epli</h3>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam aspernatur suscipit, assumenda eos omnis, blanditiis maiores at, quasi in voluptates ex debitis. Provident quasi, eligendi voluptatibus totam impedit beatae molestias!.</p>
-        <a class="ui large button">Takki</a>
+        <!-- Divider -->
+        <h4 class="ui horizontal  divider">
+          <a>Ahugavert</a>
+        </h4>
+         <!-- Divider -->
+        <h3 class="ui">Contact us</h3>
+        <p>stafla@gmail.com</p>
+        <a href="https://github.com/vefthroun4/Stafla">Github repository</a>
       </div>
     </div>
-  
-  
   </body>
 </html>
 {% endblock %}

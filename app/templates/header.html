@@ -7,37 +7,34 @@
       width: 100%;
     }
   </style>
-  <div class="header" id="myHeader">
+  <div class="ui large top fixed menu transition visible centered">
     <div class="ui huge menu">
-      <a href="{{url_for('home.index')}}" class="active item">
-        Home
-      </a>
-      <div class="item ui centered category search">
-        <div class="ui icon input">
-          <input class="prompt" type="text" placeholder="Search...">
-          <i class="search icon"></i>
-        </div>
-        <div class="results"></div>
-      </div>
-      <div class="right menu">
-        </div>
-        <div class="item">
-          <a href="{{url_for('auth.register')}}" class="ui button">
-            Sign Up
-          </a>
-        </div>
-        <div class="item">
-        <a href="{{url_for('auth.login')}}"class="ui button">
-          Login
+        <a href="{{url_for('home.index')}}" class="active item">
+          Home
         </a>
-      </div>
-      </div>
-    </div>
+        <div class="item ui centered category search">
+          <div class="ui icon input">
+            <input class="prompt" type="text" placeholder="Search...">
+            <i class="search icon"></i>
+          </div>
+          <div class="results"></div>
+        </div>
+        <div class="right menu">
+          </div>
+          <div class="item">
+            <a href="{{url_for('auth.register')}}" class="ui button">
+              Sign Up
+            </a>
+          </div>
+          <div class="item">
+          <a href="{{url_for('auth.login')}}"class="ui button">
+            Login
+          </a>
+          </div>
+        </div>
   </div>
-  
   <script>
     window.onscroll = function() {myFunction()};
-    
     var header = document.getElementById("myHeader");
     var sticky = header.offsetTop;
     function myFunction() {
