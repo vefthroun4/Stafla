@@ -8,14 +8,14 @@ from app.auth.forms import LoginForm
 @auth.route("/login", methods=("GET", "POST"))
 def login():
     if current_user.is_authenticated:
-        return redirect(url_for("index"))
+        return redirect(url_for("home.index"))
     form = LoginForm()
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
-        if user is None or not user.check_password():
+        if user is None or not user.check_password(form.password.data):
             flash("Invalid username or password")
-            return redirect(url_for("login"))
-        login_user(user)
+            return redirect(url_for("auth.login"))
+        login_user(user, remember=form.remember_me.data)
 
         next = request.args.get("next")
         # Make sure next is not empty or pointing to another website
