@@ -18,8 +18,8 @@ Afþvi maður sjálfur og eflaust fullt af nemendum hafa lent í þvi að eithva
 ## Útskýring á virkni vefsíðu
 
 ### Heimasíða
-Á heimasiðunni verður hægt að velja skóla og brautinna sem þú ert í til að byrja afanga valið þitt. það verður LogIn/SignIn líka á siðunni.
-
+Á heimasiðunni verður hægt að velja skóla og brautinna sem þú ert í til að byrja afanga valið þitt. það verður LogIn/SignIn líka á siðunni. SVo verður **contact us**
+takki sem verður notaður til að lát okkur vita ef það er eithvað á seiðunni sem virkar ekki, svo er lika hægt að nota hann fyrir spurningar til okkar
 ### Námsmats tafla
 Hérna mun Stafla sýna þér eftir síum bestu áfanga sem eru til að taka og gefur valmöguleika til að skoða áfangalýsingar og áfangana sem Stafla sýndi þér og ef skal þurfa þá er hægt að breyta þeim áföngum sem Stafla valdi fyrir þig.
 
