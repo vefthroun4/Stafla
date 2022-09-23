@@ -19,8 +19,7 @@
           </div>
           <div class="results"></div>
         </div>
-        <div class="right menu">
-          </div>
+        {% if current_user.is_anonymous %}
           <div class="item">
             <a href="{{url_for('auth.register')}}" class="ui button">
               Sign Up
@@ -31,7 +30,13 @@
             Login
           </a>
           </div>
-        </div>
+        {% else %}
+          <div class="item">
+            <a href="{{url_for('auth.logout')}}" class="ui button">
+              Logout
+            </a>
+          </div>
+        {% endif %}
   </div>
   <script>
     window.onscroll = function() {myFunction()};
