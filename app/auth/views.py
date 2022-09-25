@@ -21,6 +21,7 @@ def login():
 
         next = request.args.get("next")
         # Make sure next is not empty or pointing to another website
+        flash("Successfully Logged in.", category="success")
         if next is None or url_parse(next).netloc != "":
             return redirect(url_for("home.index"))
         return redirect(next)
