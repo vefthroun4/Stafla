@@ -110,6 +110,6 @@ create table UsersRegistration (
 create table courseRegistration (
     courseNumber varchar(12) not null,
     usersRegistrationID int not null,
-	constraint courseRegistratrion_userRegistration_FK foreign key (usersRegistrationID) references UsersRegistration(usersRegistrationID),
+	constraint courseRegistration_userRegistration_FK foreign key (usersRegistrationID) references UsersRegistration(usersRegistrationID),
     constraint courseRegistration_PK primary key(courseNumber, usersRegistrationID)
 );
