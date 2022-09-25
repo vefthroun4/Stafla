@@ -9,6 +9,7 @@ from flask_login import LoginManager
 db = SQLAlchemy()
 migrate = Migrate()
 login = LoginManager()
+login.login_view = "auth.login"
 
 def create_app():
     app = Flask(__name__)
@@ -53,8 +54,9 @@ def create_app():
     # allows db and User objects to be accessed from the "flask shell" command
     #TODO Move to another folder specific for CLI commands
     from app.models import User
+    from app.dataparser import DataParser
     @app.shell_context_processor
     def make_shell_context():
-        return { "db": db, "User": User }
+        return {"db": db, "User": User, "DataParser":DataParser}
 
     return app

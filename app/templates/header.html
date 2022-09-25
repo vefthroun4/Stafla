@@ -1,19 +1,53 @@
-<div class="ui menu">
-    <div class="header item">
-        <i class="tasks icon"></i>
-    </div>
-    <div class="ui centered category search">
-        <div class="ui icon input">
-          <input class="prompt" type="text" placeholder="Search animals...">
-          <i class="search icon"></i>
+
+<body>
+  <style>
+    .sticky {
+      position: fixed;
+      top: 0;
+      width: 100%;
+    }
+  </style>
+  <div class="ui large top fixed menu transition visible centered">
+    <div class="ui huge menu">
+        <a href="{{url_for('home.index')}}" class="active item">
+          Home
+        </a>
+        <div class="item ui centered category search">
+          <div class="ui icon input">
+            <input class="prompt" type="text" placeholder="Search...">
+            <i class="search icon"></i>
+          </div>
+          <div class="results"></div>
         </div>
-        <div class="results"></div>
-      </div>
-      <a class="ui button">
-        Sign Up Page
-      </a>
-      <a href="{{url_for('auth.login')}}"class="ui primary button">
-        Login Page
-      </a>
+        {% if current_user.is_anonymous %}
+          <div class="item">
+            <a href="{{url_for('auth.register')}}" class="ui button">
+              Sign Up
+            </a>
+          </div>
+          <div class="item">
+          <a href="{{url_for('auth.login')}}"class="ui button">
+            Login
+          </a>
+          </div>
+        {% else %}
+          <div class="item">
+            <a href="{{url_for('auth.logout')}}" class="ui button">
+              Logout
+            </a>
+          </div>
+        {% endif %}
   </div>
-   
+  <script>
+    window.onscroll = function() {myFunction()};
+    var header = document.getElementById("myHeader");
+    var sticky = header.offsetTop;
+    function myFunction() {
+      if (window.pageYOffset > sticky) {
+        header.classList.add("sticky");
+      } else {
+        header.classList.remove("sticky");
+      }
+    }
+  </script>
+</body>
