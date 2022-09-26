@@ -36,6 +36,7 @@ create table Tracks
 	trackID int auto_increment,
     trackName varchar(75),
     divisionID int not null,
+    minCredits int not null,
     constraint track_PK primary key(trackID),
     constraint track_division_FK foreign key(divisionID) references Divisions(divisionID)
 );
