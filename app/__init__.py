@@ -2,8 +2,11 @@ import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
+from config import DB_Name
 from config import Config
 from flask_login import LoginManager
+from os import path
+
 
 # Create module instances
 db = SQLAlchemy()
@@ -40,6 +43,8 @@ def create_app():
     app.register_blueprint(admin_bp, url_prefix="/admin")
     app.register_blueprint(auth_bp, url_prefix="/auth")
 
+     
+
 
     # Init modules        
     db.init_app(app)
@@ -54,4 +59,13 @@ def create_app():
     def make_shell_context():
         return {"db": db, "User": User, "DataParser":DataParser}
 
+    create_database(app)
+
     return app
+
+def create_database(app):
+    if not path.exists('app/' + DB_Name):
+        db.create_all(app=app)
+        print('Created Database!')
+
+    

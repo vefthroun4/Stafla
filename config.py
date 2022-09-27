@@ -6,6 +6,8 @@ from dotenv import load_dotenv
 # Gets absolute path to this file
 basedir = os.path.abspath(os.path.dirname(__file__))
 
+DB_Name = "database.db"
+
 # creates .env file if it does not exist
 open(basedir + "\\instance\\.env", "a").close()
 
