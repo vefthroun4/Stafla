@@ -32,10 +32,10 @@ def create_app():
 
 
     # Register blueprints
-    app.register_blueprint(home)
-    app.register_blueprint(namsmat, url_prefix="/namsmat")
-    app.register_blueprint(admin, url_prefix="/admin")
-    app.register_blueprint(auth, url_prefix="/auth")
+    app.register_blueprint(home_bp)
+    app.register_blueprint(namsmat_bp, url_prefix="/namsmat")
+    app.register_blueprint(admin_bp, url_prefix="/admin")
+    app.register_blueprint(auth_bp, url_prefix="/auth")
 
 
     # Init modules        
@@ -46,7 +46,11 @@ def create_app():
     # allows db and User objects to be accessed from the "flask shell" command
     #TODO Move to another folder specific for CLI commands
     from app.models.user import User, UserStatus
-    from app.models.namskra import Schools, Divisions, Tracks, CourseGroups, Courses, Prerequisites, TrackCourses, UsersRegistration, CourseRegistration
+    from app.models.namskra import \
+         Schools, Divisions, Tracks,\
+         CourseGroups, Courses, Prerequisites,\
+         TrackCourses, UsersRegistration, CourseRegistration
+
     from app.dataparser import DataParser
     @app.shell_context_processor
     def make_shell_context():
