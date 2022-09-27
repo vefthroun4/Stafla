@@ -7,7 +7,7 @@
       width: 100%;
     }
   </style>
-  <div class="ui large top fixed menu transition visible centered">
+  <div class="ui large top menu fixed transition visible centered">
     <div class="ui huge menu">
         <a href="{{url_for('home.index')}}" class="active item">
           Home
@@ -20,6 +20,7 @@
           <div class="results"></div>
         </div>
         {% if current_user.is_anonymous %}
+        <div class="right menu">
           <div class="item">
             <a href="{{url_for('auth.register')}}" class="ui button">
               Sign Up
@@ -30,6 +31,7 @@
             Login
           </a>
           </div>
+        </div>
         {% else %}
           <div class="item">
             <a href="{{url_for('auth.logout')}}" class="ui button">
