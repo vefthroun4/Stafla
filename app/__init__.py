@@ -32,10 +32,10 @@ def create_app():
 
 
     # Register blueprints
-    app.register_blueprint(home_bp)
-    app.register_blueprint(namsmat_bp, url_prefix="/namsmat")
-    app.register_blueprint(admin_bp, url_prefix="/admin")
-    app.register_blueprint(auth_bp, url_prefix="/auth")
+    app.register_blueprint(home)
+    app.register_blueprint(namsmat, url_prefix="/namsmat")
+    app.register_blueprint(admin, url_prefix="/admin")
+    app.register_blueprint(auth, url_prefix="/auth")
 
 
     # Init modules        
