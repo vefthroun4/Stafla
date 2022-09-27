@@ -6,6 +6,7 @@ from config import DB_Name
 from config import Config
 from flask_login import LoginManager
 from os import path
+from datetime import timezone
 
 
 # Create module instances
@@ -59,7 +60,12 @@ def create_app():
     def make_shell_context():
         return {"db": db, "User": User, "DataParser":DataParser}
 
+
+    from .models import Note
+
     create_database(app)
+
+
 
     return app
 
