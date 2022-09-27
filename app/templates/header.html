@@ -1,13 +1,5 @@
 
-<body>
-  <style>
-    .sticky {
-      position: fixed;
-      top: 0;
-      width: 100%;
-    }
-  </style>
-  <div class="ui large top menu fixed transition visible centered">
+ <div class="ui large top fixed menu transition visible centered">
     <div class="ui huge menu">
         <a href="{{url_for('home.index')}}" class="active item">
           Home
@@ -40,16 +32,16 @@
           </div>
         {% endif %}
   </div>
-  <script>
-    window.onscroll = function() {myFunction()};
-    var header = document.getElementById("myHeader");
-    var sticky = header.offsetTop;
-    function myFunction() {
-      if (window.pageYOffset > sticky) {
-        header.classList.add("sticky");
-      } else {
-        header.classList.remove("sticky");
+    <!--  <script>
+      window.onscroll = function() {myFunction()};
+      var header = document.getElementById("myHeader");
+      var sticky = header.offsetTop;
+      function myFunction() {
+        if (window.pageYOffset > sticky) {
+          header.classList.add("sticky");
+        } else {
+          header.classList.remove("sticky");
+        }
       }
-    }
-  </script>
-</body>
+    </script> -->
+

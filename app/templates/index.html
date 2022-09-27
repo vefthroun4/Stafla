@@ -1,53 +1,7 @@
 {% extends "base.html" %}
 {% include "header.html" %}
 {%block content %}
-<html>
-    <head>
-    <title>Homepage</title>
-    <style type="text/css">
-      .hidden.menu {
-        display: none;
-      }
-  
-      .masthead.segment {
-        min-height: 600px;
-        padding: 1em 0em;
-      }
-      .masthead .logo.item img {
-        margin-right: 1em;
-      }
-      .masthead .ui.menu .ui.button {
-        margin-left: 0.5em;
-      }
-      .masthead h1.ui.header {
-        margin-top: 1.7em;
-        margin-bottom: 0em;
-        font-size: 4em;
-        font-weight: normal;
-      }
-      .masthead h2 {
-        font-size: 1.7em;
-        font-weight: normal;
-      }
-      /* Vantar */
-      @media only screen and (max-width: 700px) {
-        .masthead.segment {
-          min-height: 350px;
-        }
-        .masthead h1.ui.header {
-          font-size: 2em;
-
-        }
-        .masthead h2 {
-          margin-top: 0.5em;
-          font-size: 1.5em;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <!-- Midja Banner -->
-    <div class="ui inverted vertical masthead center aligned segment" >
+    <div class="ui inverted vertical fixed masthead center aligned segment" >
       <div class="ui text container">
         <h1 class="ui inverted header">
           STAFLA YAYY!!
@@ -56,24 +10,23 @@
         <div class="ui huge primary button">LETS GO!!<i class="right arrow icon"></i></div>
       </div>
     </div>
-
-    <!-- Bottom Text & Info -->
-    <div class="ui vertical stripe segment">
-      <div class="ui text container">
-        <h3 class="ui">How this site will effect lebrons legacy?</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda, sed laudantium numquam dolores ipsa iusto alias. Earum tempore corrupti, similique perferendis tempora nemo, est possimus quam hic amet, molestiae sapiente.</p>
-        <h3 class="ui">Epli</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam aspernatur suscipit, assumenda eos omnis, blanditiis maiores at, quasi in voluptates ex debitis. Provident quasi, eligendi voluptatibus totam impedit beatae molestias!.</p>
-        <!-- Divider -->
+  <!-- Bottom Text & Info -->
+  <div class="ui vertical stripe segment">
+    <div class="ui text container">
+      <h3 class="ui">How this site will effect lebrons legacy?</h3>
+      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda, sed laudantium numquam dolores ipsa iusto alias. Earum tempore corrupti, similique perferendis tempora nemo, est possimus quam hic amet, molestiae sapiente.</p>
+      <h3 class="ui">Epli</h3>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam aspernatur suscipit, assumenda eos omnis, blanditiis maiores at, quasi in voluptates ex debitis. Provident quasi, eligendi voluptatibus totam impedit beatae molestias!.</p>
+      <!-- Divider -->
+      <div class="ui text container"></div>
         <h4 class="ui horizontal  divider">
           <a>Ahugavert</a>
         </h4>
-         <!-- Divider -->
+      <!-- Divider -->
         <h3 class="ui">Contact us</h3>
         <p>stafla@gmail.com</p>
-        <a href="https://github.com/vefthroun4/Stafla">Github repository</a>
+          <a href="https://github.com/vefthroun4/Stafla">Github repository</a>
       </div>
     </div>
-  </body>
-</html>
+  </div>
 {% endblock %}
