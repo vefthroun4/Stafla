@@ -3,7 +3,7 @@ from flask import render_template, flash, url_for, request, redirect
 from flask_login import login_user, logout_user, current_user
 from app.auth.forms import LoginForm, RegistrationForm
 from app.auth import auth_bp
-from app.models import User
+from app.models.user import User
 from app import db
 
 

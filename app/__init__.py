@@ -28,9 +28,6 @@ def create_app():
     from app.blueprints.home import home_bp
     from app.blueprints.namsmat import namsmat_bp
     from app.blueprints.admin import admin_bp
-
-
-
     from app.auth import auth_bp
 
 
@@ -48,10 +45,21 @@ def create_app():
 
     # allows db and User objects to be accessed from the "flask shell" command
     #TODO Move to another folder specific for CLI commands
-    from app.models import User
+    from app.models.user import User, UserStatus
+    from app.models.namskra import Schools, Divisions, Tracks, CourseGroups, Courses, Prerequisites, TrackCourses, UsersRegistration, CourseRegistration
     from app.dataparser import DataParser
     @app.shell_context_processor
     def make_shell_context():
-        return {"db": db, "User": User, "DataParser":DataParser}
+        return {
+            "db": db,
+            "User": User, "UserStatus":UserStatus,
+            "DataParser":DataParser,
+            "Schools":Schools, "Divisions":Divisions, 
+            "Tracks":Tracks, "CourseGroups":CourseGroups,
+            "Courses":Courses, "Prerequisites":Prerequisites,
+            "TrackCourses":TrackCourses,
+            "UsersRegistration": UsersRegistration,
+            "CourseRegistration": CourseRegistration  
+        }
 
     return app
