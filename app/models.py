@@ -1,6 +1,6 @@
 from datetime import timezone
+from datetime import datetime
 from email.policy import default
-from xmlrpc.client import DateTime
 from flask import current_app
 from werkzeug.security import check_password_hash, generate_password_hash
 from flask_login import UserMixin
@@ -23,9 +23,9 @@ class User(UserMixin, db.Model):
         return f"<User {self.email}>"
 
 class Note(db.Model):
-    id = Column(Integer, primery_key=True)
+    id = Column(Integer, primary_key=True)
     data = Column(String(100000))
-    date = Column(DateTime(timezone=True), default=func.now())
+    date = Column(db.DateTime(timezone=True, default=datetime.date))
 
 @login.user_loader
 def load_user(id):
