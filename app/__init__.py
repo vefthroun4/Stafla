@@ -2,11 +2,8 @@ import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
-from config import DB_Name
 from config import Config
 from flask_login import LoginManager
-from os import path
-
 
 # Create module instances
 db = SQLAlchemy()
@@ -28,22 +25,20 @@ def create_app():
     app.config.from_object(config_file or Config)
 
     # Blueprints
-    from app.blueprints.home import home_bp
-    from app.blueprints.namsmat import namsmat_bp
-    from app.blueprints.admin import admin_bp
+    from app.blueprints.home import home
+    from app.blueprints.namsmat import namsmat
+    from app.blueprints.admin import admin
 
 
 
-    from app.auth import auth_bp
+    from app.auth import auth
 
 
     # Register blueprints
-    app.register_blueprint(home_bp)
-    app.register_blueprint(namsmat_bp, url_prefix="/namsmat")
-    app.register_blueprint(admin_bp, url_prefix="/admin")
-    app.register_blueprint(auth_bp, url_prefix="/auth")
-
-     
+    app.register_blueprint(home)
+    app.register_blueprint(namsmat, url_prefix="/namsmat")
+    app.register_blueprint(admin, url_prefix="/admin")
+    app.register_blueprint(auth, url_prefix="/auth")
 
 
     # Init modules        
@@ -54,18 +49,8 @@ def create_app():
     # allows db and User objects to be accessed from the "flask shell" command
     #TODO Move to another folder specific for CLI commands
     from app.models import User
-    from app.dataparser import DataParser
     @app.shell_context_processor
     def make_shell_context():
-        return {"db": db, "User": User, "DataParser":DataParser}
-
-    create_database(app)
+        return { "db": db, "User": User }
 
     return app
-
-def create_database(app):
-    if not path.exists('app/' + DB_Name):
-        db.create_all(app=app)
-        print('Created Database!')
-
-    
