@@ -1,9 +1,10 @@
 import os
+import re
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
-from config import Config
 from flask_login import LoginManager
+from config import Config
 
 # Create module instances
 db = SQLAlchemy()
@@ -23,17 +24,20 @@ def create_app():
     # Sets up config file
     config_file = os.environ.get("CONFIG")
     app.config.from_object(config_file or Config)
+    
+
+
 
     # Blueprints
     from app.blueprints.home import home_bp
-    from app.blueprints.namsmat import namsmat_bp
+    from app.blueprints.namskra import namskra_bp
     from app.blueprints.admin import admin_bp
     from app.auth import auth_bp
 
 
     # Register blueprints
     app.register_blueprint(home_bp)
-    app.register_blueprint(namsmat_bp, url_prefix="/namsmat")
+    app.register_blueprint(namskra_bp, url_prefix="/namskra")
     app.register_blueprint(admin_bp, url_prefix="/admin")
     app.register_blueprint(auth_bp, url_prefix="/auth")
 
@@ -43,10 +47,11 @@ def create_app():
     migrate.init_app(app, db)
     login.init_app(app)
 
+
     # allows db and User objects to be accessed from the "flask shell" command
     #TODO Move to another folder specific for CLI commands
-    from app.models.user import User, UserStatus
-    from app.models.namskra import \
+    from app.models import User, UserStatus
+    from app.models import \
          Schools, Divisions, Tracks,\
          CourseGroups, Courses, Prerequisites,\
          TrackCourses, UsersRegistration, CourseRegistration
@@ -65,5 +70,12 @@ def create_app():
             "UsersRegistration": UsersRegistration,
             "CourseRegistration": CourseRegistration  
         }
+
+
+    # Checks wheter .db file exists, if not it will create it.
+    dbname = re.search("\\\\[A-Z|a-z]+\.db", app.config["SQLALCHEMY_DATABASE_URI"])
+    if dbname and not os.path.exists(app.instance_path+dbname.group()):
+        with app.app_context():
+            db.create_all()
 
     return app
