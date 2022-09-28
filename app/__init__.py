@@ -29,6 +29,7 @@ def create_app():
 
 
     # Blueprints
+    from app.blueprints.main import main_bp
     from app.blueprints.home import home_bp
     from app.blueprints.namskra import namskra_bp
     from app.blueprints.admin import admin_bp
@@ -36,10 +37,12 @@ def create_app():
 
 
     # Register blueprints
+    app.register_blueprint(main_bp)
     app.register_blueprint(home_bp)
     app.register_blueprint(namskra_bp, url_prefix="/namskra")
     app.register_blueprint(admin_bp, url_prefix="/admin")
     app.register_blueprint(auth_bp, url_prefix="/auth")
+    
 
 
     # Init modules        

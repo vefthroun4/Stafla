@@ -1,16 +1,17 @@
-from enum import unique
-from sqlalchemy import Column, Integer, String, ForeignKey, CHAR, Boolean
+from sqlalchemy import Column, Integer, String, ForeignKey, CHAR, Boolean, DateTime
 from sqlalchemy.orm import relationship
 from sqlalchemy.dialects.mysql import INTEGER, TINYINT, MEDIUMINT
 from app import db, login
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
+from datetime import datetime
 
 
 class User(UserMixin, db.Model):
     id = Column(Integer, primary_key=True)
     email = Column(String(120), index=True, unique=True)
     password_hash = Column(String(128))
+    last_seen = Column(DateTime, default=datetime.utcnow)
     # Þarf að bæta við userStatus
 
     def set_password(self, password):
