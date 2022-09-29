@@ -1,13 +1,15 @@
 import os
-import re
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager
+from app.db import Database
 from config import Config
+
 
 # Create module instances
 db = SQLAlchemy()
+database = Database()
 migrate = Migrate()
 login = LoginManager()
 login.login_view = "auth.login"
@@ -26,8 +28,6 @@ def create_app():
     app.config.from_object(config_file or Config)
     
 
-
-
     # Blueprints
     from app.blueprints.main import main_bp
     from app.blueprints.home import home_bp
@@ -44,41 +44,15 @@ def create_app():
     app.register_blueprint(auth_bp, url_prefix="/auth")
     
 
-
     # Init modules        
     db.init_app(app)
     migrate.init_app(app, db)
     login.init_app(app)
+    database.init_app(app, db)
 
+    # Setup for Flask Shell CLI
+    from app.cli import setup_commands
+    setup_commands(app)
 
-    # allows db and User objects to be accessed from the "flask shell" command
-    #TODO Move to another folder specific for CLI commands
-    from app.models import User, UserStatus
-    from app.models import \
-         Schools, Divisions, Tracks,\
-         CourseGroups, Courses, Prerequisites,\
-         TrackCourses, UsersRegistration, CourseRegistration
-
-    from app.dataparser import DataParser
-    @app.shell_context_processor
-    def make_shell_context():
-        return {
-            "db": db,
-            "User": User, "UserStatus":UserStatus,
-            "DataParser":DataParser,
-            "Schools":Schools, "Divisions":Divisions, 
-            "Tracks":Tracks, "CourseGroups":CourseGroups,
-            "Courses":Courses, "Prerequisites":Prerequisites,
-            "TrackCourses":TrackCourses,
-            "UsersRegistration": UsersRegistration,
-            "CourseRegistration": CourseRegistration  
-        }
-
-
-    # Checks wheter .db file exists, if not it will create it.
-    dbname = re.search("\\\\[A-Z|a-z]+\.db", app.config["SQLALCHEMY_DATABASE_URI"])
-    if dbname and not os.path.exists(app.instance_path+dbname.group()):
-        with app.app_context():
-            db.create_all()
 
     return app
