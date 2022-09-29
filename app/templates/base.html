@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock%}</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/styles.css')}}">
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/semantic.min.css')}}">
 </head>
 <body>
@@ -31,8 +32,7 @@
                 .closest('.message')
                 .transition('fade')
                 ;
-            })
-        ;
+            });
     </script>
 </body>
 
