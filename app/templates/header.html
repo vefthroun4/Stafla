@@ -1,53 +1,30 @@
-
-<body>
-  <style>
-    .sticky {
-      position: fixed;
-      top: 0;
-      width: 100%;
-    }
-  </style>
-  <div class="ui large top fixed menu transition visible centered">
-    <div class="ui huge menu">
-        <a href="{{url_for('home.index')}}" class="active item">
+  
+    <div class="ui labeled icon menu">
+        <div class="left menu">
+        <a href="{{url_for('home.index')}}" class="item">
+          <i class="home icon"></i>
           Home
         </a>
-        <div class="item ui centered category search">
-          <div class="ui icon input">
-            <input class="prompt" type="text" placeholder="Search...">
-            <i class="search icon"></i>
-          </div>
-          <div class="results"></div>
         </div>
         {% if current_user.is_anonymous %}
-          <div class="item">
-            <a href="{{url_for('auth.register')}}" class="ui button">
-              Sign Up
+        <div class="right menu">
+            <a href="{{url_for('auth.login')}}" class="item">          
+            <i class="user icon"></i>
+              Login
             </a>
           </div>
-          <div class="item">
-          <a href="{{url_for('auth.login')}}"class="ui button">
-            Login
+          <a href="{{url_for('auth.register')}}"class="item">
+            <i class="edit outline icon"></i>
+            Sign Up
           </a>
-          </div>
+        </div>
         {% else %}
-          <div class="item">
-            <a href="{{url_for('auth.logout')}}" class="ui button">
+        <div class="right menu">
+            <a href="{{url_for('auth.logout')}}" class="item">
+              <i class="user outline icon"></i>
               Logout
             </a>
           </div>
+        </div>
         {% endif %}
-  </div>
-  <script>
-    window.onscroll = function() {myFunction()};
-    var header = document.getElementById("myHeader");
-    var sticky = header.offsetTop;
-    function myFunction() {
-      if (window.pageYOffset > sticky) {
-        header.classList.add("sticky");
-      } else {
-        header.classList.remove("sticky");
-      }
-    }
-  </script>
-</body>
+    </div>

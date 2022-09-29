@@ -1,13 +1,13 @@
-from flask import render_template, flash, url_for, request, redirect
-from app.models import User
-from flask_login import login_user, logout_user, current_user
 from werkzeug.urls import url_parse
-from app.auth import auth
+from flask import render_template, flash, url_for, request, redirect
+from flask_login import login_user, logout_user, current_user
 from app.auth.forms import LoginForm, RegistrationForm
+from app.auth import auth_bp
+from app.models import User
 from app import db
 
 
-@auth.route("/login", methods=("GET", "POST"))
+@auth_bp.route("/login", methods=("GET", "POST"))
 def login():
     if current_user.is_authenticated:
         return redirect(url_for("home.index"))
@@ -27,7 +27,7 @@ def login():
         return redirect(next)
     return render_template("auth/login.html", form=form)
 
-@auth.route("/signup", methods=("GET", "POST"))
+@auth_bp.route("/signup", methods=("GET", "POST"))
 def register():
     if current_user.is_authenticated:
         return redirect(url_for("home.index"))
@@ -42,9 +42,10 @@ def register():
         #TODO need to send confirmation email to confirm account        
     return render_template("auth/signup.html", form=form)
 
-@auth.route("/logout")
+@auth_bp.route("/logout")
 def logout():
     logout_user()
     return redirect(url_for("home.index"))
+
 
 
