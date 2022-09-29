@@ -8,4 +8,4 @@ def namskra():
     gogn = None
     with open(current_app.instance_path+"\\data.json", "r") as f:
         gogn = json.load(f)
-    return render_template("namsmat.html", gogn=gogn)
+    return render_template("namskra.html", gogn=gogn)
