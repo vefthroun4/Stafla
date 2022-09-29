@@ -16,7 +16,7 @@ class User(UserMixin, db.Model):
     email = Column(String(120), index=True, unique=True)
     password_hash = Column(String(128))
     last_seen = Column(DateTime, default=datetime.utcnow)
-    user_statusID = Column(Integer, db.ForeignKey(UserStatus.status_name))
+    user_status = Column(Integer, db.ForeignKey(UserStatus.status_name), nullable=False)
 
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
@@ -63,6 +63,7 @@ class Courses(db.Model):
     __tablename__ = "Courses"
     course_number = Column("courseNumber", String(12), primary_key=True)
     course_name = Column("courseName", String(75), nullable=False)
+    course_description = Column("courseDescription", String(200))
     course_type = Column("courseType", CHAR(4), nullable=False)
     course_credits = Column("courseCredits", INTEGER(unsigned=True), default=5)
 
