@@ -114,3 +114,6 @@ create table courseRegistration (
 	constraint courseRegistration_userRegistration_FK foreign key (usersRegistrationID) references UsersRegistration(usersRegistrationID),
     constraint courseRegistration_PK primary key(courseNumber, usersRegistrationID)
 );
+
+
+INSERT INTO Tracks(trackName, divisionID, minCredits) VALUES("abc", 1000, 5)

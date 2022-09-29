@@ -1,5 +1,5 @@
-from sqlalchemy import Column, Integer, String, ForeignKey, CHAR, Boolean, DateTime
-from sqlalchemy.orm import relationship
+from sqlalchemy import Column, Integer, String, ForeignKey, CHAR, Boolean, DateTime, ForeignKeyConstraint
+from sqlalchemy.orm import relationship, backref
 from sqlalchemy.dialects.mysql import INTEGER, TINYINT, MEDIUMINT
 from app import db, login
 from flask_login import UserMixin
@@ -7,12 +7,16 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
 
 
+class UserStatus(db.Model):
+    __tablename__ = "UserStatus"
+    status_name = Column("statusName", String(20), primary_key=True)
+
 class User(UserMixin, db.Model):
     id = Column(Integer, primary_key=True)
     email = Column(String(120), index=True, unique=True)
     password_hash = Column(String(128))
     last_seen = Column(DateTime, default=datetime.utcnow)
-    # Þarf að bæta við userStatus
+    user_status = Column(Integer, db.ForeignKey(UserStatus.status_name), nullable=False)
 
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
@@ -23,17 +27,10 @@ class User(UserMixin, db.Model):
     def __repr__(self):
         return f"<User {self.email}>"
 
-
-
 @login.user_loader
 def load_user(id):
     return User.query.get(int(id))
 
-
-class UserStatus(db.Model):
-    __tablename__ = "UserStatus"
-    user_statusID = Column("userStatusID", Integer, primary_key=True)
-    status_name = Column("statusName", String(20), unique=True)
 
 class Schools(db.Model):
     __tablename__ = "Schools"
@@ -66,6 +63,7 @@ class Courses(db.Model):
     __tablename__ = "Courses"
     course_number = Column("courseNumber", String(12), primary_key=True)
     course_name = Column("courseName", String(75), nullable=False)
+    course_description = Column("courseDescription", String(200))
     course_type = Column("courseType", CHAR(4), nullable=False)
     course_credits = Column("courseCredits", INTEGER(unsigned=True), default=5)
 
