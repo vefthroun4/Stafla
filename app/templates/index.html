@@ -1,18 +1,21 @@
 {% extends "base.html" %}
 {%block content %}
-      <div class="ui inverted vertical masthead center aligned segment" >
+      <div class="ui inverted vertical masthead center aligned segment" id="content">
         <div class="ui text container">
           <h2>Welcome to Stafla</h2>
-          <div class="ui huge primary button"><i class="right arrow icon"></i>
-        </div>
+          <div class="ui huge primary button">
+            <a href="{{url_for('namskra.namskra')}}">
+            <i class="right arrow icon"></i>
+          </a>
+          </div>
         </div>
       </div>
     <!-- Bottom Text & Info -->
       <div class="ui vertical stripe segment">
         <div class="ui text container">
-          <h3 class="ui">How this site will effect lebrons legacy?</h3>
+          <h3 class="ui">Hvað er Stafla?</h3>
           <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda, sed laudantium numquam dolores ipsa iusto alias. Earum tempore corrupti, similique perferendis tempora nemo, est possimus quam hic amet, molestiae sapiente.</p>
-          <h3 class="ui">Epli</h3>
+          <h3 class="ui">Afhverju Stafla?</h3>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam aspernatur suscipit, assumenda eos omnis, blanditiis maiores at, quasi in voluptates ex debitis. Provident quasi, eligendi voluptatibus totam impedit beatae molestias!.</p>
           <!-- Divider -->
           <div class="ui text container"></div>
