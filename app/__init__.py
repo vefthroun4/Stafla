@@ -25,20 +25,17 @@ def create_app():
     app.config.from_object(config_file or Config)
 
     # Blueprints
-    from app.blueprints.home import home
-    from app.blueprints.namsmat import namsmat
-    from app.blueprints.admin import admin
-
-
-
-    from app.auth import auth
+    from app.blueprints.home import home_bp
+    from app.blueprints.namsmat import namsmat_bp
+    from app.blueprints.admin import admin_bp
+    from app.auth import auth_bp
 
 
     # Register blueprints
-    app.register_blueprint(home)
-    app.register_blueprint(namsmat, url_prefix="/namsmat")
-    app.register_blueprint(admin, url_prefix="/admin")
-    app.register_blueprint(auth, url_prefix="/auth")
+    app.register_blueprint(home_bp)
+    app.register_blueprint(namsmat_bp, url_prefix="/namsmat")
+    app.register_blueprint(admin_bp, url_prefix="/admin")
+    app.register_blueprint(auth_bp, url_prefix="/auth")
 
 
     # Init modules        
