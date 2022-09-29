@@ -4,4 +4,4 @@ from app.blueprints.namskra import namskra_bp
 # Create routes here
 @namskra_bp.route("/")
 def namskra():
-    return render_template("namsmat.html")
+    return render_template("namskra.html")
