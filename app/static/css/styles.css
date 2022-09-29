@@ -1,7 +1,9 @@
 /* HEADER */
+.ui.inverted.segment {
+  padding-top: 100px;
+  padding-bottom: 150px; 
 
-
-
+}
 .masthead .ui.menu .ui.button {
     margin-left: 0.5em;
   }
@@ -14,7 +16,9 @@
   .masthead h2 {
     font-size: 1.7em;
     font-weight: normal;
+    padding-bottom: 10px;
   }
+  
 
   /* Responsive Vantar */
   @media only screen and (max-width: 700px) {
