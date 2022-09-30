@@ -20,7 +20,12 @@ class Database:
         dbname = re.search("\\\\[A-Z|a-z]+\.db", app.config["SQLALCHEMY_DATABASE_URI"])
         if dbname and not os.path.exists(app.instance_path+dbname.group()):
             with app.app_context():
+                from app.models import UserStatus
                 db.create_all()
+                
+                # Temporary fix to allow login
+                db.session.add(UserStatus(status_name="User"))
+                db.session.commit()
 
 
     def init_app(self, app, db):

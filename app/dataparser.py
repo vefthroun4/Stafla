@@ -4,6 +4,7 @@ import re
 import os
 
 test_url = "https://namskra.is/programmes/1c886af0-e2ef-4c05-bf3b-368e10b3483d/json"
+HONNUNARBRAUT_URL = "https://namskra.is/programmes/445598c8-b8c8-4287-83b8-ff773e0a2cab/json"
 TS_URL = "https://namskra.is/programmes/1878c334-b82b-4375-a174-efe5fe92f300/json"
 REQUIRES = "abbreviation"
 TRUNCATE_KEYS = set([
