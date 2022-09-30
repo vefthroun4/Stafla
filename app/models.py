@@ -31,26 +31,27 @@ class User(UserMixin, db.Model):
 def load_user(id):
     return User.query.get(int(id))
 
+class Tracks(db.Model):
+    __tablename__ = "Tracks"
+    trackID = Column("trackID", String(75), primary_key=True)
+    track_name = Column("trackName", String(75), nullable=False)
+    divisionID = Column("divisionID", Integer, ForeignKey("Divisions.divisionID"), nullable=False)
+    minCredits = Column("minCredits", Integer, nullable=False)
+
+
+class Divisions(db.Model):
+    __tablename__ = "Divisions"
+    divisionID = Column("divisionID", Integer, primary_key=True)
+    division_name = Column("divisionName", String(75), nullable=False, unique=True)
+    schoolID = Column("schoolID", Integer, ForeignKey("Schools.schoolID"), nullable=False)
+    track = relationship("Tracks", foreign_keys=[Tracks.divisionID], backref=db.backref("division", lazy="joined"))
+
 
 class Schools(db.Model):
     __tablename__ = "Schools"
     schoolID = Column("schoolID", Integer, primary_key=True)
     school_name = Column("schoolName", String(75), unique=True)
-    
-
-class Divisions(db.Model):
-    __tablename__ = "Divisions"
-    division_name = Column("divisionName", String(75), nullable=False, unique=True)
-    divisionID = Column("divisionID", Integer, primary_key=True)
-    schoolID = Column("schoolID", Integer, ForeignKey(Schools.schoolID), nullable=False)
-
-
-class Tracks(db.Model):
-    __tablename__ = "Tracks"
-    trackID = Column("trackID", String(75), primary_key=True)
-    track_name = Column("track_name", String(75), nullable=False)
-    divisionID = Column("divisionID", Integer, ForeignKey(Divisions.divisionID), nullable=False)
-    minCredits = Column("minCredits", Integer, nullable=False)
+    divisions = relationship("Divisions", foreign_keys=[Divisions.schoolID], backref=db.backref("school", lazy="joined"))  
 
 
 class CourseGroups(db.Model):
@@ -58,6 +59,11 @@ class CourseGroups(db.Model):
     groupID = Column("groupID",Integer, primary_key=True)
     num_required = Column("numRequired", Integer, nullable=False)
 
+class Prerequisites(db.Model):
+    __tablename__ = "Prerequisites"
+    course_number = Column("courseNumber", String(12), ForeignKey("Courses.courseNumber"), primary_key=True)
+    prerequisite =  Column("prerequisite", String(12), ForeignKey("Courses.courseNumber"), primary_key=True)
+    simultaneous =  Column("simultaneous", Boolean, default=False)
 
 class Courses(db.Model):
     __tablename__ = "Courses"
@@ -66,13 +72,11 @@ class Courses(db.Model):
     course_description = Column("courseDescription", String(200))
     course_type = Column("courseType", CHAR(4), nullable=False)
     course_credits = Column("courseCredits", INTEGER(unsigned=True), default=5)
+    prerequisites = relationship("Prerequisites", innerjoin=(course_number == Prerequisites.course_number))
 
 
-class Prerequisites(db.Model):
-    __tablename__ = "Prerequisites"
-    course_number = Column("courseNumber", String(12), ForeignKey(Courses.course_number), primary_key=True)
-    prerequisite = Column("prerequisite", String(12), ForeignKey(Courses.course_number), primary_key=True)
-    simultaneous = Column("simultaneous", Boolean, default=False)
+
+
     
 
 class TrackCourses(db.Model):
