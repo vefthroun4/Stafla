@@ -28,6 +28,13 @@ def create_app():
     app.config.from_object(config_file or Config)
     
 
+    # Init modules        
+    db.init_app(app)
+    database.init_app(app, db)
+    migrate.init_app(app, db)
+    login.init_app(app)
+
+
     # Blueprints
     from app.blueprints.main import main_bp
     from app.blueprints.home import home_bp
@@ -43,12 +50,6 @@ def create_app():
     app.register_blueprint(admin_bp, url_prefix="/admin")
     app.register_blueprint(auth_bp, url_prefix="/auth")
     
-
-    # Init modules        
-    db.init_app(app)
-    migrate.init_app(app, db)
-    login.init_app(app)
-    database.init_app(app, db)
 
     # Setup for Flask Shell CLI
     from app.cli import setup_commands
