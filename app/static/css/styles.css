@@ -4,7 +4,7 @@
 /* BANNER/MASTHEAD */
 .ui.inverted.segment {
   padding: 240px;
-  background: linear-gradient(black,purple) !important;
+  background: linear-gradient(black,#800080) !important;
 
 }
   .masthead .ui.menu .ui.button {
@@ -30,6 +30,8 @@
  .ui.content,#login, #signup, #namskra {
   padding-top: 100px;
 }
+
+
  
 
   /* Responsive Vantar */
@@ -59,6 +61,11 @@ footer {
     
     
   }
+
+body {
+  background-color: lightgray!important;
+}
+
  /*  footer p {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #777777;
