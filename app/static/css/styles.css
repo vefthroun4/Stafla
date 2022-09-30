@@ -3,8 +3,7 @@
 
 /* BANNER/MASTHEAD */
 .ui.inverted.segment {
-  padding-top: 100px;
-  padding-bottom: 150px; 
+  padding: 240px;
 
 }
 .masthead .ui.menu .ui.button {
@@ -15,18 +14,23 @@
     margin-bottom: 0em;
     font-size: 4em;
     font-weight: normal;
+
   }
   .masthead h2 {
     font-size: 1.7em;
     font-weight: normal;
     padding-bottom: 10px;
+  
+
   }
   
 
 /* CONTAINER & CONTENT */
-.ui.container, #login, #signup, #namskra {
+ .ui.content,#login, #signup, #namskra {
   padding-top: 100px;
 }
+
+
 
   /* Responsive Vantar */
   @media only screen and (max-width: 700px) {
@@ -49,9 +53,9 @@ footer {
     bottom:0 ;
     margin-top: auto;
     padding: auto;
-
     position: fixed;
     width: 100%;
+    color: grey;
     
     
   }
