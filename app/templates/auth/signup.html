@@ -1,9 +1,8 @@
 {% extends "base.html" %}
 {% block title %}Sign Up{% endblock %}
 {% block content %}
-<div class="ui one column stackable centered page grid">
-    <div class="column seven wide">
-		<div class="ui container">
+<div class="ui one column stackable centered page grid" id="signup">
+    <div class="ui column seven wide">
 		<div class="ui bottom attached error message">
 			<i class="icon help"></i>
 			Already signed up? <a href="{{url_for('auth.login')}}">Login here</a> instead.

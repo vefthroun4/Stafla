@@ -1,30 +1,30 @@
-  
-    <div class="ui labeled icon menu" id="navbar">
-        <div class="left menu">
-        <a href="{{url_for('home.index')}}" class="item">
-          <i class="home icon"></i>
-          Home
-        </a>
-        </div>
-        {% if current_user.is_anonymous %}
-        <div class="right menu">
-            <a href="{{url_for('auth.login')}}" class="item">          
-            <i class="user icon"></i>
-              Login
-            </a>
-          </div>
-          <a href="{{url_for('auth.register')}}"class="item">
-            <i class="edit outline icon"></i>
-            Sign Up
-          </a>
-        </div>
-        {% else %}
-        <div class="right menu">
-            <a href="{{url_for('auth.logout')}}" class="item">
-              <i class="user outline icon"></i>
-              Logout
-            </a>
-          </div>
-        </div>
-        {% endif %}
+
+<div class="ui labeled fixed icon menu" id="navbar">
+    <div class="left menu">
+    <a href="{{url_for('home.index')}}" class="item">
+      <i class="home icon"></i>
+      Home
+    </a>
     </div>
+    {% if current_user.is_anonymous %}
+    <div class="right menu">
+        <a href="{{url_for('auth.login')}}" class="item">          
+        <i class="user icon"></i>
+          Login
+        </a>
+      </div>
+      <a href="{{url_for('auth.register')}}"class="item">
+        <i class="edit outline icon"></i>
+        Sign Up
+      </a>
+    </div>
+    {% else %}
+    <div class="right menu">
+        <a href="{{url_for('auth.logout')}}" class="item">
+          <i class="user outline icon"></i>
+          Logout
+        </a>
+      </div>
+    </div>
+    {% endif %}
+</div>
