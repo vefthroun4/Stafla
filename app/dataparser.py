@@ -127,7 +127,6 @@ class DataParser():
 
 
     def rename_keys(self, rename_keys={}):
-        new_dict = []
         for entry in self.data:
             for k in rename_keys:
                 entry[rename_keys[k]] = entry.pop(k) 
