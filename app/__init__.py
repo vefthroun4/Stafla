@@ -40,15 +40,17 @@ def create_app():
     from app.blueprints.home import home_bp
     from app.blueprints.namskra import namskra_bp
     from app.blueprints.admin import admin_bp
+    from app.blueprints.errors import error_bp
     from app.auth import auth_bp
 
 
     # Register blueprints
     app.register_blueprint(main_bp)
     app.register_blueprint(home_bp)
+    app.register_blueprint(auth_bp, url_prefix="/auth")
     app.register_blueprint(namskra_bp, url_prefix="/namskra")
     app.register_blueprint(admin_bp, url_prefix="/admin")
-    app.register_blueprint(auth_bp, url_prefix="/auth")
+    app.register_blueprint(error_bp)
     
 
     # Setup for Flask Shell CLI

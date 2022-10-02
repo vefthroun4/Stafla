@@ -1,33 +1,78 @@
 import re
 import os
+import json
+from .utils import clean_str
 
 class Database:
     def __init__(self):
-        ...
+        self.app = None
+        self.db = None
 
-    def setup_initial_state(self, app, db):
+    def setup_initial_state(self):
         # Enforces FK constraints
         from sqlalchemy import event
-        with app.app_context():    
-            @event.listens_for(db.engine, "connect")
+        with self.app.app_context():    
+            @event.listens_for(self.db.engine, "connect")
             def set_sqlite_pragma(dbapi_connection, connection_record):
                 cursor = dbapi_connection.cursor()
                 cursor.execute("PRAGMA foreign_keys=ON")
                 cursor.close()
 
-    def create_database(self, app, db):
+    def create_database(self):
         # Checks wheter .db file exists, if not it will create it.
-        dbname = re.search("\\\\[A-Z|a-z]+\.db", app.config["SQLALCHEMY_DATABASE_URI"])
-        if dbname and not os.path.exists(app.instance_path+dbname.group()):
-            with app.app_context():
-                from app.models import UserStatus
-                db.create_all()
-                
-                # Temporary fix to allow login
-                db.session.add(UserStatus(status_name="User"))
-                db.session.commit()
+        dbname = re.search("\\\\[A-Z|a-z]+\.(db|sqlite)$", self.app.config["SQLALCHEMY_DATABASE_URI"])
+        if dbname and not os.path.exists(self.app.instance_path+dbname.group()):
+            with self.app.app_context():
+                from app.models import Role
+                self.db.create_all()
+                Role.insert_roles()
+                self.insert_initial_data()
+                self.db.session.commit()
+
+    def insert_initial_data(self):
+        """ Sets initial database on first time creating a .db file"""
+        from app.models import Schools, Divisions, Courses, Tracks
+        
+        # Insert School
+        schoolTS = Schools(school_name="Tækniskóli", abbreviation="TS")
+        self.db.session.add(schoolTS)
+        self.db.session.commit()
+
+        # Insert Division
+        divisionTS = Divisions(division_name="Upplýsingatækniskólinn", schoolID=Schools.query.first().schoolID)
+        self.db.session.add(divisionTS)
+        self.db.session.commit()
+        
+        # Insert Track
+        trackTBR = Tracks(
+            track_name = "Tölvubraut", 
+            min_credits = 200,
+            max_courses_per_semester = 7,
+            divisionID = Divisions.query.first().divisionID
+        )
+        self.db.session.add(trackTBR)
+        self.db.session.commit()
+
+        # Insert initial courses
+        courses = None
+        with open(self.app.instance_path+"\\courses.json", "r", encoding="utf-8") as f:
+            courses = json.load(f) 
+
+        for course in courses:
+            self.db.session.add(
+                Courses(
+                    course_number      = clean_str(course["course_number"], "()"),
+                    course_name        = course["course_name"], 
+                    course_description = course["description"],
+                    course_type        = course["course_number"][:4:],   # first 4 characters represent course type
+                    course_credits     = int(course["course_number"][8]) # 9th character represents credits
+                )
+            )
+        self.db.session.commit()
 
 
     def init_app(self, app, db):
-        self.setup_initial_state(app, db)
-        self.create_database(app, db)
+        self.app = app
+        self.db = db
+        self.setup_initial_state()
+        self.create_database()

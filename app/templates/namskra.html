@@ -3,112 +3,34 @@
 <div id="namskra">
     <h>Velkominn</h>
     <p>Veldu þína Áfanga: </p>
-    <div class="eight wide column">
-        <table class="ui celled unstackable table">
-            <thead>
-            <tr>
-                <th>#</th>
-                <th>Almennar greinar</th>
-                <th>Stærðfræði</th>
-                <th>Um Áfangan</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>Önn 1</td>
-                <td>Rúm- og tölfræði, líkinda- og viðskiptarkn.</td>
-                <td>STÆR2BR05</td>
-                <td><a href="/auth/login">Meira um</a></td>
-            </tr>
-            <tr>
-                <td>Önn 2</td>
-                <td>Algebra og föll.</td>
-                <td>STÆR2AH05</td>
-                <td><a href="/auth/login">Meira um</a></td>
-            </tr>
-            <tr>
-                <td>Önn 3</td>
-                <td>Vigrar og hornaföll.</td>
-                <td>STÆR3RV05</td>
-                <td><a href="/auth/login">Meira um</a></td>
-            </tr>
-            <tr>
-                <td>Önn 4</td>
-                <td>Föll, algebra og diffrun.</td>
-                <td>STÆR3FM05</td>
-                <td><a href="/auth/login">Meira um</a></td>
-            </tr>
-            <tr>
-                <td>Önn 5</td>
-                <td>Heildun falla, flatarmál og rúmmál snúða.</td>
-                <td>STÆR3FV05</td>
-                <td><a href="/auth/login">Meira um</a></td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-
+    
     <br>
 
     <div class="eight wide column ">
         <table class="ui celled unstackable table">
             <thead>
             <tr>
-                <th>#</th>
-                <th>Almennar greinar</th>
-                <th>Tungumál</th>
+                <th>Course Number</th>
+                <th>Course Name</th>
+                <th>Core</th>
                 <th>Um Áfangan</th>
+                <th></th>
+                <th></th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>Önn 1</td>
-                <td>Íslenska, lestur og ritun.</td>
-                <td>ÍSLE2AA05</td>
-                <td><a class="meiraumdemo">Meira um</a></td>
-            </tr>
-            <tr>
-                <td>Önn 2</td>
-                <td>Íslenskt mál og menningarsaga.</td>
-                <td>ÍSLE2GO05</td>
-                <td><a class="meiraumdemo">Meira um</a></td>
-            </tr>
-            <tr>
-                <td>Önn 3</td>
-                <td>Bókmenntasaga 1550 - 1900.</td>
-                <td>ÍSLE3LF05</td>
-                <td><a class="meiraumdemo">Meira um</a></td>
-            </tr>
-            <tr>
-                <td>Önn 4</td>
-                <td>Fornbókmenntir</td>
-                <td>ÍSLE3BF05</td>
-                <td><a class="meiraumdemo">Meira um</a></td>
-            </tr>
-            <tr>
-                <td>Önn 4</td>
-                <td>Nútímabókmenntir</td>
-                <td>ÍSLE3NB05</td>
-                <td><a class="meiraumdemo">Meira um</a></td>
-            </tr>
-            <tr>
-                <td>Önn 1</td>
-                <td>Bókmenntir og ritun.</td>
-                <td>ENSK2AE05</td>
-                <td><a class="meiraumdemo">Meira um</a></td>
-            </tr>
-            <tr>
-                <td>Önn 2</td>
-                <td>Fræðilegur orðaforði og Bandaríkin.</td>
-                <td>ENSK2OF05</td>
-                <td><a class="meiraumdemo">Meira um</a></td>
-            </tr>
-            <tr>
-                <td>Önn 2</td>
-                <td>Tjáning, lestur og menning.</td>
-                <td>DANS2BM05</td>
-                <td><a class="meiraumdemo">Meira um</a></td>
-            </tr>
+            {% for entry in data %}
+                <tr>
+                    <td>{{entry["course_number"]}}</td>
+                    <td>{{entry["course_name"]}}</td>
+                    <td>{{entry["core"]}}</td>
+                    <td><a class="meiraumdemo">Meira um</a></td>
+                    {% for req in entry["prerequisites"] %}
+                    <td>{{req}}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
             </tbody>
         </table>
     </div>
@@ -121,6 +43,5 @@
         })
     })
 </script>
-
 {% endblock %}
 

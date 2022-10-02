@@ -1,15 +1,59 @@
-from sqlalchemy import Column, Integer, String, ForeignKey, CHAR, Boolean, DateTime, ForeignKeyConstraint, CheckConstraint
-from sqlalchemy.orm import relationship, backref
+from sqlalchemy import Column, Integer, String, ForeignKey, CHAR, Boolean, DateTime, CheckConstraint
+from sqlalchemy.orm import relationship
 from sqlalchemy.dialects.mysql import INTEGER, TINYINT, MEDIUMINT
 from app import db, login
-from flask_login import UserMixin
+from flask import current_app
+from flask_login import UserMixin, AnonymousUserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
 
+class Permissions:
+    ANONYMOUS = 1
+    USER = 2
+    MODERATOR = 4
+    ADMIN = 8
+    roles = {
+            "Anonymous" : [ANONYMOUS],
+            "User" : [ANONYMOUS, USER],
+            "Moderator":  [ANONYMOUS, USER, MODERATOR],
+            "Admin":  [ANONYMOUS, USER, MODERATOR, ADMIN]
+        }
 
-class UserStatus(db.Model):
-    __tablename__ = "UserStatus"
-    status_name = Column("statusName", String(20), primary_key=True)
+class Role(db.Model):
+    __tablename__ = "Role"
+    id = Column(Integer, primary_key = True)
+    name = Column(String(32), unique=True)
+    permissions = Column(Integer)
+    default = Column(Boolean, default=False, index=True)
+    users = relationship("User", back_populates="role", lazy="dynamic")
+
+    # Set staticmethod so this method can be called without initializing the class
+    @staticmethod
+    def insert_roles():
+        roles = Permissions.roles
+        default_role = "User"
+        for r in roles:
+            role = Role.query.filter_by(name=r).first()
+            if role is None:
+                role = Role(name=r)
+                role.permissions = 0
+            for perm in roles[r]:
+                role.add_permissions(perm)
+            role.default = (role.name == default_role)
+            db.session.add(role)
+        db.session.commit()
+
+    def add_permissions(self, perm):
+        if not self.has_permissions(perm):
+            self.permissions += perm
+
+    def remove_permissions(self, perm):
+        if self.has_permissions(perm):
+            self.permissions -= perm
+
+    def has_permissions(self, perm):
+        """Checks if uses has a certain permission that has been declared in Permissions"""
+        return self.permissions & perm == perm
 
 
 class User(UserMixin, db.Model):
@@ -17,14 +61,30 @@ class User(UserMixin, db.Model):
     email = Column(String(120), index=True, unique=True)
     password_hash = Column(String(128))
     last_seen = Column(DateTime, default=datetime.utcnow)
-    user_status = Column(Integer, db.ForeignKey(UserStatus.status_name), nullable=False)
     user_registrations = relationship("UsersRegistration", back_populates="user")
+    role_id = Column(Integer, ForeignKey(Role.id))
+    role = relationship("Role", back_populates="users")
+
+    def __init__(self, **kwargs):
+        super(User, self).__init__(**kwargs)
+        # Sets initial role
+        if self.role is None:
+            if self.email == current_app.config["ADMIN_EMAIL"]:
+                self.role = Role.query.filter_by(name="Admin").first()
+            if self.role is None:
+                self.role = Role.query.filter_by(default=True).first()
 
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
 
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
+
+    def can(self, perm):
+        return self.role is not None and self.role.has_permissions(perm)
+
+    def is_admin(self):
+        return self.can(Permissions.ADMIN)
 
     def __repr__(self):
         return f"<User {self.email}>"
@@ -33,15 +93,27 @@ class User(UserMixin, db.Model):
 def load_user(id):
     return User.query.get(int(id))
 
+class AnonymousUser(AnonymousUserMixin):
+    def can(self, perm):
+        return False
+    
+    def is_admin(self):
+        return False
+
+login.anonymous_user = AnonymousUser
+
 
 class Tracks(db.Model):
     __tablename__ = "Tracks"
-    trackID = Column("trackID", String(75), primary_key=True)
+    trackID = Column("trackID", Integer, primary_key=True)
     track_name = Column("trackName", String(75), nullable=False, unique=True)
     divisionID = Column("divisionID", Integer, ForeignKey("Divisions.divisionID"), nullable=False)
-    minCredits = Column("minCredits", Integer, nullable=False)
-    max_courses_per_semester = Column("maxCoursesPerSemester", Integer(), nullable=False)
+    min_credits = Column("minCredits", Integer, nullable=False)
+    max_courses_per_semester = Column("maxCoursesPerSemester", Integer, nullable=False)
+    division = relationship("Divisions", back_populates="tracks")
 
+    def __repr__(self):
+        return f"<Tracks - {self.trackID}: track_name={self.track_name}, division={self.division.division_name}>"
 
 
 class Divisions(db.Model):
@@ -49,15 +121,20 @@ class Divisions(db.Model):
     divisionID = Column("divisionID", Integer, primary_key=True)
     division_name = Column("divisionName", String(75), nullable=False, unique=True)
     schoolID = Column("schoolID", Integer, ForeignKey("Schools.schoolID"), nullable=False)
-    track = relationship("Tracks", foreign_keys=[Tracks.divisionID], backref=db.backref("division", lazy="joined"))
-
+    tracks = relationship("Tracks", back_populates="division", lazy="joined")
+    school = relationship("Schools", back_populates="divisions")
+    def __repr__(self):
+        return f"<Divisions - {self.divisionID}: division_name={self.division_name}, School={self.school}>"
 
 class Schools(db.Model):
     __tablename__ = "Schools"
     schoolID = Column("schoolID", Integer, primary_key=True)
+    abbreviation = Column("abbreviation", String(5), nullable=False)
     school_name = Column("schoolName", String(75), unique=True)
-    divisions = relationship("Divisions", foreign_keys=[Divisions.schoolID], backref=db.backref("school", lazy="joined"))  
+    divisions = relationship("Divisions", back_populates="school", lazy="joined")  
 
+    def __repr__(self):
+        return f"<Schools - {self.schoolID}: school_name={self.school_name}>"
 
 class Prerequisites(db.Model):
     __tablename__ = "Prerequisites"
@@ -83,6 +160,9 @@ class Courses(db.Model):
     continuations = relationship("Prerequisites", 
                                 foreign_keys=[Prerequisites.prerequisite],
                                 cascade="all, delete-orphan")
+    
+    def __repr__(self):
+        return f"<Courses: course_number={self.course_number}, course_name={self.course_name}, course_credits={self.course_credits}>"
 
 
 class CourseGroups(db.Model):
@@ -123,6 +203,8 @@ class UsersRegistration(db.Model):
                             cascade="all, delete-orphan",
                             lazy="dynamic"
                             )
+    def __repr__(self):
+        return f"<UsersRegistration - {self.userID}: user={self.user}, school={self.school}, division={self.division}, track={self.track}>"
 
 
 class CourseRegistration(db.Model):

@@ -5,7 +5,7 @@ import json
 # Create routes here
 @namskra_bp.route("/")
 def namskra():
-    gogn = None
-    with open(current_app.instance_path+"\\data.json", "r") as f:
-        gogn = json.load(f)
-    return render_template("namskra.html", gogn=gogn)
+    data = None
+    with open(current_app.instance_path+"\\afangar.json", "r") as f:
+        data = json.load(f)
+    return render_template("namskra.html", data=data)

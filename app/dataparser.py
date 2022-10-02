@@ -3,10 +3,10 @@ import json
 import re
 import os
 
-test_url = "https://namskra.is/programmes/1c886af0-e2ef-4c05-bf3b-368e10b3483d/json"
 HONNUNARBRAUT_URL = "https://namskra.is/programmes/445598c8-b8c8-4287-83b8-ff773e0a2cab/json"
-TS_URL = "https://namskra.is/programmes/1878c334-b82b-4375-a174-efe5fe92f300/json"
 BOKBAND_URL = "https://namskra.is/programmes/b09385f2-d312-4eed-94f9-256e6cf45708/json"
+TOLVUBRAUT_URL = "https://namskra.is/programmes/1878c334-b82b-4375-a174-efe5fe92f300/json"
+TOLVUBRAUT2_URL = "http://tolvubraut.is/assets/tbr/afangar.json"
 REQUIRES = "abbreviation"
 TRUNCATE_KEYS = set([
     "former_schools",
@@ -26,18 +26,21 @@ TRUNCATE_KEYS = set([
 ])
 
 class DataParser():
-    def __init__(self, data=None, file=None, json_url=None, save_to_path=None):
+    def __init__(self, data=None, file=None, json_url=None, output_file="data.json"):
         """ Parses json data from a provided file or URL that returns JSON data """
         self.file = file
         self.json_url = json_url
         self.data = data
+        self.output_file = output_file
+
+        # Default to using Tölvubraut from Namskra
         if not self.file and not self.json_url and not self.data:
-            self.json_url = TS_URL
+            self.json_url = TOLVUBRAUT_URL
 
         # Pattern that matches course names that match this format: VESM2VT05BU
         self.COURSE_PATTERN = r"[\u0041-\u00ff]+\d+[\u0041-\u00ff]+\d+[\u0041-\u00ff]*"
 
-        self.save_to_path = save_to_path if save_to_path else os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "instance\\data.json"))
+        self.save_to_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", f"instance\\{self.output_file}"))
 
         # Grab data from url or file if data is not explicitly provided
         if not self.data:
@@ -63,7 +66,7 @@ class DataParser():
     def get_data(self):
         return self.data   
     
-    def truncate_data(self, data=None, truncate_keys={}, requires=None):
+    def truncate_data(self, data=None, truncate_keys=set([]), requires=None):
         """ Deep clones a nested object
 
         Performs a deep clone of a nested object 
@@ -72,12 +75,6 @@ class DataParser():
         Also if requires is specified it removes any object
         that does not contain the specified key
         """
-        if not requires:
-            requires = REQUIRES
-
-        if not truncate_keys:
-            truncate_keys = TRUNCATE_KEYS
-
         if not data:
             data = self.get_data()
 
@@ -128,14 +125,30 @@ class DataParser():
         with open(path, "w") as f:
             json.dump(self.get_data(), f, indent=2)
 
-    def main(self):
+
+    def rename_keys(self, rename_keys={}):
+        new_dict = []
+        for entry in self.data:
+            for k in rename_keys:
+                entry[rename_keys[k]] = entry.pop(k) 
+
+
+    def main(self, requires=None, truncate=None):
         """ Automatically fetches data, cleans it up and then saves it"""
-        self.truncate_data()
+        self.truncate_data(requires=requires, truncate_keys=truncate)
         self.fix_prerequisites()
         self.write_to_json()
 
-    
 
 if __name__ == "__main__":
     parser = DataParser()
-    parser.main()
+    parser.main(requires=REQUIRES, truncate=TRUNCATE_KEYS)
+    
+    # Newer data
+    parserTS = DataParser(json_url=TOLVUBRAUT2_URL, output_file="afangar.json")
+    parserTS.rename_keys(rename_keys={
+        "id" : "course_number",
+        "name" : "course_name",
+        "parents" : "prerequisites"
+    })
+    parserTS.write_to_json()
