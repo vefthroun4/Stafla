@@ -131,6 +131,50 @@ class DataParser():
             for k in rename_keys:
                 entry[rename_keys[k]] = entry.pop(k) 
 
+    def add_keys(self, add_on_match={}, key_to_add={}):
+        """ 
+        Looks for a k:v pair and on matching a key with a specified value
+        it then updates the dictionary with key_to_add.
+        
+        If add_on_match is not specified, it will add key_to_add to every dict item
+        
+        Example usecase:
+
+        dataparser_instance.add_keys(
+        { # add_on_match
+            "course_number" : [
+                "ÍSLE3NB05(CT)",
+                "ÍSLE3LF05(CT)", 
+                "ÍSLE3BF05(CT)"
+            ]
+        },
+        { # key_to_add
+            "group" : {
+                "courses" : [
+                    "ÍSLE3NB05(CT)", 
+                    "ÍSLE3LF05(CT)", 
+                    "ÍSLE3BF05(CT)"
+                ],
+                "credits_required" : 10
+            }
+        })
+        This will look for any matches to course_number and the keys in the list given
+        and add group: {...} to the existing dict object being iterated upon.
+        """
+
+        for entry in self.data:
+            for k, v in add_on_match.items():
+                if isinstance(v, (list, tuple)):
+                    if k in entry and entry[k] in v:
+                        for k, v in key_to_add.items():
+                            entry[k] = v    
+                        continue
+                else:
+                    if k in entry and entry[k] == v:
+                        for k, v in key_to_add.items():
+                            entry[k] = v    
+                        continue
+
 
     def main(self, requires=None, truncate=None):
         """ Automatically fetches data, cleans it up and then saves it"""
@@ -143,11 +187,6 @@ if __name__ == "__main__":
     parser = DataParser()
     parser.main(requires=REQUIRES, truncate=TRUNCATE_KEYS)
     
-    # Newer data
-    parserTS = DataParser(json_url=TOLVUBRAUT2_URL, output_file="afangar.json")
-    parserTS.rename_keys(rename_keys={
-        "id" : "course_number",
-        "name" : "course_name",
-        "parents" : "prerequisites"
-    })
-    parserTS.write_to_json()
+
+
+

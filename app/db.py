@@ -25,14 +25,27 @@ class Database:
             with self.app.app_context():
                 from app.models import Role
                 self.db.create_all()
-                Role.insert_roles()
                 self.insert_initial_data()
+                Role.insert_roles()
+
                 self.db.session.commit()
 
     def insert_initial_data(self):
         """ Sets initial database on first time creating a .db file"""
-        from app.models import Schools, Divisions, Courses, Tracks
+        from app.models import Schools, Divisions, Courses, Tracks, Prerequisites, TrackCourses
+        from app.models import CourseGroups
+        from dataparser import DataParser, TOLVUBRAUT2_URL
+
+        # Create initial data
+        parserTS = DataParser(json_url=TOLVUBRAUT2_URL, output_file="afangar.json")
+        parserTS.rename_keys(rename_keys={
+            "id" : "course_number",
+            "name" : "course_name",
+            "parents" : "prerequisites"
+        })
+        parserTS.write_to_json()
         
+
         # Insert School
         schoolTS = Schools(school_name="Tækniskóli", abbreviation="TS")
         self.db.session.add(schoolTS)
@@ -55,7 +68,7 @@ class Database:
 
         # Insert initial courses
         courses = None
-        with open(self.app.instance_path+"\\courses.json", "r", encoding="utf-8") as f:
+        with open(self.app.instance_path+"\\afangar.json", "r", encoding="utf-8") as f:
             courses = json.load(f) 
 
         for course in courses:
@@ -68,6 +81,48 @@ class Database:
                     course_credits     = int(course["course_number"][8]) # 9th character represents credits
                 )
             )
+        self.db.session.commit()
+
+        # Set prerequisites
+        for course in courses:
+            if course["prerequisites"]:
+                simultaneous = False
+                # If able to take course simultaneously with prerequisite
+                if course["course_number"] in ["FORK2FE02(AU)"]:
+                    simultaneous = True
+                for prerequisite in course["prerequisites"]:
+                    self.db.session.add(Prerequisites(
+                        course_number = clean_str(course["course_number"], "()"),
+                        prerequisite  = clean_str(prerequisite, "()"),
+                        simultaneous  = simultaneous
+                    ))
+        self.db.session.commit()
+        
+        # Insert groups
+        track_trackID = trackTBR.trackID
+
+        group =  {
+            "courses" : ["ÍSLE3NB05(CT)", "ÍSLE3LF05(CT)", "ÍSLE3BF05(CT)"],
+            "credits_required" : 10
+        }
+        course_group = CourseGroups(
+            group_name       = "Íslenska300",
+            trackID          = track_trackID,
+            credits_required = group["credits_required"]
+        )
+
+        self.db.session.add(course_group)
+        self.db.session.commit()
+
+        # Insert courses into TrackCourses
+        for course in courses:
+            self.db.session.add(TrackCourses(
+                trackID       = track_trackID,
+                groupID       = CourseGroups.query.first().groupID,
+                course_number = clean_str(course["course_number"], "()"),
+                mandatory     = course["core"],
+                is_active     = course["active"]
+            ))
         self.db.session.commit()
 
 

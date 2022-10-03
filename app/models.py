@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, ForeignKey, CHAR, Boolean, DateTime, CheckConstraint
+from sqlalchemy import Column, Integer, String, ForeignKey, CHAR, Boolean, DateTime, CheckConstraint, UniqueConstraint
 from sqlalchemy.orm import relationship
 from sqlalchemy.dialects.mysql import INTEGER, TINYINT, MEDIUMINT
 from app import db, login
@@ -111,6 +111,7 @@ class Tracks(db.Model):
     min_credits = Column("minCredits", Integer, nullable=False)
     max_courses_per_semester = Column("maxCoursesPerSemester", Integer, nullable=False)
     division = relationship("Divisions", back_populates="tracks")
+    groups = relationship("CourseGroups", back_populates="track", lazy="dynamic")
 
     def __repr__(self):
         return f"<Tracks - {self.trackID}: track_name={self.track_name}, division={self.division.division_name}>"
@@ -123,6 +124,7 @@ class Divisions(db.Model):
     schoolID = Column("schoolID", Integer, ForeignKey("Schools.schoolID"), nullable=False)
     tracks = relationship("Tracks", back_populates="division", lazy="joined")
     school = relationship("Schools", back_populates="divisions")
+
     def __repr__(self):
         return f"<Divisions - {self.divisionID}: division_name={self.division_name}, School={self.school}>"
 
@@ -138,8 +140,8 @@ class Schools(db.Model):
 
 class Prerequisites(db.Model):
     __tablename__ = "Prerequisites"
-    course_number = Column("courseNumber", String(12), ForeignKey("Courses.courseNumber"), primary_key=True)
-    prerequisite =  Column("prerequisite", String(12), ForeignKey("Courses.courseNumber"), primary_key=True)
+    course_number = Column("courseNumber", String(12), ForeignKey("Courses.courseNumber"), primary_key=True, index=True)
+    prerequisite =  Column("prerequisite", String(12), ForeignKey("Courses.courseNumber"), primary_key=True, index=True)
     simultaneous =  Column("simultaneous", Boolean, default=False)
     CheckConstraint(prerequisite != course_number)
     
@@ -168,22 +170,27 @@ class Courses(db.Model):
 class CourseGroups(db.Model):
     __tablename__ = "CourseGroups"
     groupID = Column("groupID",Integer, primary_key=True)
-    track_name = Column("trackName", ForeignKey("Tracks.trackName"), nullable=False)
-    courses = relationship("TrackCourses", back_populates="group")
+    group_name = Column("groupName", String(30), nullable=False)
+    trackID = Column("trackID", Integer, ForeignKey(Tracks.trackID), nullable=False)
     credits_required = Column("creditsRequired", Integer, nullable=False)
+    courses = relationship("TrackCourses", back_populates="group")
+    track = relationship("Tracks", back_populates="groups")
+    __table_args__ = tuple(UniqueConstraint("group_name", "trackID", name="group_track_UQ"))
 
 
 class TrackCourses(db.Model):
     __tablename__ = "TrackCourses"
     trackID = Column("trackID", Integer, ForeignKey(Tracks.trackID), primary_key=True)
     groupID = Column("groupID", Integer, ForeignKey("CourseGroups.groupID"), default=None)
-    group = relationship("CourseGroups", back_populates="courses")
     course_number = Column("courseNumber", String(12), ForeignKey(Courses.course_number), primary_key=True)
-    courses = relationship("Courses")
     mandatory = Column("mandatory", Boolean, nullable=False)
     semester = Column("semester", INTEGER(unsigned=True), default=None)
-    currentlyActive = Column("currentlyActive", Boolean, default=True)
+    is_active = Column("isActive", Boolean, default=True)
+    course = relationship("Courses")
+    group = relationship("CourseGroups", back_populates="courses")
 
+    def __repr__(self):
+        return f"<TrackCourses - {self.trackID}: groupID={self.groupID}, course_number={self.course_number}, mandatory={self.mandatory}, is_active={self.is_active}>"
 
 class UsersRegistration(db.Model):
     __tablename__ = "UsersRegistration"
@@ -204,7 +211,7 @@ class UsersRegistration(db.Model):
                             lazy="dynamic"
                             )
     def __repr__(self):
-        return f"<UsersRegistration - {self.userID}: user={self.user}, school={self.school}, division={self.division}, track={self.track}>"
+        return f"<UsersRegistration: userID={self.userID}, user={self.user}, school={self.school}, division={self.division}, track={self.track}>"
 
 
 class CourseRegistration(db.Model):
@@ -212,4 +219,7 @@ class CourseRegistration(db.Model):
     course_number = Column("courseNumber", String(12), ForeignKey(Courses.course_number), primary_key=True)
     semester = Column("semester", INTEGER(unsigned=True))
     users_registrationID = Column("usersRegistrationID", Integer, ForeignKey(UsersRegistration.users_registrationID), primary_key=True)
-    users_registration = relationship("UsersRegistration", back_populates="courses")    
+    users_registration = relationship("UsersRegistration", back_populates="courses") 
+
+    def __repr__(self):
+        return f"<CourseRegistration: course_number={self.course_number}, semester={self.semester}, users_registrationID={self.users_registrationID}>"   
