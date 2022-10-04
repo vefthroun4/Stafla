@@ -40,6 +40,11 @@
 #login, #signup, #namskra {
   padding-top: 50px;
 }
+
+#email, #password, #confirm {
+  width: 100% !important;
+}
+
 #mast{
   display: flex;
   flex-direction: column;

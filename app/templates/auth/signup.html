@@ -2,13 +2,13 @@
 {% block title %}Sign Up{% endblock %}
 {% block content %}
 <div class="ui one column stackable centered page grid" id="signup">
-    <div class="ui column seven wide">
+    <div class="ui column nine wide">
 		<div class="ui bottom attached error message">
 			<i class="icon help"></i>
 			Already signed up? <a href="{{url_for('auth.login')}}">Login here</a> instead.
 		</div>
-		<h2>Sign Up</h2>
-		<form class="ui form" action="" method="post" novalidate>
+		<h1 class="ui dividing header">Sign Up</h1>
+		<form class="ui large form" action="" method="post" novalidate>
 			{{ form.hidden_tag() }}
 			<div class="field">
 				<label>{{form.email.label}}</label>
@@ -46,7 +46,7 @@
 					</div>
 				{% endfor %}
 			</div>
-			{{form.submit(class="ui button")}}
+			{{form.submit(class="fluid primary ui button")}}
 		</form>
 
 		</div>
