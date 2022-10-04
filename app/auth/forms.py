@@ -33,9 +33,10 @@ def get_schools():
 
 
 class NamskraRegisterForm(FlaskForm):
-    school = QuerySelectField("School", validators=[DataRequired()], query_factory=get_schools)
-    division = QuerySelectField("Divisions", validators=[DataRequired()], query_factory=get_divisions)
+    school = QuerySelectField("School", validators=[DataRequired()], query_factory=get_schools, get_label="school_name")
+    division = QuerySelectField("Divisions", validators=[DataRequired()], query_factory=get_divisions, get_label="division_name")
     semester = SelectField("Current Semester", choices=[n for n in range(1, 4)]) 
+    submit = SubmitField("Go away ╰(*°▽°*)╯")
 
     def validate_school(self, school):
         school = Schools.query.filter_by(school_name=school)

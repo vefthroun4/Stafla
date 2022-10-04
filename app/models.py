@@ -133,7 +133,7 @@ class Schools(db.Model):
     schoolID = Column("schoolID", Integer, primary_key=True)
     abbreviation = Column("abbreviation", String(5), nullable=False)
     school_name = Column("schoolName", String(75), unique=True)
-    divisions = relationship("Divisions", back_populates="school", lazy="joined")  
+    divisions = relationship("Divisions", back_populates="school", lazy="joined")
 
     def __repr__(self):
         return f"<Schools - {self.schoolID}: school_name={self.school_name}>"

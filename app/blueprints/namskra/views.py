@@ -5,13 +5,13 @@ from app.auth.forms import NamskraRegisterForm
 import json
 
 # Create routes here
-@namskra_bp.route("/")
+@namskra_bp.route("/", methods=("GET", "POST"))
 def start():
     form = NamskraRegisterForm()
     return render_template("namskra/start.html", form=form)
 
 
-@namskra_bp.route("/table")
+@namskra_bp.route("/table", methods=("GET", "POST"))
 def namskra():
     data = None
     with open(current_app.instance_path+"\\afangar.json", "r") as f:
