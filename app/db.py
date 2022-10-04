@@ -32,9 +32,9 @@ class Database:
 
     def insert_initial_data(self):
         """ Sets initial database on first time creating a .db file"""
+        from app.dataparser import DataParser, TOLVUBRAUT2_URL
         from app.models import Schools, Divisions, Courses, Tracks, Prerequisites, TrackCourses
         from app.models import CourseGroups
-        from dataparser import DataParser, TOLVUBRAUT2_URL
 
         # Create initial data
         parserTS = DataParser(json_url=TOLVUBRAUT2_URL, output_file="afangar.json")
