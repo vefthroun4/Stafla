@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% for field in form %}
+    {{field}}
+{% endfor %}
+<form class="ui form" action="" method="post" novalidate>
+    {{ form.hidden_tag() }}
+    <div class="field">
+        <label>{{form.school.label}}</label>
+        {{form.school}}<br>
+        {% for error in form.school.errors %}
+            <div class="ui red message">
+                <i class="close icon"></i>
+                <div class="header">
+                    {{error}}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="field">
+        <label>{{form.division.label}}</label>
+        {{form.division()}}<br>
+        {% for error in form.division.errors %}
+            <div class="ui red message">
+                <i class="close icon"></i>
+                <div class="header">
+                    {{error}}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="field">
+        <label>{{form.semester.label}}</label>
+        {{form.semester}}<br>
+        {% for error in form.semester.errors %}
+            <div class="ui red message">
+                <i class="close icon"></i>
+                <div class="header">
+                    {{error}}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</form>
+
+{% endblock %}
