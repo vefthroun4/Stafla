@@ -1,20 +1,32 @@
+.ui.menu {
+  margin:0 !important;
+}
+ 
 /* HEADER */
+.ui.sticky  {
+  position: sticky !important;
+  top: 0;
+  width: 100%;
+}
 
 
 /* BANNER/MASTHEAD */
-.ui.inverted.segment {
-  padding: 240px;
+.ui.inverted.segment{
   background: linear-gradient(black,#800080) !important;
-
+  background-size: cover;
+  min-height: 700px;
 }
-  .masthead .ui.menu .ui.button {
+
+  .masthead .ui.menu .ui.button .ui.text.content {
     margin-left: 0.5em;
+
   }
   .masthead h1.ui.header {
     margin-top: 1.7em;
     margin-bottom: 0em;
     font-size: 4em;
     font-weight: normal;
+    
 
   }
   .masthead h2 {
@@ -28,7 +40,7 @@
 
 /* CONTAINER & CONTENT */
  .ui.content,#login, #signup, #namskra {
-  padding-top: 100px;
+  padding-top: 50px;
 }
 
 
