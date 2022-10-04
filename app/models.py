@@ -117,6 +117,15 @@ class Tracks(db.Model):
     def get_all_tracks():
         return Tracks.query.all()
 
+    def to_json(self):
+        return {
+            "trackID": self.trackID,
+            "track_name" : self.track_name,
+            "divisionID" : self.divisionID,
+            "min_credits" : self.min_credits,
+            "max_courses_per_semester" : self.max_courses_per_semester
+        }
+
     def __repr__(self):
         return f"<Tracks - {self.trackID}: track_name={self.track_name}, division={self.division.division_name}>"
 
