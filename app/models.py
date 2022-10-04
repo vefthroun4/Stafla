@@ -213,12 +213,35 @@ class UsersRegistration(db.Model):
     def __repr__(self):
         return f"<UsersRegistration: userID={self.userID}, user={self.user}, school={self.school}, division={self.division}, track={self.track}>"
 
+class States:
+    FAILED = 1
+    ACTIVE = 2
+    FINISHED = 3
+    states = {
+        "FAILED": 1,
+        "ACTIVE": 2,
+        "FINISHED": 3
+    }
+
+
+class CourseState(db.Model):
+    course_stateID = Column("courseStateID", Integer, primary_key=True, autoincrement=False)
+    name = Column("name", String(24), nullable=False)
+    
+    @staticmethod
+    def insert_states():
+        states = States.states
+        for state, identifier in states.items():
+            db.session.add(CourseState(course_stateID=identifier, name=state))
+        db.session.commit()
 
 class CourseRegistration(db.Model):
     __tablename__ = "CourseRegistration"
     course_number = Column("courseNumber", String(12), ForeignKey(Courses.course_number), primary_key=True)
     semester = Column("semester", INTEGER(unsigned=True))
+    stateID = Column("state", ForeignKey(CourseState.course_stateID), nullable=False)
     users_registrationID = Column("usersRegistrationID", Integer, ForeignKey(UsersRegistration.users_registrationID), primary_key=True)
+    state = relationship("CourseState")
     users_registration = relationship("UsersRegistration", back_populates="courses") 
 
     def __repr__(self):

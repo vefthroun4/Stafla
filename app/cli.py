@@ -7,6 +7,7 @@ from app.models import \
     CourseGroups, Courses, Prerequisites,\
     TrackCourses, UsersRegistration, CourseRegistration
 from app.dataparser import DataParser
+from app.models import States, CourseState
 
 def setup_commands(app):
     @app.shell_context_processor
@@ -20,5 +21,6 @@ def setup_commands(app):
             "Courses":Courses, "Prerequisites":Prerequisites,
             "TrackCourses":TrackCourses,
             "UsersRegistration": UsersRegistration,
-            "CourseRegistration": CourseRegistration  
+            "CourseRegistration": CourseRegistration,
+            "State":States, "CourseState":CourseState   
         }

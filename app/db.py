@@ -23,9 +23,11 @@ class Database:
         dbname = re.search("\\\\[A-Z|a-z]+\.(db|sqlite)$", self.app.config["SQLALCHEMY_DATABASE_URI"])
         if dbname and not os.path.exists(self.app.instance_path+dbname.group()):
             with self.app.app_context():
-                from app.models import Role
+                from app.models import Role, CourseState
+                        # Insert states
                 self.db.create_all()
                 self.insert_initial_data()
+                CourseState.insert_states()
                 Role.insert_roles()
 
                 self.db.session.commit()
@@ -124,6 +126,9 @@ class Database:
                 is_active     = course["active"]
             ))
         self.db.session.commit()
+
+
+        
 
 
     def init_app(self, app, db):
