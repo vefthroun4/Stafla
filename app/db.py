@@ -8,7 +8,7 @@ class Database:
         self.app = None
         self.db = None
 
-    def setup_initial_state(self):
+    def _setup_initial_state(self):
         # Enforces FK constraints
         from sqlalchemy import event
         with self.app.app_context():    
@@ -18,7 +18,7 @@ class Database:
                 cursor.execute("PRAGMA foreign_keys=ON")
                 cursor.close()
 
-    def create_database(self):
+    def _create_database(self):
         # Checks wheter .db file exists, if not it will create it.
         dbname = re.search("\\\\[A-Z|a-z]+\.(db|sqlite)$", self.app.config["SQLALCHEMY_DATABASE_URI"])
         if dbname and not os.path.exists(self.app.instance_path+dbname.group()):
@@ -26,13 +26,12 @@ class Database:
                 from app.models import Role, CourseState
                 # Insert states
                 self.db.create_all()
-                self.insert_initial_data()
                 CourseState.insert_states()
                 Role.insert_roles()
-
+                self._insert_initial_data()
                 self.db.session.commit()
 
-    def insert_initial_data(self):
+    def _insert_initial_data(self):
         """ Sets initial database on first time creating a .db file"""
         from app.dataparser import DataParser, TOLVUBRAUT2_URL
         from app.models import Schools, Divisions, Courses, Tracks, Prerequisites, TrackCourses
@@ -54,7 +53,7 @@ class Database:
         self.db.session.commit()
 
         # Insert Division
-        divisionTS = Divisions(division_name="Upplýsingatækniskólinn", schoolID=Schools.query.first().schoolID)
+        divisionTS = Divisions(division_name="Upplýsingatækniskólinn", schoolID=Schools.query.filter_by(school_name="Tækniskóli").first().schoolID)
         self.db.session.add(divisionTS)
         self.db.session.commit()
         
@@ -128,11 +127,8 @@ class Database:
         self.db.session.commit()
 
 
-        
-
-
     def init_app(self, app, db):
         self.app = app
         self.db = db
-        self.setup_initial_state()
-        self.create_database()
+        self._setup_initial_state()
+        self._create_database()

@@ -1,5 +1,4 @@
-# allows db and User objects to be accessed from the "flask shell" command
-#TODO Move to another folder specific for CLI commands
+# Allow models to be accessed from flask shell
 from app import db
 from app.models import User,  Role
 from app.models import \
