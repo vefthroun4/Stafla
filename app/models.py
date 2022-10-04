@@ -113,6 +113,10 @@ class Tracks(db.Model):
     division = relationship("Divisions", back_populates="tracks")
     groups = relationship("CourseGroups", back_populates="track", lazy="dynamic")
 
+    @staticmethod
+    def get_all_tracks():
+        return Tracks.query.all()
+
     def __repr__(self):
         return f"<Tracks - {self.trackID}: track_name={self.track_name}, division={self.division.division_name}>"
 
@@ -125,6 +129,17 @@ class Divisions(db.Model):
     tracks = relationship("Tracks", back_populates="division", lazy="joined")
     school = relationship("Schools", back_populates="divisions")
 
+    @staticmethod
+    def get_all_divisions():
+        return Divisions.query.all()     
+
+    def to_json(self):
+        return {
+            "divisionID" : self.divisionID,
+            "division_name" : self.division_name,
+            "schoolID": self.schoolID
+        }
+
     def __repr__(self):
         return f"<Divisions - {self.divisionID}: division_name={self.division_name}, School={self.school}>"
 
@@ -134,6 +149,10 @@ class Schools(db.Model):
     abbreviation = Column("abbreviation", String(5), nullable=False)
     school_name = Column("schoolName", String(75), unique=True)
     divisions = relationship("Divisions", back_populates="school", lazy="joined")
+
+    @staticmethod
+    def get_all_schools():
+        return Schools.query.all()
 
     def __repr__(self):
         return f"<Schools - {self.schoolID}: school_name={self.school_name}>"

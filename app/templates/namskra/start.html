@@ -6,12 +6,16 @@
     {{ form.hidden_tag() }}
     {% for field in form if field.widget.input_type != 'hidden' %}
     <div class="field">
-        {% if field.widget.input_type != "submit" %}
+        
+        {% if field.widget.input_type == "submit" %}
+            {{ field(class="fluid primary ui button") }}<br>
+        {% else %}
             <label>{{ field.label }}</label>
+            {{ field }}<br>
         {% endif %}
-        {{ field }}<br>
+        
         {% for error in field.errors %}
-            <div class="ui red message">
+            <div class="ui red message attached">
                 <i class="close icon"></i>
                 <div class="header">
                     {{error}}
