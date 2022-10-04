@@ -7,6 +7,7 @@
   position: sticky !important;
   top: 0;
   width: 100%;
+  border-radius: 0 !important;
 }
 
 
@@ -33,11 +34,8 @@
     font-size: 1.7em;
     font-weight: normal;
     padding-bottom: 10px;
-  
-
   }
   
-
 /* CONTAINER & CONTENT */
 #login, #signup, #namskra {
   padding-top: 50px;
@@ -49,7 +47,9 @@
   justify-content: center
 }
 
-
+.right.arrow.icon {
+  margin:0 !important;
+}
  
 
   /* Responsive Vantar */
