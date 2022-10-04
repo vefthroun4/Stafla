@@ -24,7 +24,7 @@ class Database:
         if dbname and not os.path.exists(self.app.instance_path+dbname.group()):
             with self.app.app_context():
                 from app.models import Role, CourseState
-                        # Insert states
+                # Insert states
                 self.db.create_all()
                 self.insert_initial_data()
                 CourseState.insert_states()
