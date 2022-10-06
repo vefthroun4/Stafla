@@ -48,12 +48,12 @@ class Database:
         
 
         # Insert School
-        schoolTS = Schools(school_name="Tækniskóli", abbreviation="TS")
+        schoolTS = Schools(school_name="Tækniskólinn", abbreviation="TS", active=True)
         self.db.session.add(schoolTS)
         self.db.session.commit()
 
         # Insert Division
-        divisionTS = Divisions(division_name="Upplýsingatækniskólinn", schoolID=Schools.query.filter_by(school_name="Tækniskóli").first().schoolID)
+        divisionTS = Divisions(division_name="Upplýsingatækniskólinn", schoolID=Schools.query.filter_by(school_name="Tækniskólinn").first().schoolID)
         self.db.session.add(divisionTS)
         self.db.session.commit()
         
@@ -116,6 +116,7 @@ class Database:
         self.db.session.commit()
 
         # Insert courses into TrackCourses
+        #TODO get semesters for each class
         for course in courses:
             self.db.session.add(TrackCourses(
                 trackID       = track_trackID,

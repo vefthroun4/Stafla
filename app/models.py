@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String, ForeignKey, CHAR, Boolean, DateTime, CheckConstraint, UniqueConstraint
 from sqlalchemy.orm import relationship
-from sqlalchemy.dialects.mysql import INTEGER, TINYINT, MEDIUMINT
+from sqlalchemy.dialects.mysql import INTEGER
 from app import db, login
 from flask import current_app
 from flask_login import UserMixin, AnonymousUserMixin
@@ -135,19 +135,24 @@ class Divisions(db.Model):
     divisionID = Column("divisionID", Integer, primary_key=True)
     division_name = Column("divisionName", String(75), nullable=False, unique=True)
     schoolID = Column("schoolID", Integer, ForeignKey("Schools.schoolID"), nullable=False)
-    tracks = relationship("Tracks", back_populates="division", lazy="joined")
+    tracks = relationship("Tracks", back_populates="division", lazy="dynamic")
     school = relationship("Schools", back_populates="divisions")
 
     @staticmethod
     def get_all_divisions():
         return Divisions.query.all()     
 
-    def to_json(self):
-        return {
+    def to_json(self, include_children=False):
+        resp = {
             "divisionID" : self.divisionID,
             "division_name" : self.division_name,
-            "schoolID": self.schoolID
+            "schoolID": self.schoolID,
         }
+        if include_children:
+            resp["tracks"] = [] if not self.tracks else [track.to_json() for track in self.tracks]
+        
+        return resp 
+
 
     def __repr__(self):
         return f"<Divisions - {self.divisionID}: division_name={self.division_name}, School={self.school}>"
@@ -157,11 +162,23 @@ class Schools(db.Model):
     schoolID = Column("schoolID", Integer, primary_key=True)
     abbreviation = Column("abbreviation", String(5), nullable=False)
     school_name = Column("schoolName", String(75), unique=True)
-    divisions = relationship("Divisions", back_populates="school", lazy="joined")
+    active = Column("active", Boolean, default=False)
+    divisions = relationship("Divisions", back_populates="school", lazy="dynamic")
 
     @staticmethod
     def get_all_schools():
         return Schools.query.all()
+
+    def to_json(self, include_children=False):
+        resp =  {
+            "schoolID": self.schoolID,
+            "abbreviation": self.abbreviation,
+            "school_name": self.school_name,
+        }
+        if include_children:
+            resp["divisions"] = None if not self.divisions else [division.to_json(include_children=False) for division in self.divisions] 
+
+        return resp
 
     def __repr__(self):
         return f"<Schools - {self.schoolID}: school_name={self.school_name}>"
@@ -221,9 +238,10 @@ class TrackCourses(db.Model):
         return f"<TrackCourses - {self.trackID}: groupID={self.groupID}, course_number={self.course_number}, mandatory={self.mandatory}, is_active={self.is_active}>"
 
 class UsersRegistration(db.Model):
+    """ Model used to keep track of users table"""
     __tablename__ = "UsersRegistration"
     users_registrationID = Column("usersRegistrationID", Integer, autoincrement=True)
-    current_semester = Column("currentSemester", INTEGER(unsigned=True), default=0)
+    current_semester = Column("currentSemester", INTEGER(unsigned=True), default=1)
     userID = Column("userID", Integer, ForeignKey(User.id), primary_key=True)
     schoolID = Column("schoolID", Integer, ForeignKey(Schools.schoolID), primary_key=True)
     divisionID = Column("divisionID", Integer, ForeignKey(Divisions.divisionID), primary_key=True)
@@ -232,7 +250,6 @@ class UsersRegistration(db.Model):
     division = relationship("Divisions")
     track = relationship("Tracks")
     user = relationship("User", back_populates="user_registrations")
-    # Apply lazy to allow filtering
     courses = relationship("CourseRegistration",
                             back_populates="users_registration", 
                             cascade="all, delete-orphan",
@@ -264,6 +281,7 @@ class CourseState(db.Model):
         db.session.commit()
 
 class CourseRegistration(db.Model):
+    """ Model used to keep track of courses user has been assigned """
     __tablename__ = "CourseRegistration"
     course_number = Column("courseNumber", String(12), ForeignKey(Courses.course_number), primary_key=True)
     semester = Column("semester", INTEGER(unsigned=True))

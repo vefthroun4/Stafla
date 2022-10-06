@@ -2,7 +2,7 @@
 {% block content %}
 <div class="ui one column stackable centered page grid" id="login">
     <div class="ui column nine wide">
-        <div class="ui bottom attached error message">
+        <div class="ui bottom attached info message">
 			<i class="icon help"></i>
 			Register <a href="{{url_for('auth.register')}}">here</a> to make an account.
 		</div>
@@ -11,7 +11,7 @@
         </h1>
         <form class="ui large form" action="" method="post" novalidate>
             {{ form.hidden_tag() }}
-            <div class="field">
+            <div class="field required">
                 <label>{{form.email.label}}</label>
                 {{form.email(placeholder="Email")}}<br>
                 {% for error in form.email.errors %}
@@ -23,7 +23,7 @@
                     </div>
                 {% endfor %}
             </div>
-            <div class="field">
+            <div class="field required">
                 <label>{{form.password.label}}</label>
                 {{form.password(placeholder="Password")}}<br>
                 {% for error in form.password.errors %}

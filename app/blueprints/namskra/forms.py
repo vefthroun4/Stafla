@@ -5,28 +5,26 @@ from wtforms import SelectField, SubmitField
 from app.models import Divisions, Schools, Tracks
 
 
+
 class NamskraRegisterForm(FlaskForm):
-    school = QuerySelectField("School", validators=[DataRequired()], query_factory=Schools.get_all_schools, get_label="school_name")
-    division = QuerySelectField("Division", validators=[DataRequired()], query_factory=Divisions.get_all_divisions, get_label="division_name")
-    track = QuerySelectField("Track", validators=[DataRequired()], query_factory=Tracks.get_all_tracks, get_label="track_name")
-    semester = SelectField("Current Semester", choices=[n for n in range(1, 4)]) 
+    school = QuerySelectField("School", validators=[DataRequired()], query_factory=Schools.get_all_schools, get_label="school_name", allow_blank=True)
+    division = SelectField("Division", choices=[""], validate_choice=False, validators=[DataRequired()])
+    track = SelectField("Track", choices=[""], validate_choice=False, validators=[DataRequired()])
     submit = SubmitField("Setup table")
 
+    #TODO validate that division and track belong to their respective school/division
     def validate_school(self, school):
-        school = Schools.query.filter_by(school_name=school)
+        school = Schools.query.filter_by(school_name=school.data.school_name).first()
         if school is None:
             raise ValidationError("School does not exist.")
 
     def validate_division(self, division):
-        division = Divisions.query.filter_by(division_name=division)
+        division = Divisions.query.filter_by(divisionID=division.data).first()
         if division is None:
             raise ValidationError("Division does not exist.")
 
-    def validate_semester(self, semester):
-        data = None
-        try:
-            data = int(semester.data)
-        except ValueError:
-            ValidationError("I have no clue how you triggered this error lol")
-        if data < 1 and data > 3:
-            raise ValidationError("Semester is not within the range 1 to 3.")
+    def validate_track(self, track):
+        track = Tracks.query.filter_by(trackID=track.data).first()
+        if track is None:
+            raise ValidationError("Track does not exist.")
+

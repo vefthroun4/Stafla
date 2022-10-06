@@ -19,16 +19,16 @@ def start():
                 db.session.add(UsersRegistration(
                     userID = current_user.id,
                     schoolID = Schools.query.filter_by(school_name=form.school.data.school_name).first().schoolID,
-                    divisionID = Divisions.query.filter_by(division_name=form.division.data.division_name).first().divisionID,
-                    trackID = Tracks.query.filter_by(track_name=form.track.data.track_name).first().trackID,
+                    divisionID = Divisions.query.filter_by(divisionID=form.division.data).first().divisionID,
+                    trackID = Tracks.query.filter_by(trackID = form.track.data).first().trackID,
                     current_semester = 1,
                 ))
                 db.session.commit()
             except exc.IntegrityError:
                 # Incase user attempts to register the same track again.
                 db.session.rollback()
-                flash(f"You have already registered the track {form.track.data.track_name} under your account.")
-                return redirect(url_for("namskra.start"))
+                flash(f"You have already registered the track {Tracks.query.filter_by(trackID=form.track.data).first().track_name} under your account.")
+                return redirect(url_for("namskra.namskra"))
             flash("Successfully created initial table", category="success")
             return redirect(url_for("namskra.namskra"))
         else:
