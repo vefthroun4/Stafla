@@ -5,6 +5,4 @@ from flask import abort
 
 @api_bp.route("/test")
 def test():
-    if not current_user.is_authenticated:
-        return "sometext", 404
-    return "readmesenpai", 404
+    return request.remote_addr
