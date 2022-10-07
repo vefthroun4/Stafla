@@ -46,7 +46,7 @@ class Ancestors extends DataFetcher {
                             }
                         }) 
                     }
-                    
+
                 })
             }
         }
@@ -57,7 +57,6 @@ class Ancestors extends DataFetcher {
         for (let i = nodes.length-1; i > 0; i--) {
             nodes[i].remove()
         } 
-        console.log("This is the current parent: ", parent)
         parent.disabled = true      
     }
 
