@@ -4,7 +4,7 @@
     <div class="ui column nine wide">
         <div class="ui bottom attached info message">
 			<i class="icon help"></i>
-			Register <a href="{{url_for('auth.register')}}">here</a> to make an account.
+			Register <a href="{{url_for('auth.register', next=request.args.get('next'))}}">here</a> to make an account.
 		</div>
         <h1 class= "ui dividing header"> 
             Login   

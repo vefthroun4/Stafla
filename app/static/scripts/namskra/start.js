@@ -75,11 +75,15 @@ class Ancestors extends DataFetcher {
 let anc = new Ancestors(document.querySelector("input[type='submit']"), document.querySelectorAll("select"))
 
 
-    
-    
+
+// Quick fix for when submitting form and resetting school value
+let sc = document.querySelector("[name='school']")
+if (sc.value) {
+    sc.value = ""
+}
+sc.disabled=false
     
     
 
 
-document.querySelector("[name='school']").disabled=false
 
