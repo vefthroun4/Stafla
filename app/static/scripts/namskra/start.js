@@ -1,6 +1,5 @@
 import { DataFetcher } from "../datafetcher.js";
 
-
 class Ancestors extends DataFetcher {
     constructor(submit, elems=null) {
         super()
@@ -11,6 +10,7 @@ class Ancestors extends DataFetcher {
         if (elems) {
             this.set_ancestors()
             this.set_eventlisteners()
+            this.fix_startup()
         }
     }
 
@@ -39,17 +39,30 @@ class Ancestors extends DataFetcher {
                     }) 
                     
                     if (e.target.value) { 
-                        this.get_data(parent.name+"s", parent.value).then(data => {
-                            if (data && child.name+"s" in data) {
-                                this.create_options(child, data[child.name+"s"], {"id": child.name+"ID", "name": child.name+"_name"})
-                                child.disabled=false
-                            }
-                        }) 
+                        this.set_select_data(parent,child)
                     }
 
                 })
             }
         }
+    }
+
+    set_select_data(parent, child) {
+        this.get_data(parent.name+"s", parent.value).then(data => {
+            if (data && child.name+"s" in data) {
+                this.create_options(child, data[child.name+"s"], {"id": child.name+"ID", "name": child.name+"_name"})
+                child.disabled=false
+            }
+        }) 
+    }
+
+    fix_startup() {
+        "Meant to run on startup on the uppermost tree element"
+        let treeElem = this.tree[Object.keys(this.tree)[0]]
+        if (treeElem.parent.value && treeElem.parent.value !== "__None") {
+            this.set_select_data(treeElem.parent, treeElem.children[0])
+        }
+        treeElem.parent.disabled=false
     }
 
     purge_options(parent) {
@@ -75,14 +88,6 @@ class Ancestors extends DataFetcher {
 let anc = new Ancestors(document.querySelector("input[type='submit']"), document.querySelectorAll("select"))
 
 
-
-// Quick fix for when submitting form and resetting school value
-let sc = document.querySelector("[name='school']")
-if (sc.value) {
-    sc.value = ""
-}
-sc.disabled=false
-    
     
 
 
