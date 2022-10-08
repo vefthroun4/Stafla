@@ -310,9 +310,9 @@ class CourseRegistration(db.Model):
     """ Model used to keep track of courses user has been assigned """
     __tablename__ = "CourseRegistration"
     course_number = Column("courseNumber", String(12), ForeignKey(Courses.course_number), primary_key=True)
+    users_registrationID = Column("usersRegistrationID", Integer, ForeignKey(UsersRegistration.users_registrationID), primary_key=True)
     semester = Column("semester", INTEGER(unsigned=True))
     stateID = Column("state", ForeignKey(CourseState.course_stateID), nullable=False)
-    users_registrationID = Column("usersRegistrationID", Integer, ForeignKey(UsersRegistration.users_registrationID), primary_key=True)
     state = relationship("CourseState")
     users_registration = relationship("UsersRegistration", back_populates="courses") 
 

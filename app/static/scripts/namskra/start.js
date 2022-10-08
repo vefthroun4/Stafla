@@ -104,10 +104,8 @@ class Ancestors extends DataFetcher {
     fix_startup() {
         "Meant to run on startup on the uppermost tree element"
         let treeElem = this.tree[Object.keys(this.tree)[0]]
-        console.log(treeElem.parent.value)
         if (treeElem.parent.value !== "__None") {
             this.set_select_data(treeElem.parent, treeElem.children[0])
-            console.log("hm")
         }
         treeElem.parent.disabled=false
     }
