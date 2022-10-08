@@ -189,6 +189,13 @@ class Prerequisites(db.Model):
     prerequisite =  Column("prerequisite", String(12), ForeignKey("Courses.courseNumber"), primary_key=True, index=True)
     simultaneous =  Column("simultaneous", Boolean, default=False)
     CheckConstraint(prerequisite != course_number)
+
+    def to_json(self):
+        return {
+            "continuation": self.course_number,
+            "prerequisite" : self.prerequisite,
+            "simultaneous": self.simultaneous
+        }
     
     def __repr__(self):
         return f"<Prerequisites: courseNumber={self.course_number}, prerequisite={self.prerequisite}>"
@@ -203,10 +210,26 @@ class Courses(db.Model):
     course_credits = Column("courseCredits", INTEGER(unsigned=True), default=5)
     prerequisites = relationship("Prerequisites",
                                 foreign_keys=[Prerequisites.course_number],
-                                cascade="all, delete-orphan")
+                                cascade="all, delete-orphan", 
+                                lazy="dynamic")
     continuations = relationship("Prerequisites", 
                                 foreign_keys=[Prerequisites.prerequisite],
-                                cascade="all, delete-orphan")
+                                cascade="all, delete-orphan", 
+                                lazy="dynamic")
+
+    def to_json(self, include_children=False):
+        resp = {
+            "course_number": self.course_number,
+            "course_name": self.course_name,
+            "course_description": self.course_description,
+            "course_type" : self.course_type,
+            "course_credits": self.course_credits,
+        }
+        #TODO make a custom join to better represent the prerequisites and continuations instead of relying on relationships
+        if include_children:
+            resp["prerequisites"] = [prerequisite.to_json() for prerequisite in self.prerequisites]
+            resp["continuations"] = [continuation.to_json() for continuation in self.continuations]
+        return resp
     
     def __repr__(self):
         return f"<Courses: course_number={self.course_number}, course_name={self.course_name}, course_credits={self.course_credits}>"
@@ -233,9 +256,12 @@ class TrackCourses(db.Model):
     is_active = Column("isActive", Boolean, default=True)
     course = relationship("Courses")
     group = relationship("CourseGroups", back_populates="courses")
+    
+    # Get all courses that have a value set in semester column 
+    # TrackCourses.query.filter(TrackCourses.semester.isnot(None)).all()
 
     def __repr__(self):
-        return f"<TrackCourses - {self.trackID}: groupID={self.groupID}, course_number={self.course_number}, mandatory={self.mandatory}, is_active={self.is_active}>"
+        return f"<TrackCourses - {self.trackID}: groupID={self.groupID}, course_number={self.course_number}, mandatory={self.mandatory}, is_active={self.is_active}, semester={self.semester}>"
 
 class UsersRegistration(db.Model):
     """ Model used to keep track of users table"""

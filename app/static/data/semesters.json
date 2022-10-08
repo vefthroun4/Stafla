@@ -1,0 +1,98 @@
+{
+  "FORR1FG05(AU)": {
+    "semester": 1
+  },
+  "FORR2FA05(BU)": {
+    "semester": 2
+  },
+  "VEF\u00de1VG05(AU)": {
+    "semester": 1
+  },
+  "VEF\u00de2VH05(BU)": {
+    "semester": 2
+  },
+  "FORR2HF05(CU)": {
+    "semester": 3
+  },
+  "KEST1VL05(AU)": {
+    "semester": 1
+  },
+  "KEST2VW05(BU)": {
+    "semester": 2
+  },
+  "KEST2UN05(CU)": {
+    "semester": 3
+  },
+  "VEF\u00de2VF05(CU)": {
+    "semester": 3
+  },
+  "GAGN2HS05(BU)": {
+    "semester": 4
+  },
+  "E\u00d0LI2GR05(BT)": {
+    "semester": 3
+  },
+  "ST\u00c6R3RV05(CT)": {
+    "semester": 3
+  },
+  "ST\u00c6R3FM05(DT)": {
+    "semester": 4
+  },
+  "VESM1VS05(AU)": {
+    "semester": 1
+  },
+  "VESM2VT05(BU)": {
+    "semester": 2
+  },
+  "VESM2V\u00de05(CU)": {
+    "semester": 3
+  },
+  "ST\u00c6R2BR05(AT)": {
+    "semester": 1
+  },
+  "ST\u00c6R2AH05(BT)": {
+    "semester": 2
+  },
+  "ST\u00c6R3FV05(ET)": {
+    "semester": 5
+  },
+  "\u00cdSLE2AA05(AT)": {
+    "semester": 1
+  },
+  "\u00cdSLE2GO05(BT)": {
+    "semester": 2
+  },
+  "\u00cdSLE3BF05(CT)": {
+    "semester": 4
+  },
+  "\u00cdSLE3LF05(CT)": {
+    "semester": 4
+  },
+  "\u00cdSLE3NB05(CT)": {
+    "semester": 4
+  },
+  "DANS2BM05(AT)": {
+    "semester": 5
+  },
+  "ENSK2AE05(AT)": {
+    "semester": 1
+  },
+  "ENSK2OF05(BT)": {
+    "semester": 2
+  },
+  "MENL1AL05(AT)": {
+    "semester": 5
+  },
+  "\u00cd\u00deR\u00d31GH02(AT)": {
+    "semester": 1
+  },
+  "\u00cd\u00deR\u00d31LA01(AT)": {
+    "semester": 1
+  },
+  "\u00cd\u00deR\u00d31LB01(BT)": {
+    "semester": 2
+  },
+  "\u00cd\u00deR\u00d31LC01(CT)": {
+    "semester": 3
+  }
+}

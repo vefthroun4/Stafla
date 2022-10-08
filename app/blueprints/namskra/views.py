@@ -41,6 +41,6 @@ def start():
 @namskra_bp.route("/table", methods=("GET", "POST"))
 def namskra():
     data = None
-    with open(current_app.instance_path+"\\afangar.json", "r") as f:
+    with open(current_app.instance_path+"\\finaldata.json", "r") as f:
         data = json.load(f)
     return render_template("namskra/namskra.html", data=data)

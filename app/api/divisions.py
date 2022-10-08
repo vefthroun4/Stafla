@@ -4,6 +4,10 @@ from app.api import api_bp
 from .errors import resource_not_found
 
 #TODO implement a way to accept a header that determines what variable is filtered by to avoid making too many routes
+@api_bp.route("/divisions/all")
+def get_divisions():
+    return jsonify([division.to_json() for division in Divisions.query.all()])
+
 @api_bp.route("/divisions/<division_name>", methods=("GET", "POST"))
 def get_divisions_by_name(division_name):
     division = Divisions.query.filter_by(division_name=division_name).first()
