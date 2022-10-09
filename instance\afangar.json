@@ -1,0 +1,767 @@
+[
+  {
+    "link": "https://namskra.is/courses/590c780162933a4e9204deef",
+    "comment": "",
+    "description": "\u00cd \u00e1fanganum f\u00e1 nemendur \u00fej\u00e1lfun \u00ed forritun. Fari\u00f0 er \u00ed undirst\u00f6\u00f0uatri\u00f0i forritunar svo sem skilyr\u00f0issetningar, slaufur, a\u00f0fer\u00f0ir, fylki og strengjavinnslu. Nemendur vinna verkefni \u00ed t\u00edmum sem reyna \u00e1 f\u00e6rni \u00feeirra og getu var\u00f0andi \u00feessi atri\u00f0i. L\u00f6g\u00f0 er \u00e1hersla \u00e1 a\u00f0 nemendur temji s\u00e9r \u00f6gu\u00f0 og vi\u00f0urkennd vinnubr\u00f6g\u00f0 vi\u00f0 forritun. ",
+    "core": true,
+    "active": true,
+    "tbr": true,
+    "bval": 0,
+    "course_number": "FORR1FG05(AU)",
+    "course_name": "Forritun I",
+    "prerequisites": []
+  },
+  {
+    "link": "https://namskra.is/courses/5919aae562933a4e92054474",
+    "comment": "M\u00e1 taka samhli\u00f0a FORR1FG05(AU)",
+    "description": "Val\u00e1fangi \u00ed forritun \u00fear sem nemendur undirb\u00faa sig fyrir Forritunarkeppni framhaldssk\u00f3lanna og l\u00fdkur \u00e1fanganum me\u00f0 \u00fe\u00e1ttt\u00f6ku \u00ed forritunarkeppninni. ",
+    "core": false,
+    "active": true,
+    "tbr": true,
+    "bval": 2,
+    "course_number": "FORK2FE02(AU)",
+    "course_name": "Forritunarkeppni I ",
+    "prerequisites": [
+      "FORR1FG05(AU)"
+    ]
+  },
+  {
+    "link": "https://namskra.is/courses/5919abc962933a4e9205448e",
+    "comment": "",
+    "description": "Val\u00e1fangi \u00ed forritun \u00fear sem nemendur undirb\u00faa sig fyrir Forritunarkeppni framhaldssk\u00f3lanna og l\u00fdkur \u00e1fanganum me\u00f0 \u00fe\u00e1ttt\u00f6ku \u00ed forritunarkeppninni. ",
+    "core": false,
+    "active": true,
+    "tbr": true,
+    "bval": 2,
+    "course_number": "FORK2FT02(BU)",
+    "course_name": "Forritunarkeppni II ",
+    "prerequisites": [
+      "FORR2FA05(BU)",
+      "FORK2FE02(AU)"
+    ]
+  },
+  {
+    "link": "https://namskra.is/courses/5919acd562933a4e9205449d",
+    "comment": "",
+    "description": "Val\u00e1fangi \u00ed forritun \u00fear sem nemendur undirb\u00faa sig fyrir Forritunarkeppni framhaldssk\u00f3lanna og l\u00fdkur \u00e1fanganum me\u00f0 \u00fe\u00e1ttt\u00f6ku \u00ed forritunarkeppninni. ",
+    "core": false,
+    "active": true,
+    "tbr": true,
+    "bval": 2,
+    "course_number": "FORK2F\u00de02(CU)",
+    "course_name": "Forritunarkeppni III ",
+    "prerequisites": [
+      "FORK2FT02(BU)"
+    ]
+  },
+  {
+    "link": "https://namskra.is/courses/5919696b62933a4e9205418c",
+    "comment": "",
+    "description": "\u00cd \u00e1fanganum er unni\u00f0 me\u00f0 gagnategundir, a\u00f0fer\u00f0ir (e. methods), fylki, lista og skr\u00e1r. Nemendur kynnast klasas\u00f6fnum og \u00fdmsum atri\u00f0um vi\u00f0 h\u00f6nnun forrita sem eru n\u00e1tengd hlutbundinni forritun. Fj\u00f6lm\u00f6rg verkefni eru unnin \u00e1 \u00f6nninni sem gefa nemendum inns\u00fdn \u00ed hlutbundna forritun.",
+    "core": true,
+    "active": true,
+    "tbr": true,
+    "bval": 0,
+    "course_number": "FORR2FA05(BU)",
+    "course_name": "Forritun II",
+    "prerequisites": [
+      "FORR1FG05(AU)"
+    ]
+  },
+  {
+    "link": "https://namskra.is/courses/591c4aeb62933a4e920559b5",
+    "comment": "",
+    "description": "\u00cd \u00e1fanganum er fari\u00f0 \u00ed grunnatri\u00f0i vefs\u00ed\u00f0uh\u00f6nnunar og megin\u00e1hersla l\u00f6g\u00f0 \u00e1 \u00edvafsm\u00e1l (e. HTML) og st\u00edls\u00ed\u00f0ur (e. CSS). Hver \u00feessara \u00fe\u00e1tta er tekinn s\u00e9rstaklega fyrir og s\u00fdnt hvernig samspil \u00feeirra stu\u00f0lar a\u00f0 vanda\u00f0ri uppsetningu og framsetningu vefs\u00ed\u00f0na. Sko\u00f0u\u00f0 er \u00fer\u00f3unarsaga vefsins, hlutverk vafrans (e. Internet browser) og virkni hans.",
+    "core": true,
+    "active": true,
+    "tbr": true,
+    "bval": 0,
+    "course_number": "VEF\u00de1VG05(AU)",
+    "course_name": "Vef\u00fer\u00f3un I",
+    "prerequisites": []
+  },
+  {
+    "link": "https://namskra.is/courses/591c4ca162933a4e920559c0",
+    "comment": "",
+    "description": "\u00cd \u00e1fanganum vinna nemendur a\u00f0 sveigjanlegri vefs\u00ed\u00f0uh\u00f6nnun (e. Responsive Web Design) og sko\u00f0a mismunandi a\u00f0fer\u00f0ir vi\u00f0 uppsetningu (e. layout) snjallvefs\u00ed\u00f0na. Fari\u00f0 er \u00ed st\u00edlsetningu vi\u00f0mi\u00f0unarmarka (e. breakpoints) \u00ed st\u00edls\u00ed\u00f0u. Fari\u00f0 er \u00ed uppsetningu \u00e1 samskiptaformi og t\u00f6flu.  Nemendur vinna me\u00f0 kvikun (e. animation) til a\u00f0 l\u00edfga upp \u00e1 vefs\u00ed\u00f0ur og til a\u00f0 n\u00e1 fram gagnvirkni \u00ed samskiptum vafra vi\u00f0 notendur.   ",
+    "core": true,
+    "active": true,
+    "tbr": true,
+    "bval": 0,
+    "course_number": "VEF\u00de2VH05(BU)",
+    "course_name": "Vef\u00fer\u00f3un II",
+    "prerequisites": [
+      "VEF\u00de1VG05(AU)"
+    ]
+  },
+  {
+    "link": "https://namskra.is/courses/59196cc162933a4e920541d2",
+    "comment": "",
+    "description": "\u00cd \u00e1fanganum er l\u00f6g\u00f0 \u00e1hersla \u00e1 a\u00f0 nemendur geti \u00fer\u00f3a\u00f0 hugb\u00fana\u00f0 samkv\u00e6mt hlutbundinni a\u00f0fer\u00f0afr\u00e6\u00f0i og geti vali\u00f0 \u00fe\u00e6r lei\u00f0ir sem best eiga vi\u00f0 hverju sinni. Klasahugtaki\u00f0 er fyrirfer\u00f0amiki\u00f0 \u00ed \u00feessum \u00e1fanga og l\u00e6ra nemendur a\u00f0 hanna og \u00fatf\u00e6ra klasa og nota klasas\u00f6fn. \u00c1fram ver\u00f0ur unni\u00f0 me\u00f0 a\u00f0fer\u00f0ir, lista, fylki, strengjavinnslu og skr\u00e1arvinnslu. Nemendur vinna mismunandi verkefni sem reyna \u00e1 f\u00e6rni \u00feeirra og getu var\u00f0andi \u00feessi atri\u00f0i. ",
+    "core": true,
+    "active": true,
+    "tbr": true,
+    "bval": 0,
+    "course_number": "FORR2HF05(CU)",
+    "course_name": "Hlutbundin forritun",
+    "prerequisites": [
+      "FORR2FA05(BU)"
+    ]
+  },
+  {
+    "link": "https://namskra.is/courses/5dd693d2e3d27fe43f0004de",
+    "comment": "",
+    "description": "\u00cd \u00e1fanganum l\u00e6ra nemendur a\u00f0 setja upp og nota Linux st\u00fdrikerfi\u00f0. \u00c1hersla er l\u00f6g\u00f0 \u00e1 a\u00f0 nemendur l\u00e6ri a\u00f0 vinna \u00ed skipanal\u00ednu. Nemendur kynnast grunnatri\u00f0um \u00ed skriftum \u00ed Linux og l\u00f6g\u00f0 er \u00e1hersla \u00e1 a\u00f0 \u00feeir geti n\u00fdtt skriftur \u00ed sem flestu sem sn\u00fdr a\u00f0 umsj\u00f3n Linux st\u00fdrikerfisins. \u00cd \u00e1fanganum ver\u00f0ur einnig kennd notkun \u00e1 \u00fatg\u00e1fust\u00fdringarforritinu git og nemendur \u00fej\u00e1lfa\u00f0ir \u00ed notkun \u00feess.",
+    "core": true,
+    "active": true,
+    "tbr": true,
+    "bval": 0,
+    "course_number": "KEST1VL05(AU)",
+    "course_name": "T\u00f6lvut\u00e6kni - Vinnulag og Linux",
+    "prerequisites": []
+  },
+  {
+    "link": "https://namskra.is/courses/5dd6956ae3d27fe43f0004ef",
+    "comment": "",
+    "description": "\u00cd \u00e1fanganum er megin\u00e1hersla \u00e1 v\u00e9lb\u00fana\u00f0 og st\u00fdrikerfi. Nemendur setja saman t\u00f6lvu, setja upp st\u00fdrikerfi, uppf\u00e6ra BIOS, rekla og st\u00fdrikerfi. Fari\u00f0 er \u00ed hlutverk og samskipti mismunandi \u00edhluta t\u00f6lvunnar, s.s. \u00f6rgj\u00f6rva og minni, samskipti vi\u00f0 vi\u00f0skiptavini og \u00fej\u00f3nustubor\u00f0 og f\u00f6rgun \u00e1 t\u00f6lvub\u00fana\u00f0i. Fjalla\u00f0 er um tengingu og uppsetningu \u00e1 ja\u00f0art\u00e6kjum. Tengdar eru saman tv\u00e6r e\u00f0a fleiri t\u00f6lvur \u00feannig a\u00f0 \u00fe\u00e6r geti haft samskipti s\u00edn \u00e1 milli. Nemendur vinna me\u00f0 \u00fdmsar stillingar \u00ed Windows st\u00fdrikerfinu, b\u00faa til notendur og h\u00f3pa auk \u00feess sem notkun a\u00f0gangsst\u00fdringa \u00ed Windows er sko\u00f0u\u00f0 og \u00e6f\u00f0. Nemendur f\u00e1 kynningu og \u00e6fa notkun \u00e1 skriftum \u00ed Windows.",
+    "core": true,
+    "active": true,
+    "tbr": true,
+    "bval": 0,
+    "course_number": "KEST2VW05(BU)",
+    "course_name": "T\u00f6lvut\u00e6kni - v\u00e9lb\u00fana\u00f0ur og Winodws",
+    "prerequisites": [
+      "KEST1VL05(AU)"
+    ]
+  },
+  {
+    "link": "https://namskra.is/courses/5dd69700e3d27fe43f000502",
+    "comment": "",
+    "description": "\u00cd \u00e1fanganum er fari\u00f0 \u00ed undirst\u00f6\u00f0uatri\u00f0i netkerfa. Fari\u00f0 er yfir hvernig netb\u00fana\u00f0ur hefur samskipti, vistf\u00f6ng og algengar net\u00fej\u00f3nustur. Einnig er fari\u00f0 \u00ed uppbyggingu heimanets og undirst\u00f6\u00f0uatri\u00f0i \u00ed \u00f6ryggisstillingum. Einnig er fari\u00f0 \u00ed pr\u00f3fanir og bilanagreiningu \u00e1 netkerfisb\u00fana\u00f0i.",
+    "core": true,
+    "active": true,
+    "tbr": true,
+    "bval": 0,
+    "course_number": "KEST2UN05(CU)",
+    "course_name": "T\u00f6lvut\u00e6kni - undirst\u00f6\u00f0uatri\u00f0i netkerfa",
+    "prerequisites": [
+      "KEST2VW05(BU)"
+    ]
+  },
+  {
+    "link": "https://namskra.is/courses/591992ca62933a4e920543f4",
+    "comment": "",
+    "description": "\u00cd \u00e1fanganum er fari\u00f0 \u00ed tv\u00f6 mikilv\u00e6g atri\u00f0i t\u00f6lvunarfr\u00e6\u00f0innar, gagnaskipan og reiknirit. Fari\u00f0 er yfir \u00feekkt reiknirit (e. algorithms) \u00ed t\u00f6lvunarfr\u00e6\u00f0i sem og almenna gagnaskipan. Nemendur kynnast \u00fdmsum ger\u00f0um reiknirita, uppbyggingu \u00feeirra og sm\u00ed\u00f0i. Nemendur f\u00e1 einnig inns\u00fdn \u00ed hlutverk gagnaskipunar \u00ed hugb\u00fana\u00f0i og hvernig mismunandi skipan er leidd af mismunandi hugmyndum. Nemendur f\u00e1 einnig t\u00e6kif\u00e6ri til a\u00f0 hanna og sm\u00ed\u00f0a fj\u00f6lda forrita sem styrkja \u00feekkingu \u00feeirra \u00e1 n\u00e1msefninu.",
+    "core": false,
+    "active": false,
+    "tbr": true,
+    "bval": 2,
+    "course_number": "FORR3RR05(DU)",
+    "course_name": "Reiknirit",
+    "prerequisites": [
+      "FORR2HF05(CU)",
+      "ST\u00c6R3FM05(DT)"
+    ]
+  },
+  {
+    "link": "https://namskra.is/courses/59198ad362933a4e920543b3",
+    "comment": "",
+    "description": "\u00c1fanginn er hugsa\u00f0ur sem almennur inngangur a\u00f0 leikjager\u00f0. \u00cd honum kynnast nemendur \u00feeim grunnatri\u00f0um sem flestir t\u00f6lvuleikir byggjast \u00e1. Kynnt eru hin \u00fdmsu s\u00f6fn (e. libraries) sem notu\u00f0 eru vi\u00f0 sm\u00ed\u00f0i t\u00f6lvuleikja. Fari\u00f0 er yfir hlj\u00f3\u00f0 og mynd og hlutverk \u00feeirra \u00ed upplifun notandans. Einnig er sko\u00f0a\u00f0 hvernig s\u00f6gu\u00fer\u00e1\u00f0ur og markmi\u00f0 leiksins st\u00fdra \u00fev\u00ed hvernig hann er \u00fer\u00f3a\u00f0ur. A\u00f0al\u00e1herslan er \u00fe\u00f3 \u00e1 forritun leikja og \u00feau s\u00e9rt\u00e6ku verkefni sem blasa vi\u00f0 forritaranum. \u00ddmis \u00f3l\u00edk verkefni eru unnin me\u00f0 \u00fea\u00f0 a\u00f0 markmi\u00f0i a\u00f0 gefa nemendum inns\u00fdn \u00ed heim t\u00f6lvuleikjager\u00f0ar.",
+    "core": false,
+    "active": true,
+    "tbr": true,
+    "bval": 2,
+    "course_number": "FORR2GL05(DU)",
+    "course_name": "Leikjaforritun I",
+    "prerequisites": [
+      "FORR2HF05(CU)"
+    ]
+  },
+  {
+    "link": "https://namskra.is/courses/59198c9d62933a4e920543cc",
+    "comment": "",
+    "description": "\u00cd \u00e1fangnum er fari\u00f0 d\u00fdpra \u00ed graf\u00edk og hlj\u00f3\u00f0 \u00ed t\u00f6lvuleikjum og s\u00e9rst\u00f6k \u00e1hersla er sett \u00e1 r\u00fallandi bakgrunn (e. scrolling background) og \u00fe\u00fd\u00f0ingu hans fyrir t\u00f6lvuleiki almennt. Kynnt ver\u00f0ur hvernig hagn\u00fdta m\u00e1 \u00fdmis e\u00f0lisfr\u00e6\u00f0il\u00f6gm\u00e1l \u00ed leikjager\u00f0. Byrjunaratri\u00f0i \u00ed gerfigreind ver\u00f0a l\u00edka til umfj\u00f6llunar. Einnig er sko\u00f0u\u00f0 s\u00fa grein leikja sem kallast platformers. \u00cd lokin er fari\u00f0 yfir s\u00e9rt\u00e6k verkefni \u00ed fj\u00f6lspilunarleikjum. \u00d6ll umgj\u00f6r\u00f0 leiks f\u00e6rist n\u00fa fr\u00e1 stigi frumger\u00f0a yfir \u00ed fullvaxta t\u00f6lvuleik.",
+    "core": false,
+    "active": true,
+    "tbr": true,
+    "bval": 2,
+    "course_number": "FORR3FL05(EU)",
+    "course_name": "Leikjaforritun II",
+    "prerequisites": [
+      "FORR2GL05(DU)"
+    ]
+  },
+  {
+    "link": "https://namskra.is/courses/5919869b62933a4e9205438c",
+    "comment": "",
+    "description": "\u00cd \u00e1fanganum er fari\u00f0 vel \u00ed forritunarm\u00e1li\u00f0 JavaScript. Unni\u00f0 er me\u00f0 DOM (e. Document Object Model) \u00ed veflausnum. S\u00f6fn eru sko\u00f0u\u00f0 og notu\u00f0 til a\u00f0 einfalda verk og vi\u00f0 \u00fer\u00f3un lausna. Saga og \u00fer\u00f3un JavaScripts er sko\u00f0u\u00f0 me\u00f0 hlj\u00f3\u00f0sj\u00f3n til vef\u00fer\u00f3unar. Nemendur vinna a\u00f0 \u00fer\u00f3un gagnvirkra vi\u00f0m\u00f3tsforrita me\u00f0 notkun JavaScript.",
+    "core": false,
+    "active": true,
+    "tbr": true,
+    "bval": 2,
+    "course_number": "FORR3JS05(DU)",
+    "course_name": "JavaScript",
+    "prerequisites": [
+      "FORR2HF05(CU)",
+      "VEF\u00de2VH05(BU)"
+    ]
+  },
+  {
+    "link": "https://namskra.is/courses/5919888862933a4e9205439d",
+    "comment": "",
+    "description": "\u00cd \u00e1fanganum f\u00e1st nemendur vi\u00f0 eftirfarandi vi\u00f0fangsefni: notendaupplifun (e. UX), notendavi\u00f0m\u00f3t (e. UI) og vi\u00f0m\u00f3tsforritun fyrir mismunandi a\u00f0st\u00e6\u00f0ur og umhverfi. S\u00f6fn, t\u00e6ki og t\u00f3l eru sko\u00f0u\u00f0 og notu\u00f0 vi\u00f0 \u00fer\u00f3un afur\u00f0ar. Nemendur vinna a\u00f0 sm\u00ed\u00f0i gagnvirkrar afur\u00f0ar.",
+    "core": false,
+    "active": true,
+    "tbr": true,
+    "bval": 2,
+    "course_number": "FORR3FV05(EU)",
+    "course_name": "Vi\u00f0m\u00f3tsforritun",
+    "prerequisites": [
+      "FORR3JS05(DU)"
+    ]
+  },
+  {
+    "link": "https://namskra.is/courses/591c517262933a4e920559e9",
+    "comment": "",
+    "description": "\u00cd \u00e1fanganum l\u00e6ra nemendur uppsetningu gagnvirks vefjar \u00e1 vef\u00fej\u00f3n. Fari\u00f0 er \u00ed var\u00f0veislu gagna, notkun gagnasni\u00f0s (e. data format) og \u00fe\u00e1ttun (e. parsing) \u00feeirra \u00ed vef. Nemendur vinna a\u00f0 ger\u00f0 vefja me\u00f0 gagnagrunni.",
+    "core": false,
+    "active": true,
+    "tbr": true,
+    "bval": 2,
+    "course_number": "VEF\u00de3V\u00de05(DU)",
+    "course_name": "Vef\u00fer\u00f3un IV",
+    "prerequisites": [
+      "VEF\u00de2VF05(CU)",
+      "FORR3JS05(DU)"
+    ]
+  },
+  {
+    "link": "https://namskra.is/courses/5dd7a8a0e3d27faddc0002ac",
+    "comment": "M\u00e1 taka samhli\u00f0a E\u00d0LI2GR05(BT).",
+    "description": "\u00cd \u00e1fanganum kynnast nemendur v\u00e9lmennum, hva\u00f0 er v\u00e9lmenni og hva\u00f0a t\u00e6kni er notu\u00f0 \u00ed v\u00e9lmennum. Nemendur kynnast  lausnara\u00f0fer\u00f0um, verkefnastj\u00f3rnun, samvinnu og a\u00f0 n\u00fdta s\u00e9r \u00fe\u00e1 \u00feekkingu \u00ed st\u00e6r\u00f0fr\u00e6\u00f0i, e\u00f0lisfr\u00e6\u00f0i og forritun sem \u00feeir hafa \u00feegar vald \u00e1.  Eftirfarandi n\u00e1ms\u00fe\u00e6ttir ver\u00f0a kenndir: ni\u00f0urbrot vandam\u00e1la \u00far fl\u00f3kinni  heg\u00f0un \u00ed einafalda heg\u00f0un (e. behavior), ger\u00f0 fl\u00e6\u00f0irita og sau\u00f0ak\u00f3\u00f0a og a\u00f0 lokum forritun sem v\u00e9lmenni skilur, hreyfing (fram, aftur, sn\u00faningur) t\u00edmi  og sta\u00f0a, fjarst\u00fdringar (bylgjufr\u00e6\u00f0i) og nemar.",
+    "core": false,
+    "active": true,
+    "tbr": true,
+    "bval": 2,
+    "course_number": "ROBO2RG05(AU)",
+    "course_name": "V\u00e9lmenni I",
+    "prerequisites": [
+      "FORR2FA05(BU)",
+      "E\u00d0LI2GR05(BT)",
+      "VESM2V\u00de05(CU)"
+    ]
+  },
+  {
+    "link": "https://namskra.is/courses/5dd69310e3d27fe43f0004d3",
+    "comment": "",
+    "description": "\u00cd \u00e1fanganum leysa nemendur st\u00f3rt verkefni sem er fyrirframskilgreint. Nemendur gera verk\u00e1\u00e6tlun \u00fear sem verkefni\u00f0 er broti\u00f0 ni\u00f0ur \u00ed minnstu einingar.  Logskr\u00e1r, verk\u00e1\u00e6tlun, au\u00f0lindir \u00fe.e v\u00e9lb\u00fana\u00f0ur og hugb\u00fana\u00f0ur sem til \u00fearf, fl\u00e6\u00f0irit, sau\u00f0ak\u00f3\u00f0i og innlei\u00f0ing.  \u00d6llu er steypt saman \u00ed lokask\u00fdrslu.  ",
+    "core": false,
+    "active": true,
+    "tbr": true,
+    "bval": 2,
+    "course_number": "ROBO3RF05(BU)",
+    "course_name": "V\u00e9lmenni II",
+    "prerequisites": [
+      "ROBO2RG05(AU)"
+    ]
+  },
+  {
+    "link": "https://namskra.is/courses/591c4cd162933a4e920559c4",
+    "comment": "",
+    "description": "\u00cd \u00e1fanganum eru grunnatri\u00f0i vefforritunar kynnt. Fari\u00f0 er \u00ed mi\u00f0lara/bi\u00f0lara uppbyggingu vefs\u00ed\u00f0na, samskipti \u00feeirra og hlutverk hvers hluta. Nemendur vinna a\u00f0 sm\u00ed\u00f0i vefja me\u00f0 mi\u00f0laram\u00e1li. L\u00f6g\u00f0 er \u00e1hersla \u00e1 m\u00e1lfr\u00e6\u00f0i og endurn\u00fdtni \u00e1 k\u00f3\u00f0a \u00ed ger\u00f0 vefja.",
+    "core": true,
+    "active": true,
+    "tbr": true,
+    "bval": 0,
+    "course_number": "VEF\u00de2VF05(CU)",
+    "course_name": "Vef\u00fer\u00f3un III",
+    "prerequisites": [
+      "FORR2FA05(BU)",
+      "VEF\u00de2VH05(BU)"
+    ]
+  },
+  {
+    "link": "https://namskra.is/courses/5dd69030e3d27fe43f0004b5",
+    "comment": "",
+    "description": "\u00cd \u00e1fanganum kynnast nemendur helstu hugt\u00f6kum gagnasafnsfr\u00e6\u00f0innar. \u00c1hersla er l\u00f6g\u00f0 \u00e1 venslu\u00f0 gagnas\u00f6fn og n\u00fdtingu \u00feeirra \u00ed gegnum fyrirspurnarm\u00e1li\u00f0 SQL. Nemendur l\u00e6ra undirst\u00f6\u00f0uatri\u00f0i \u00ed h\u00f6nnungangagrunna og sm\u00ed\u00f0i \u00feeirra. Fari\u00f0 er s\u00e9rstaklega \u00ed greiningu og flokkun  gagna \u00ed t\u00f6flur og hvernig g\u00f6gn venslast saman samkv\u00e6mt regluverki gagnasafnsfr\u00e6\u00f0innar. Nemendur kynnast grunn\u00fe\u00e1ttum fyrirspurnarm\u00e1lsins SQL og l\u00e6ra beitingu \u00feess vi\u00f0 sm\u00ed\u00f0ar, uppf\u00e6rslu og vinnu me\u00f0 venslu\u00f0 g\u00f6gn \u00ed gagnagrunnum. Einnig eru kynntar vista\u00f0ar stefjur (e. stored procedures) og f\u00f6ll. Er notkun \u00feeirra kynnt og \u00e6f\u00f0.  \u00cd \u00e1fanganum er \u00feekkingar\u00f6flun studd fj\u00f6lda verkefna og r\u00e6dd eru \u00fdmis \u00e1litam\u00e1l sem upp koma vi\u00f0 h\u00f6nnun.",
+    "core": true,
+    "active": true,
+    "tbr": true,
+    "bval": 0,
+    "course_number": "GAGN2HS05(BU)",
+    "course_name": "Gagnasafnsfr\u00e6\u00f0i - H\u00f6nnun og sm\u00ed\u00f0i",
+    "prerequisites": [
+      "FORR2FA05(BU)"
+    ]
+  },
+  {
+    "link": "https://namskra.is/courses/591c1a0262933a4e92055808",
+    "comment": "",
+    "description": "\u00cd \u00e1fanganum er \u00e1fram unni\u00f0 a\u00f0 aukinni \u00feekkingu \u00e1 grunnatri\u00f0um gagnagrunnsh\u00f6nnunar. Fari\u00f0 er s\u00e9rstaklega \u00ed normalform og forsendur fyrir mikilv\u00e6gi \u00feeirra. Skilningur nemenda er d\u00fdpka\u00f0ur \u00e1 JOIN og SUBQUERY fyrirspurnum og mikilv\u00e6gi \u00feeirra t\u00edunda\u00f0 \u00ed \u00fev\u00ed ferli a\u00f0 breyta g\u00f6gnum \u00ed uppl\u00fdsingar. H\u00f6fu\u00f0\u00e1hersla er \u00e1 notkun vi\u00f0auka vi\u00f0 SQL sta\u00f0alinn, svokalla\u00f0a stefjuforritun. Fari\u00f0 er vel \u00ed vista\u00f0ar stefjur og f\u00f6ll og hagn\u00fdting \u00feeirra \u00ed gagnagrunnsvinnslu t\u00edunda\u00f0ar. Kynntar eru \u00fdmsar lei\u00f0ir til gagnavinnslu me\u00f0 sl\u00edkum stefjum en einnig me\u00f0 svonefndum s\u00fdnum (e. view). Nemendur f\u00e1 inns\u00fdn \u00ed \u00fatf\u00e6rslu fl\u00f3knari reglna \u00ed gagnas\u00f6fnum me\u00f0 rofum (e. trigger). Tenging gagnagrunna vi\u00f0 forrit og/e\u00f0a vef er kynnt og sko\u00f0a\u00f0ar hef\u00f0bundnar lei\u00f0ir \u00ed gagnagrunnsh\u00e1\u00f0um hugb\u00fana\u00f0i.",
+    "core": false,
+    "active": true,
+    "tbr": true,
+    "bval": 2,
+    "course_number": "GAGN2VG05(CU)",
+    "course_name": "Gagnasafnsfr\u00e6\u00f0i - Vensla\u00f0ir gagnagrunnar",
+    "prerequisites": [
+      "GAGN2HS05(BU)"
+    ]
+  },
+  {
+    "link": "https://namskra.is/courses/591c26f062933a4e920558ae",
+    "comment": "M\u00e1 taka samhli\u00f0a KEST2UN05(CU)",
+    "description": "\u00cd \u00e1fanganum er fari\u00f0 \u00ed helstu skipanir \u00ed Linux umhverfinu og nemendur kynnast muninum \u00e1 \u00fev\u00ed a\u00f0 vera notandi og stj\u00f3rnandi \u00ed Linux umhverfi \u00ed gegnum terminal vinnu. Fari\u00f0 er \u00ed \u00fe\u00e6tti eins og skeljar, skr\u00e1arvinnslu, skr\u00e1arvernd, afritun, p\u00edpur, s\u00edur, r\u00e6singu, lokun, diskast\u00fdringar og pakkakerfi. Stu\u00f0st er vi\u00f0 kennsluefni fr\u00e1 NDG sem undirb\u00fdr nemendur undir al\u00fej\u00f3\u00f0legt pr\u00f3f LPIC-1.",
+    "core": false,
+    "active": false,
+    "tbr": true,
+    "bval": 2,
+    "course_number": "KEST2LG05(DU)",
+    "course_name": "Linux - kerfisstj\u00f3rnun",
+    "prerequisites": [
+      "KEST2UN05(CU)"
+    ]
+  },
+  {
+    "link": "https://namskra.is/courses/591c26f062933a4e920558ae",
+    "comment": "M\u00e1 taka samhli\u00f0a KEST2UN05(CU)",
+    "description": "\u00cd \u00e1fanganum er fari\u00f0 \u00ed helstu skipanir \u00ed Linux umhverfinu og nemendur kynnast muninum \u00e1 \u00fev\u00ed a\u00f0 vera notandi og stj\u00f3rnandi \u00ed Linux umhverfi \u00ed gegnum terminal vinnu. Fari\u00f0 er \u00ed \u00fe\u00e6tti eins og skeljar, skr\u00e1arvinnslu, skr\u00e1arvernd, afritun, p\u00edpur, s\u00edur, r\u00e6singu, lokun, diskast\u00fdringar og pakkakerfi. Stu\u00f0st er vi\u00f0 kennsluefni fr\u00e1 NDG sem undirb\u00fdr nemendur undir al\u00fej\u00f3\u00f0legt pr\u00f3f LPIC-1.",
+    "core": false,
+    "active": true,
+    "tbr": true,
+    "bval": 2,
+    "course_number": "KEST3LN05(EU)",
+    "course_name": "Linux - netstj\u00f3rnun",
+    "prerequisites": [
+      "KEST2UN05(CU)"
+    ]
+  },
+  {
+    "link": "https://namskra.is/courses/5dd69afbe3d27fe43f000546",
+    "comment": "M\u00e1 taka samhli\u00f0a KEST2UN05(CU)",
+    "description": "\u00cd \u00e1fangum l\u00e6ra nemendur uppsetningu og rekstur Windows Server sem kerfisstj\u00f3rnun. Megin\u00e1hersla er l\u00f6g\u00f0 \u00e1 Active Directory, DNS og DHCP \u00fej\u00f3nustur. Nemendur kynnast uppbyggingu Windows Server, a\u00f0gangsstj\u00f3rnun notenda og h\u00f3pa og reglust\u00fdringu (e. group policy). Kynnt er afritun og endurheimting gagna sem og diskst\u00fdringar (RAID).",
+    "core": false,
+    "active": true,
+    "tbr": true,
+    "bval": 2,
+    "course_number": "KEST3WG05(DU)",
+    "course_name": "Windows Server - grunnur",
+    "prerequisites": [
+      "KEST2UN05(CU)",
+      "FORR2FA05(BU)"
+    ]
+  },
+  {
+    "link": "https://namskra.is/courses/5dd69bece3d27fe43f000551",
+    "comment": "",
+    "description": "\u00cd \u00e1fanganum er fari\u00f0 d\u00fdpra \u00ed reglust\u00fdringar, DHCP (e. Dynamic Host Configuration Protocol) og DNS (e. Domain Name System). Nemendur l\u00e6ra a\u00f0 skrifa PowerShell skriftur til a\u00f0 setja upp Active Directory (AD), DHCP og DNS auk \u00feess sem \u00feeir l\u00e6ra a\u00f0 gera skriftur til a\u00f0 b\u00faa til notendur. Fari\u00f0 er \u00ed uppbyggingu Active Directory Schema og hvernig gera m\u00e1 breytingar \u00e1 \u00fev\u00ed. Nemendur vinna svo me\u00f0 Microsoft Internet Information Server (IIS) og Microsoft SQL Server e\u00f0a skyldum \u00fej\u00f3nustum. \u00de\u00e1 er fjalla\u00f0 um Virtual Private Networking (VPN) og \u00f6ryggis- og eftirlitsm\u00e1l.",
+    "core": false,
+    "active": false,
+    "tbr": true,
+    "bval": 2,
+    "course_number": "KEST3WN05(EU)",
+    "course_name": "Windows server - netstj\u00f3rnun og skriftur I",
+    "prerequisites": [
+      "KEST3WG05(DU)"
+    ]
+  },
+  {
+    "link": "https://namskra.is/courses/5dd68d64e3d27fe43f000489",
+    "comment": "",
+    "description": "\u00cd \u00e1fanganum er megin\u00e1hersla \u00e1 samskipti milli beina og skipta \u00ed litlu netkerfi. Fari\u00f0 er \u00ed innvi\u00f0i og virkni \u00e1 netkerfisb\u00fana\u00f0i, m.a. VLAN, static og dynamic routing, ACL, DHCP og NAT. Stu\u00f0st er vi\u00f0 verklegar \u00e6fingar og t\u00f6lvuhermi til a\u00f0 auka f\u00e6rni nemenda \u00ed a\u00f0 stilla og bilanagreina beina og skipta.",
+    "core": false,
+    "active": false,
+    "tbr": true,
+    "bval": 2,
+    "course_number": "KEST3CR05(EU)",
+    "course_name": "CCNA - Routing and Switching essentials",
+    "prerequisites": [
+      "KEST2UN05(CU)"
+    ]
+  },
+  {
+    "link": null,
+    "comment": "",
+    "description": "\u00cd \u00e1fanganum er fari\u00f0 \u00ed Ethical Hacking \u2013 CyberOps Associate. Fyrirt\u00e6ki \u00feurfa a\u00f0 greina og breg\u00f0ast vi\u00f0 \u00f6ryggisatvikum \u00e1 skj\u00f3tan og skilvirkan m\u00e1ta. Teymi \u00ed \u00f6ryggisa\u00f0ger\u00f0armi\u00f0st\u00f6\u00f0vum (Security Operations Centers, SOC) \u00feurfa a\u00f0 hafa vakandi auga me\u00f0 \u00f6ryggiskerfum til a\u00f0 vernda fyrirt\u00e6kin me\u00f0 \u00fev\u00ed a\u00f0 greina og breg\u00f0ast vi\u00f0 net\u00f3gnunum. \u00c1fanginn er g\u00f3\u00f0ur undirb\u00faningur fyrir Cisco Certified CyberOps Associate al\u00fej\u00f3\u00f0lega vottun (200-201 CBROPS).",
+    "core": false,
+    "active": false,
+    "tbr": true,
+    "bval": 2,
+    "course_number": "KEST3CO05(DU)",
+    "course_name": "Ethical Hacking - CyberOps Associate",
+    "prerequisites": [
+      "KEST2UN05(CU)"
+    ]
+  },
+  {
+    "link": null,
+    "comment": "",
+    "description": "\u00cd \u00e1fanganum er notu\u00f0 a\u00f0fer\u00f0arfr\u00e6\u00f0i og verkf\u00e6ri vi\u00f0 n\u00fat\u00edma hugb\u00fana\u00f0arger\u00f0 \u00e1 rekstur uppl\u00fdsingat\u00e6knib\u00fana\u00f0ar og netkerfa. Fari\u00f0 er \u00ed \u00f6r\u00fej\u00f3nustur, pr\u00f3fanir, containers og a\u00f0rar sk\u00fdjalausnir, einnig sj\u00e1lvirkni \u00e1 innvi\u00f0um me\u00f0 API og \u00f6ryggi \u00ed samskiptum. Ger\u00f0ar eru verklegar \u00e6fingar m.a. forritun \u00ed Python me\u00f0 notkun \u00e1 GIT og algengum gagnaformum (JSON, XML og YAML) eru notu\u00f0 til a\u00f0 flytja uppl\u00fdsingar me\u00f0 Continuous Integration/Continuous Deployment(CI/CD) p\u00edpum.",
+    "core": false,
+    "active": true,
+    "tbr": true,
+    "bval": 2,
+    "course_number": "KEST3DN05(DU)",
+    "course_name": "DevNet Associate",
+    "prerequisites": [
+      "KEST2UN05(CU)"
+    ]
+  },
+  {
+    "link": "https://namskra.is/courses/5851616d62933a33a6021a60",
+    "comment": "",
+    "description": "\u00c1fanginn er grunn\u00e1fangi \u00ed klass\u00edskri e\u00f0lisfr\u00e6\u00f0i. L\u00f6g\u00f0 er \u00e1hersla \u00e1 \u00farlausnarefni sem tengjast \u00f6\u00f0ru n\u00e1mi nemenda vi\u00f0 sk\u00f3lann. Helstu vi\u00f0fangsefni eru: Hreyfing \u00ed einni v\u00eddd, fallhreyfing, kraftl\u00f6gm\u00e1l Newtons, \u00e1hrif n\u00faningskrafta, samband vinnu og \u00fdmissa orkuforma, orka og var\u00f0veisla hennar, skri\u00f0\u00feungavar\u00f0veisla, \u00fer\u00fdstingur, uppdrif og inngangur a\u00f0 varmafr\u00e6\u00f0i.",
+    "core": true,
+    "active": true,
+    "tbr": false,
+    "bval": 0,
+    "course_number": "E\u00d0LI2GR05(BT)",
+    "course_name": "Hreyfing, kraftar og orka",
+    "prerequisites": [
+      "ST\u00c6R2BR05(AT)"
+    ]
+  },
+  {
+    "link": "https://namskra.is/courses/585121a462933a33a60218a5",
+    "comment": "",
+    "description": "\u00cd \u00e1fanganum er fjalla\u00f0 um vigra og hornaf\u00f6ll. Helstu efnisatri\u00f0i: Vigrar og reikningur me\u00f0 \u00feeim - Hornaf\u00f6ll - Hornafallareglur og sannanir \u00feeirra - J\u00f6fnur l\u00ednu, hrings og sporbaugs - 2X2 fylki og notkun \u00feeirra til a\u00f0 finna flatarm\u00e1l \u00fer\u00edhyrnings og leysa j\u00f6fnuhneppi",
+    "core": true,
+    "active": true,
+    "tbr": false,
+    "bval": 0,
+    "course_number": "ST\u00c6R3RV05(CT)",
+    "course_name": "Vigrar og hornaf\u00f6ll",
+    "prerequisites": [
+      "ST\u00c6R2AH05(BT)"
+    ]
+  },
+  {
+    "link": "https://namskra.is/courses/5851246d62933a33a60218b7",
+    "comment": "",
+    "description": "\u00cd \u00e1fanganum er fjalla\u00f0 um f\u00f6ll og diffrun \u00feeirra. Helstu efnisatri\u00f0i: - F\u00f6ll og ferlar falla - Hli\u00f0run falla, takm\u00f6rku\u00f0 f\u00f6ll, einhalla f\u00f6ll , andhverfur falla, \u00fdmsar tegundir falla - Markgildi og samfeldni - Snertill, diffurkv\u00f3ti, aflei\u00f0a - \u00ddmsar diffurreglur",
+    "core": true,
+    "active": true,
+    "tbr": false,
+    "bval": 0,
+    "course_number": "ST\u00c6R3FM05(DT)",
+    "course_name": "F\u00f6ll, algebra og diffrun",
+    "prerequisites": [
+      "ST\u00c6R3RV05(CT)"
+    ]
+  },
+  {
+    "link": "https://namskra.is/courses/5919a6f862933a4e92054456",
+    "comment": "",
+    "description": "\u00cd \u00e1fanganum er fari\u00f0 \u00ed hlutbundi\u00f0 forritunarm\u00e1l kennt fr\u00e1 grunni, en gert er r\u00e1\u00f0 fyrir a\u00f0 nemendur \u00feekki anna\u00f0 forritunarm\u00e1l nokku\u00f0 vel, t.d. Python. Fari\u00f0 er \u00edtarlega \u00ed: breytur, seg\u00f0ir, if setningar, lykkjur, f\u00f6ll/a\u00f0fer\u00f0ir, fylki og lista, strengjavinnsla sko\u00f0u\u00f0, klasar og skr\u00e1arvinnsla. Einnig er hlutbundin forritun sko\u00f0u\u00f0 \u00edtarlega.",
+    "core": false,
+    "active": true,
+    "tbr": true,
+    "bval": 2,
+    "course_number": "FORR3CG05(DU)",
+    "course_name": "C++ og gagnagrindur",
+    "prerequisites": [
+      "FORR2HF05(CU)"
+    ]
+  },
+  {
+    "link": "https://namskra.is/courses/5dee326ae3d27faaec000415",
+    "comment": "",
+    "description": "\u00c1fanginn er verklegur inngangs\u00e1fangi fyrir efni sem tengist fj\u00f3r\u00f0u i\u00f0nbyltingunni. Nemendur l\u00e6ra grunnatri\u00f0i \u00ed rafmagnsfr\u00e6\u00f0i og b\u00faa til einfaldar rafr\u00e1sir. Nemendur kynnast mismunandi talnakerfum me\u00f0 \u00e1herslu \u00e1 tv\u00edundakerfi\u00f0. Nemendur l\u00e6ra um Boolean algebru, sannt\u00f6flur, teikna r\u00f6kr\u00e1sir og setja \u00fe\u00e6r upp \u00e1 brau\u00f0bretti (e. breadboard). Nemendur kynnast einf\u00f6ldum \u00edhlutum \u00ed rafr\u00e1sum eins og vi\u00f0n\u00e1mi, skynjurum og m\u00f3torum og eiga geta nota\u00f0 \u00fe\u00e1 me\u00f0 k\u00f3\u00f0a. Nemendur setja saman v\u00e9lb\u00fana\u00f0 og skrifa k\u00f3\u00f0a sem n\u00fdtir s\u00e9r all ofangreint \u00ed lokaverkefni.",
+    "core": true,
+    "active": true,
+    "tbr": true,
+    "bval": 0,
+    "course_number": "VESM1VS05(AU)",
+    "course_name": "Verksmi\u00f0ja I",
+    "prerequisites": []
+  },
+  {
+    "link": "https://namskra.is/courses/5dee329be3d27faaec00041b",
+    "comment": "",
+    "description": "\u00c1fanginn er verklegur framhalds\u00e1fangi fyrir efni sem tengist fj\u00f3r\u00f0u i\u00f0nbyltingunni. Nemendur kynnast hli\u00f0r\u00e6num og stafr\u00e6num skynjurum og virkni \u00feeirra. Nemendur vinna me\u00f0 \u00f6rgj\u00f6rvabor\u00f0 (t.d. arduino). Sko\u00f0u\u00f0 eru einf\u00f6ld samskipti milli \u00f6rgj\u00f6rvabor\u00f0a. \u00cd \u00e1fanganum er l\u00f6g\u00f0 \u00e1hersla \u00e1 t\u00e6kjasm\u00ed\u00f0i \u00fear sem rafeindab\u00fana\u00f0ur er nota\u00f0ur vi\u00f0 sm\u00ed\u00f0ina og forritun me\u00f0 C/C++ m\u00e1linu. \u00c1fanginn er verkefnadrifinn og eru unnin st\u00e6rri og fl\u00f3knari verkefni en \u00ed fyrsta \u00e1fanganum. \u00c1hersla er l\u00f6g\u00f0 \u00e1 sk\u00f6pun og h\u00f6nnun.",
+    "core": true,
+    "active": true,
+    "tbr": true,
+    "bval": 0,
+    "course_number": "VESM2VT05(BU)",
+    "course_name": "Verksmi\u00f0ja II",
+    "prerequisites": [
+      "FORR1FG05(AU)",
+      "VESM1VS05(AU)"
+    ]
+  },
+  {
+    "link": "https://namskra.is/courses/5dee32bee3d27faaec000421",
+    "comment": "",
+    "description": "\u00c1fanginn er verklegur. Vi\u00f0fangsefni \u00e1fangans er internet hlutanna (e. IoT) sem er sam\u00fe\u00e6tting t\u00e6kja og hugb\u00fana\u00f0ar tengda netinu, sem geta greint g\u00f6gn og uppl\u00fdsingar \u00far umhverfinu og mi\u00f0la\u00f0 \u00feeim. Fari\u00f0 er \u00ed hlutverk og samskipti mismunandi t\u00e6kja sem eru tengd saman \u00e1 netinu. Unni\u00f0 er me\u00f0 inntak fr\u00e1 t\u00e6kjum og skynjurum, st\u00fdrikerfi, forritun, \u00fattak og framsetningu gagna. \u00c1fanginn er verkefnadrifinn og f\u00e1st nemendur vi\u00f0 h\u00f6nnun og e. IoT frumger\u00f0asm\u00ed\u00f0 \u00fear sem \u00fdmis t\u00e6ki og t\u00f3l eru notu\u00f0.",
+    "core": true,
+    "active": true,
+    "tbr": true,
+    "bval": 0,
+    "course_number": "VESM2V\u00de05(CU)",
+    "course_name": "Verksmi\u00f0ja III",
+    "prerequisites": [
+      "VESM2VT05(BU)",
+      "FORR2FA05(BU)",
+      "KEST1VL05(AU)"
+    ]
+  },
+  {
+    "link": "https://namskra.is/courses/58511d2e62933a33a602187f",
+    "comment": "",
+    "description": "\u00cd \u00e1fanganum er fjalla\u00f0 um r\u00famfr\u00e6\u00f0i me\u00f0 teikningum, t\u00f6lfr\u00e6\u00f0i, l\u00edkindareikning og vi\u00f0skiptareikning. Helstu efnisatri\u00f0i: - Grundvallarhugt\u00f6k og reglur \u00ed evkl\u00ed\u00f0skri r\u00famfr\u00e6\u00f0i. - M\u00e6lingar \u00ed r\u00famfr\u00e6\u00f0i og mikilv\u00e6gi n\u00e1kv\u00e6mi - Grunnatri\u00f0i t\u00f6lfr\u00e6\u00f0i og l\u00edkindareiknings: Myndrit, me\u00f0altal, mi\u00f0gildi, t\u00ed\u00f0asta gildi, sta\u00f0alfr\u00e1vik, sp\u00f6nnun, einf\u00f6ld l\u00edkindi og fleira - Talningara\u00f0fer\u00f0ir, flokkun gagnasafna og framsetning ni\u00f0ursta\u00f0na - Vi\u00f0skiptareikningur: Pr\u00f3sentur, \u00e1lagning, afsl\u00e1ttur, vir\u00f0isaukaskattur, vextir, v\u00edsit\u00f6lur og fleira - Hagn\u00fdt verkefni um notkun vi\u00f0skiptareiknings",
+    "core": true,
+    "active": true,
+    "tbr": false,
+    "bval": 0,
+    "course_number": "ST\u00c6R2BR05(AT)",
+    "course_name": "R\u00fam- og t\u00f6lfr\u00e6\u00f0i, l\u00edkinda- og vi\u00f0skiptarkn.",
+    "prerequisites": []
+  },
+  {
+    "link": "https://namskra.is/courses/58511e7662933a33a602188a",
+    "comment": "",
+    "description": "\u00cd \u00e1fanganum er fjalla\u00f0 um algebru, f\u00f6ll, mengi og r\u00f6kfr\u00e6\u00f0i. Helstu efnisatri\u00f0i: - Algebra - J\u00f6fnur me\u00f0 einni og tveimur \u00f3\u00feekktum st\u00e6r\u00f0um - Veldi og r\u00e6tur - \u00d3j\u00f6fnur - F\u00f6ll - Ferlar falla - Hornaf\u00f6ll - Margli\u00f0ur - T\u00e1knm\u00e1l mengjafr\u00e6\u00f0innar - Talnamengi - Mengjaa\u00f0ger\u00f0ir - R\u00f6kfr\u00e6\u00f0i",
+    "core": true,
+    "active": true,
+    "tbr": false,
+    "bval": 0,
+    "course_number": "ST\u00c6R2AH05(BT)",
+    "course_name": "Algebra og f\u00f6ll",
+    "prerequisites": [
+      "ST\u00c6R2BR05(AT)"
+    ]
+  },
+  {
+    "link": "https://namskra.is/courses/585124b762933a33a60218bc",
+    "comment": "",
+    "description": "\u00cd \u00e1fanganum er fjalla\u00f0 um diffurreglur og heildun. Helstu vi\u00f0fangsefni: - \u00ddmsar aflei\u00f0ur - \u00datgildi - Beygjuskil - K\u00f6nnun falla - Stofnafall, heildi flatarm\u00e1l - \u00c1kve\u00f0i\u00f0 heildi - Hlutheildun - Innsetningara\u00f0fer\u00f0in - Heildun r\u00e6\u00f0ra falla - R\u00famm\u00e1l sn\u00fa\u00f0a",
+    "core": true,
+    "active": true,
+    "tbr": false,
+    "bval": 0,
+    "course_number": "ST\u00c6R3FV05(ET)",
+    "course_name": "Heildun falla, flatarm\u00e1l og r\u00famm\u00e1l sn\u00fa\u00f0a",
+    "prerequisites": [
+      "ST\u00c6R3FM05(DT)"
+    ]
+  },
+  {
+    "link": "https://namskra.is/courses/54e8eabf62933a1936000b47",
+    "comment": "",
+    "description": "Kjarnahugt\u00f6k \u00e1fangans eru lestur og ritun. \u00c1hersla er l\u00f6g\u00f0 \u00e1 a\u00f0 nemendur efli f\u00e6rni s\u00edna \u00ed lestri. \u00deeir vinna markvisst a\u00f0 \u00fev\u00ed a\u00f0 efla leshra\u00f0a sinn og lesskilning \u00e1 einstaklingsgrundvelli. \u00deeir nemendur sem \u00feess \u00feurfa f\u00e1 ennfremur lei\u00f0beiningar til \u00feess a\u00f0 b\u00e6ta kunn\u00e1ttu s\u00edna \u00ed r\u00e9ttritun. Nemendur lesa mismunandi ger\u00f0ir texta og b\u00f3kmenntaverk fr\u00e1 \u00f3l\u00edkum t\u00edmum og fjalla um ger\u00f0 \u00feeirra og inntak. \u00deeir \u00fej\u00e1lfast \u00ed ritun mismunandi texta og me\u00f0fer\u00f0 heimilda. Nemendur f\u00e1 \u00fej\u00e1lfun \u00ed hugtakanotkun vi\u00f0 umfj\u00f6llun um mismunandi texta, st\u00edl \u00feeirra og m\u00e1lsni\u00f0.",
+    "core": true,
+    "active": true,
+    "tbr": false,
+    "bval": 0,
+    "course_number": "\u00cdSLE2AA05(AT)",
+    "course_name": "\u00cdslenska, lestur og ritun",
+    "prerequisites": []
+  },
+  {
+    "link": "https://namskra.is/courses/54e8eafb62933a1936000b4a",
+    "comment": "",
+    "description": "\u00cd \u00feessum \u00e1fanga er fjalla\u00f0 um m\u00e1l og menningars\u00f6gu og \u00e1hersla er l\u00f6g\u00f0 \u00e1 b\u00f3kmenntir og ritun. Nemendur lesa \u00edslenskar b\u00f3kmenntir fr\u00e1 mismunandi t\u00edmum og r\u00e6\u00f0a og fjalla um st\u00edl \u00feeirra og inntak \u00ed r\u00e6\u00f0u og riti. \u00deeir vinna me\u00f0 hugt\u00f6k sem notu\u00f0 eru vi\u00f0 umfj\u00f6llun um b\u00f3kmenntir og skrifa lengri og styttri texta. Nemendur l\u00e6ra um norr\u00e6na go\u00f0afr\u00e6\u00f0i og lesa hluta Snorra-Eddu og V\u00f6lusp\u00e1. \u00deeir l\u00e6ra um m\u00e1ls\u00f6gu \u00edslensku og helstu breytingar sem or\u00f0i\u00f0 hafa \u00e1 m\u00e1linu fr\u00e1 \u00f6ndver\u00f0u. Ennfremur l\u00e6ra \u00feeir a\u00f0 n\u00fdta s\u00e9r heimildir og f\u00e1 \u00fej\u00e1lfun \u00ed me\u00f0fer\u00f0 \u00feeirra.",
+    "core": true,
+    "active": true,
+    "tbr": false,
+    "bval": 0,
+    "course_number": "\u00cdSLE2GO05(BT)",
+    "course_name": "\u00cdslenskt m\u00e1l og menningarsaga",
+    "prerequisites": [
+      "\u00cdSLE2AA05(AT)"
+    ]
+  },
+  {
+    "link": "https://namskra.is/courses/54e8eb4b62933a1936000b4d",
+    "comment": "",
+    "description": "Vi\u00f0fangsefni \u00e1fangans er fornb\u00f3kmenntir. Fjalla\u00f0 er um einkenni \u00cdslendingasagna, ritunart\u00edma \u00feeirra og efni. Nemendur lesa \u00cdslendingas\u00f6gu og vinna fj\u00f6lbreytt verkefni \u00ed tengslum vi\u00f0 lesturinn. Fjalla\u00f0 er um eddukv\u00e6\u00f0i, efni \u00feeirra, einkenni og bragfr\u00e6\u00f0i. Nemendur lesa go\u00f0a- og hetjukv\u00e6\u00f0i. \u00deeir \u00fej\u00e1lfast enn frekar \u00ed ritger\u00f0asm\u00ed\u00f0.",
+    "core": true,
+    "active": true,
+    "tbr": false,
+    "bval": 1,
+    "course_number": "\u00cdSLE3BF05(CT)",
+    "course_name": "Fornb\u00f3kmenntir",
+    "prerequisites": [
+      "\u00cdSLE2GO05(BT)"
+    ]
+  },
+  {
+    "link": "https://namskra.is/courses/54e8eb7162933a1936000b51",
+    "comment": "",
+    "description": "B\u00f3kmenntir og b\u00f3kmenntasaga t\u00edmabilsins 1550-1900 er vi\u00f0fangsefni \u00feessa \u00e1fanga. Nemendur kynnast helstu straumum og stefnum \u00e1 t\u00edmabilinu og lesa sk\u00e1ldverk sem tengjast \u00fev\u00ed. L\u00f6g\u00f0 er \u00e1hersla \u00e1 tengsl samf\u00e9lags og b\u00f3kmennta. Nemendur lesa lj\u00f3\u00f0 og laust m\u00e1l og fara \u00edtarlega \u00ed bragfr\u00e6\u00f0i. \u00deeir vinna fj\u00f6lbreytt skrifleg og munnleg verkefni.",
+    "core": true,
+    "active": true,
+    "tbr": false,
+    "bval": 1,
+    "course_number": "\u00cdSLE3LF05(CT)",
+    "course_name": "B\u00f3kmenntasaga 1550 - 1900",
+    "prerequisites": [
+      "\u00cdSLE2GO05(BT)"
+    ]
+  },
+  {
+    "link": "https://namskra.is/courses/54e8ebbd62933a1936000b55",
+    "comment": "",
+    "description": "Vi\u00f0fangsefni \u00e1fangans er n\u00fat\u00edmab\u00f3kmenntir og b\u00f3kmenntasaga. Nemendur lesa fj\u00f6lbreytt \u00farval b\u00f3kmennta, lj\u00f3\u00f0 og laust m\u00e1l og vinna margv\u00edsleg verkefni \u00ed tengslum vi\u00f0 lesturinn. Tengsl samf\u00e9lags og b\u00f3kmennta eru \u00ed forgrunni.",
+    "core": true,
+    "active": true,
+    "tbr": false,
+    "bval": 1,
+    "course_number": "\u00cdSLE3NB05(CT)",
+    "course_name": "N\u00fat\u00edmab\u00f3kmenntir",
+    "prerequisites": [
+      "\u00cdSLE2GO05(BT)"
+    ]
+  },
+  {
+    "link": "https://namskra.is/courses/54d780e962933a7ff50026ac",
+    "comment": "",
+    "description": "\u00cd \u00feessum byrjunar\u00e1fanga \u00ed d\u00f6nsku er \u00e1hersla l\u00f6g\u00f0 \u00e1 a\u00f0 nemendur ver\u00f0i vel l\u00e6sir \u00e1 fl\u00f3knari texta en \u00e1\u00f0ur. \u00deeir ver\u00f0a \u00fej\u00e1lfa\u00f0ir \u00ed a\u00f0 tileinka s\u00e9r or\u00f0afor\u00f0a, tj\u00e1 hugsun s\u00edna sk\u00fdrt \u00ed r\u00e6\u00f0u og riti og r\u00f6ksty\u00f0ja sko\u00f0anir s\u00ednar. \u00c1hersla er l\u00f6g\u00f0 \u00e1 vandlegan lestur texta me\u00f0 \u00fea\u00f0 fyrir augum a\u00f0 byggja upp virkan og hagn\u00fdtan or\u00f0afor\u00f0a. Lesnir eru fj\u00f6lbreyttir textar, b\u00e6\u00f0i b\u00f3kmenntatextar og s\u00e9rh\u00e6f\u00f0ari og fl\u00f3knari textar en \u00e1\u00f0ur, en einnig unni\u00f0 me\u00f0 lestur eftir \u00e1hugasvi\u00f0i nemenda. L\u00f6g\u00f0 er \u00e1hersla \u00e1 a\u00f0 nemendur beri \u00e1byrg\u00f0 \u00e1 eigin n\u00e1msframvindu og s\u00e9u me\u00f0vita\u00f0ir um mismunandi a\u00f0fer\u00f0ir til a\u00f0 tileinka s\u00e9r tungum\u00e1l. \u00c1hersla er l\u00f6g\u00f0 \u00e1 sj\u00e1lfst\u00e6\u00f0 vinnubr\u00f6g\u00f0.",
+    "core": true,
+    "active": true,
+    "tbr": false,
+    "bval": 0,
+    "course_number": "DANS2BM05(AT)",
+    "course_name": "Tj\u00e1ning, lestur og menning",
+    "prerequisites": []
+  },
+  {
+    "link": "https://namskra.is/courses/5851492362933a33a6021989",
+    "comment": "",
+    "description": "Markmi\u00f0 \u00e1fangans er a\u00f0 efla menningarl\u00e6si nemenda me\u00f0 \u00fev\u00ed a\u00f0 \u00fej\u00e1lfa \u00fe\u00e1 \u00ed a\u00f0 fr\u00e6\u00f0ast og tj\u00e1 sig um \u00f3l\u00edk vi\u00f0fangsefni \u00e1 ensku. Nemendur b\u00e6ta markvisst vi\u00f0 or\u00f0afor\u00f0a sinn, me\u00f0 \u00e1herslu \u00e1 akadem\u00edskan or\u00f0afor\u00f0a, og \u00f6\u00f0list d\u00fdpri skilning \u00e1 fl\u00f3knari m\u00e1lfr\u00e6\u00f0i enskrar tungu. Fari\u00f0 er yfir grundvallaratri\u00f0i \u00ed ritun texta af \u00fdmsum toga og nemendur \u00e6fa sig \u00ed n\u00fdtingu \u00feeirra me\u00f0 hli\u00f0sj\u00f3n af or\u00f0afor\u00f0anum sem fari\u00f0 er yfir \u00ed \u00e1fanganum. Lesin eru klass\u00edsk b\u00f3kmenntaverk \u00e1 enskri tungu og nemendur \u00fej\u00e1lfa\u00f0ir \u00ed a\u00f0 r\u00fdna \u00ed b\u00f3kmenntatexta og r\u00e6\u00f0a umfj\u00f6llunarefni verkanna \u00fat fr\u00e1 eigin reynslu og skilningi.",
+    "core": true,
+    "active": true,
+    "tbr": false,
+    "bval": 0,
+    "course_number": "ENSK2AE05(AT)",
+    "course_name": "B\u00f3kmenntir og ritun",
+    "prerequisites": []
+  },
+  {
+    "link": "https://namskra.is/courses/52f0dde262933a50d0000853",
+    "comment": "",
+    "description": "\u00c1hersla er l\u00f6g\u00f0 \u00e1 a\u00f0 nemendur ver\u00f0i vel l\u00e6sir \u00e1 fj\u00f6lbreyttari og \u00feyngri texta en \u00e1\u00f0ur og ger\u00f0 er aukin krafa um sj\u00e1lfst\u00e6\u00f0i \u00ed verkefnavinnu og vinnuskilum. Lesin eru \u00f3stytt b\u00f3kmenntaverk og \u00feau t\u00falku\u00f0 \u00fat fr\u00e1 v\u00ed\u00f0ara samhengi en \u00e1\u00f0ur me\u00f0 tilliti til s\u00f6gu og b\u00f3kmenntalegra sk\u00edrskotana. L\u00f6g\u00f0 er \u00e1hersla \u00e1 a\u00f0 nemendur ver\u00f0i f\u00e6rir um a\u00f0 tj\u00e1 hugsun s\u00edna sk\u00fdrt \u00ed r\u00e6\u00f0u og riti og geti r\u00f6kstutt sko\u00f0anir s\u00ednar. Meginmarkmi\u00f0 \u00e1fangans er a\u00f0 nemendur kynnist s\u00f6gu og menningu Bandar\u00edkjanna me\u00f0 margv\u00edslegum h\u00e6tti \u00fear sem alhli\u00f0a f\u00e6rni \u00ed m\u00e1linu er \u00e6f\u00f0. Nemendur r\u00fdna \u00ed \u00f3l\u00edkan texta, b\u00f3kmenntaverk, sm\u00e1s\u00f6gur og greinar og f\u00e1 t\u00e6kif\u00e6ri til a\u00f0 tj\u00e1 sig \u00e1 gagnr\u00fdninn h\u00e1tt um vi\u00f0fangsefni\u00f0.",
+    "core": true,
+    "active": true,
+    "tbr": false,
+    "bval": 0,
+    "course_number": "ENSK2OF05(BT)",
+    "course_name": "Fr\u00e6\u00f0ilegur or\u00f0afor\u00f0i og Bandar\u00edkin",
+    "prerequisites": [
+      "ENSK2AE05(AT)"
+    ]
+  },
+  {
+    "link": "https://namskra.is/courses/54e9040062933a1936000ba7",
+    "comment": "",
+    "description": "\u00c1hersla er l\u00f6g\u00f0 \u00e1 \u00feekkingu nemenda \u00e1 sk\u00f3laumhverfinu. Fjalla\u00f0 er um vinnubr\u00f6g\u00f0 \u00ed n\u00e1mi, sj\u00e1lfsmynd, sk\u00f3lakerfi og atvinnul\u00edf, fj\u00e1rm\u00e1l, neytendam\u00e1l, umfer\u00f0ina, l\u00fd\u00f0r\u00e6\u00f0i og borgaralega vitund. Einnig er fjalla\u00f0 um n\u00e6ringu, matar\u00e6\u00f0i, ge\u00f0heilsu, kynheg\u00f0un og vanabindandi efni. L\u00f6g\u00f0 er \u00e1hersla \u00e1 sj\u00e1lfst\u00e6\u00f0 vinnubr\u00f6g\u00f0 nemenda, markmi\u00f0ssetningu og \u00farvinnslu verkefna me\u00f0 kynningum.",
+    "core": true,
+    "active": true,
+    "tbr": false,
+    "bval": 0,
+    "course_number": "L\u00cdFS1GR05(AT)",
+    "course_name": "L\u00edfsleikni",
+    "prerequisites": []
+  },
+  {
+    "link": "https://namskra.is/courses/54c38ee562933a7ff50008fd",
+    "comment": "",
+    "description": "Innihald \u00e1fangans er breytilegt fr\u00e1 \u00f6nn til annar en l\u00f6g\u00f0 er \u00e1hersla \u00e1 a\u00f0 nemendur beiti gagnr\u00fdnni hugsun til \u00feess a\u00f0 d\u00fdpka og efla l\u00e6si sitt \u00e1 eigi\u00f0 umhverfi, efnislega og menningarlega. Nemendur l\u00e6ra a\u00f0 sj\u00e1 umhverfi sitt \u00ed samhengi, hvernig menning okkar er og hva\u00f0 \u00fea\u00f0 er sem hefur skapa\u00f0 hana og a\u00f0 \u00feekkja r\u00e6tur hennar. Nemendur kynna s\u00e9r \u00fea\u00f0 sem er a\u00f0 gerast \u00ed menningarl\u00edfinu, meta \u00fea\u00f0 og sko\u00f0a me\u00f0 a\u00f0sto\u00f0 samnemenda og kennara. N\u00e1mi\u00f0 er verkefnabundi\u00f0 og nemendur rannsaka vi\u00f0fangsefni \u00e1fangans hverju sinni \u00e1 gagnr\u00fdninn h\u00e1tt. D\u00e6mi um m\u00f6guleg vi\u00f0fangsefni: - Byggingarlist - Si\u00f0fr\u00e6\u00f0i - H\u00f6nnun - Myndlist - Leiklist - T\u00f3nlist - Menningarhugtaki\u00f0",
+    "core": true,
+    "active": true,
+    "tbr": false,
+    "bval": 0,
+    "course_number": "MENL1AL05(AT)",
+    "course_name": "Menningarl\u00e6si",
+    "prerequisites": []
+  },
+  {
+    "link": "https://namskra.is/courses/5851569162933a33a6021a1c",
+    "comment": "",
+    "description": "TODO",
+    "core": false,
+    "active": false,
+    "tbr": false,
+    "bval": 9,
+    "course_number": "EFNA2AE05(BT)",
+    "course_name": "Frumefni, sameindir og efnatengi",
+    "prerequisites": []
+  },
+  {
+    "link": "https://namskra.is/courses/54fdfce362933a4692000a50",
+    "comment": "",
+    "description": "TODO",
+    "core": false,
+    "active": false,
+    "tbr": false,
+    "bval": 9,
+    "course_number": "E\u00d0LI2RB05(CT)",
+    "course_name": "Bylgjur, lj\u00f3s og rafmagn",
+    "prerequisites": [
+      "E\u00d0LI2GR05(BT)"
+    ]
+  },
+  {
+    "link": "https://namskra.is/courses/5851209d62933a33a6021894",
+    "comment": "",
+    "description": "TODO",
+    "core": false,
+    "active": false,
+    "tbr": false,
+    "bval": 9,
+    "course_number": "ST\u00c6R2LT05(BT)",
+    "course_name": "T\u00f6lfr\u00e6\u00f0i, talningafr\u00e6\u00f0i, l\u00edkindareikningur",
+    "prerequisites": [
+      "ST\u00c6R2BR05(AT)"
+    ]
+  },
+  {
+    "link": "https://namskra.is/courses/54e900d262933a1936000b7d",
+    "comment": "",
+    "description": "\u00deetta er b\u00f3klegur \u00e1fangi \u00fear sem fari\u00f0 er yfir hvernig l\u00edkaminn bregst vi\u00f0 \u00ed leik og starfi og undirb\u00faning hans vi\u00f0 v\u00e6ntanlegu \u00e1lagi.",
+    "core": true,
+    "active": true,
+    "tbr": false,
+    "bval": 0,
+    "course_number": "\u00cd\u00deR\u00d31GH02(AT)",
+    "course_name": "L\u00edkaminn \u00ed leik og starfi",
+    "prerequisites": []
+  },
+  {
+    "link": "https://namskra.is/courses/54e9014562933a1936000b82",
+    "comment": "",
+    "description": "\u00cd \u00feessum \u00e1fanga stunda nemendur markvissa hreyfingu og \u00f6\u00f0last \u00feekkingu til \u00feess a\u00f0 setja s\u00e9r raunh\u00e6f markmi\u00f0 \u00ed heilsur\u00e6kt.",
+    "core": true,
+    "active": true,
+    "tbr": false,
+    "bval": 0,
+    "course_number": "\u00cd\u00deR\u00d31LA01(AT)",
+    "course_name": "Styrkur, l\u00edkamsbeyting, snerpa",
+    "prerequisites": []
+  },
+  {
+    "link": "https://namskra.is/courses/54e9017a62933a1936000b86",
+    "comment": "",
+    "description": "\u00cd \u00feessum \u00e1fanga stunda nemendur markvissa hreyfingu og \u00f6\u00f0last \u00feekkingu til \u00feess a\u00f0 setja s\u00e9r raunh\u00e6f markmi\u00f0 \u00ed heilsur\u00e6kt.",
+    "core": true,
+    "active": true,
+    "tbr": false,
+    "bval": 0,
+    "course_number": "\u00cd\u00deR\u00d31LB01(BT)",
+    "course_name": "Styrkur, l\u00edkamsbeyting, snerpa",
+    "prerequisites": []
+  },
+  {
+    "link": "https://namskra.is/courses/54e9024462933a1936000b8f",
+    "comment": "",
+    "description": "\u00cd \u00feessum \u00e1fanga stunda nemendur markvissa hreyfingu og \u00f6\u00f0last \u00feekkingu til \u00feess a\u00f0 setja s\u00e9r raunh\u00e6f markmi\u00f0 \u00ed heilsur\u00e6kt.",
+    "core": true,
+    "active": true,
+    "tbr": false,
+    "bval": 0,
+    "course_number": "\u00cd\u00deR\u00d31LC01(CT)",
+    "course_name": "Styrkur, l\u00edkamsbeyting, snerpa",
+    "prerequisites": []
+  }
+]
