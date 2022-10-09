@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 {%block content %}
-      <div class="ui inverted vertical masthead center aligned segment">
-        <div class="ui text con">
+      <div class="ui inverted vertical masthead center aligned segment" id="mast">
+        <div class="ui text content">
           <h2>Welcome to Stafla</h2>
-          <div class="ui huge button">
-            <a href="{{url_for('namskra.namskra')}}">
-            <i class="right arrow icon"></i>
+          <a href="{{url_for('namskra.start')}}">
+            <div class="ui huge button">
+              <i class="right arrow icon"></i>
+            </div>
           </a>
-          </div>
         </div>
       </div>
     <!-- Bottom Text & Info -->

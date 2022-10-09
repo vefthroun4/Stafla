@@ -42,6 +42,7 @@ def create_app():
     from app.blueprints.admin import admin_bp
     from app.blueprints.errors import error_bp
     from app.auth import auth_bp
+    from app.api import api_bp
 
 
     # Register blueprints
@@ -50,6 +51,7 @@ def create_app():
     app.register_blueprint(auth_bp, url_prefix="/auth")
     app.register_blueprint(namskra_bp, url_prefix="/namskra")
     app.register_blueprint(admin_bp, url_prefix="/admin")
+    app.register_blueprint(api_bp, url_prefix="/api")
     app.register_blueprint(error_bp)
     
 
