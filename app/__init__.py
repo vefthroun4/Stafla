@@ -22,19 +22,14 @@ def create_app():
         os.makedirs(app.instance_path)
     except OSError:
         pass
-    
-  
 
-    # Sets up config file
-    config_file = os.environ.get("CONFIG")
-    app.config.from_object(config_file or Config)
-    
-    from dotenv import load_dotenv
     # creates .env file if it does not exist
     open(os.path.join(app.instance_path, ".env"), "a").close()
 
-    # Loads environment variables from .env
-    load_dotenv(os.path.join(app.instance_path, ".env"))
+    # Sets up config file
+    config_file = os.environ.get("CONFIG") 
+    app.config.from_object(config_file or Config)
+    
 
     # Init modules        
     db.init_app(app)
