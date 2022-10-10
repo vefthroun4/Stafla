@@ -40,7 +40,7 @@ class DataParser():
         # Pattern that matches course names that match this format: VESM2VT05BU
         self.COURSE_PATTERN = r"[\u0041-\u00ff]+\d+[\u0041-\u00ff]+\d+[\u0041-\u00ff]*"
 
-        self.save_to_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", f"instance\\{self.output_file}"))
+        self.save_to_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", os.path.join(f"instance", self.output_file)))
 
         # Grab data from url or file if data is not explicitly provided
         if not self.data:

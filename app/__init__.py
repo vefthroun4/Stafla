@@ -31,7 +31,7 @@ def create_app():
     
     from dotenv import load_dotenv
     # creates .env file if it does not exist
-    open(app.instance_path + "\\.env", "a").close()
+    open(os.path.join(app.instance_path, ".env"), "a").close()
 
     # Loads environment variables from .env
     load_dotenv(os.path.join(app.instance_path, ".env"))
