@@ -1,2 +1,2 @@
-web: gunicorn app:stafla
+web: gunicorn stafla:app
 heroku ps:scale web=1
