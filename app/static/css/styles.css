@@ -37,7 +37,7 @@
   }
   
 /* CONTAINER & CONTENT */
-#login, #signup, #namskra {
+#login, #signup, #namskra, #texti{
   padding-top: 50px;
 }
 
@@ -52,7 +52,7 @@
   justify-content: center
 }
 
-.right.arrow.icon {
+.right.arrow.icon, .ui.error.message {
   margin:0 !important;
 }
  
