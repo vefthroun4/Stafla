@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock%}</title>
-    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/styles.css')}}">
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/semantic.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/styles.css')}}">
 </head>
 <body>
     {% include "header.html" %}
     {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
             {% for category, message in messages %}
-            <div class="ui {{ category }} message">
+            <div class="ui {{ category }} message" style="text-align:center;">
                 <i class="close icon"></i>
                 <div class="header">
                   {{ message }}
@@ -26,6 +26,9 @@
     {% endblock %}
     {% include "footer.html" %}
     {% include "scripts.html" %}
+    
+    {% block scripts %}
+    {% endblock %}
     <script>
         $('.message .close').on('click', function() {
             $(this)

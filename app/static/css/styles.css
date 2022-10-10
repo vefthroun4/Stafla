@@ -1,17 +1,34 @@
-/* HEADER */
-.ui.inverted.segment {
-  padding-top: 100px;
-  padding-bottom: 150px; 
-
+.ui.menu {
+  margin:0 !important;
 }
-.masthead .ui.menu .ui.button {
+ 
+/* HEADER */
+.ui.sticky  {
+  position: sticky !important;
+  top: 0;
+  width: 100%;
+  border-radius: 0 !important;
+}
+
+
+/* BANNER/MASTHEAD */
+.ui.inverted.segment{
+  background: linear-gradient(black,#800080) !important;
+  background-size: cover;
+  height:calc(100vh - 71px);
+}
+
+  .masthead .ui.menu .ui.button .ui.text.content {
     margin-left: 0.5em;
+    padding-top: 350px;
   }
   .masthead h1.ui.header {
     margin-top: 1.7em;
     margin-bottom: 0em;
     font-size: 4em;
     font-weight: normal;
+    
+
   }
   .masthead h2 {
     font-size: 1.7em;
@@ -19,6 +36,26 @@
     padding-bottom: 10px;
   }
   
+/* CONTAINER & CONTENT */
+#login, #signup, #namskra, #texti{
+  padding-top: 50px;
+}
+
+#email, #password, #confirm {
+  width: 100% !important;
+}
+
+#mast{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center
+}
+
+.right.arrow.icon, .ui.error.message {
+  margin:0 !important;
+}
+ 
 
   /* Responsive Vantar */
   @media only screen and (max-width: 700px) {
@@ -38,16 +75,21 @@
 
 /* FOOTER */
 footer {
-    bottom: 0;
+    bottom:0 ;
     margin-top: auto;
     padding: auto;
-    background-color: darkgrey;
     position: fixed;
     width: 100%;
+    color: grey;
     
     
   }
-  footer p {
+
+body {
+  background-color: lightgray!important;
+}
+
+ /*  footer p {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #777777;
   }
@@ -59,6 +101,6 @@ footer {
     line-height: 1.4;
     font-weight: 300;
   }
- 
+  */
 
   

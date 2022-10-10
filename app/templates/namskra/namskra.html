@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{%block content %}
+<div id="namskra">
+    <h>Velkominn</h>
+    <p>Veldu þína Áfanga: </p>
+    
+    <br>
+    <div class="ui menu">
+        <div class="ui pointing dropdown link item">
+            <span class="text">Stærðfræði</span>
+                <div class="menu">
+                    <div class="item"></div>
+                </div>
+            <i class="dropdown icon"></i>
+        </div>
+        <div class="ui pointing dropdown link item">
+            <span class="text">Bóklegt</span>
+                <div class="menu">
+
+                </div>
+            <i class="dropdown icon"></i>
+        </div>
+    </div>
+
+            <!-- <span class="text">Clothing</span>
+            <div class="menu">
+              <div class="header">Mens</div>
+              <div class="item">Shirts</div>
+              <div class="item">Pants</div>
+              <div class="item">Jeans</div>
+              <div class="item">Shoes</div>
+              <div class="divider"></div>
+              <div class="header">Womens</div>
+              <div class="item">Dresses</div>
+              <div class="item">Shoes</div>
+              <div class="item">Bags</div>
+            </div>
+          </div>
+          <div class="item">Home Goods</div>
+          <div class="item">Bedroom</div>
+          <div class="divider"></div>
+          <div class="header">Order</div>
+          <div class="item">Status</div>
+          <div class="item">Cancellations</div> -->
+        </div>
+      </div>
+    </div>
+    
+
+
+    <div class="eight wide column ">
+        <table class="ui celled unstackable table">
+            <thead>
+            <tr>
+                <th>Course Number</th>
+                <th>Course Name</th>
+                <th>Core</th>
+                <th>Önn</th>
+                <th>Um Áfangan</th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for entry in data %}
+                <tr>
+                    <td>{{entry["course_number"]}}</td>
+                    <td>{{entry["course_name"]}}</td>
+                    <td>{{entry["core"]}}</td>
+                    <td>{{entry["semester"]}}</td>
+                    <td><a class="meiraumdemo">Meira um</a></td>
+                    {% for req in entry["prerequisites"] %}
+                    <td>{{req}}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script async>
+    let meiraumdemo = [...document.getElementsByClassName("meiraumdemo")].map(elem => {
+        elem.addEventListener("click", () => {
+            alert("Meira um")
+        })
+    })
+</script>
+
+
+{% endblock %}
+

@@ -1,13 +1,17 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="ui one column stackable centered page grid">
-    <div class="column seven wide">
+<div class="ui one column stackable centered page grid" id="login">
+    <div class="ui column nine wide">
+        <div class="ui bottom attached info message">
+			<i class="icon help"></i>
+			Register <a href="{{url_for('auth.register', next=request.args.get('next'))}}">here</a> to make an account.
+		</div>
         <h1 class= "ui dividing header"> 
             Login   
         </h1>
-        <form class="ui form" action="" method="post" novalidate>
+        <form class="ui large form" action="" method="post" novalidate>
             {{ form.hidden_tag() }}
-            <div class="field">
+            <div class="field required">
                 <label>{{form.email.label}}</label>
                 {{form.email(placeholder="Email")}}<br>
                 {% for error in form.email.errors %}
@@ -19,7 +23,7 @@
                     </div>
                 {% endfor %}
             </div>
-            <div class="field">
+            <div class="field required">
                 <label>{{form.password.label}}</label>
                 {{form.password(placeholder="Password")}}<br>
                 {% for error in form.password.errors %}
@@ -36,7 +40,6 @@
                     <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
                 </div>
             </div>
-
             {{form.submit(class="fluid ui primary button")}}
         </form>
     </div>

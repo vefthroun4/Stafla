@@ -3,8 +3,10 @@ import json
 import re
 import os
 
-test_url = "https://namskra.is/programmes/1c886af0-e2ef-4c05-bf3b-368e10b3483d/json"
-TS_URL = "https://namskra.is/programmes/1878c334-b82b-4375-a174-efe5fe92f300/json"
+HONNUNARBRAUT_URL = "https://namskra.is/programmes/445598c8-b8c8-4287-83b8-ff773e0a2cab/json"
+BOKBAND_URL = "https://namskra.is/programmes/b09385f2-d312-4eed-94f9-256e6cf45708/json"
+TOLVUBRAUT_URL = "https://namskra.is/programmes/1878c334-b82b-4375-a174-efe5fe92f300/json"
+TOLVUBRAUT2_URL = "http://tolvubraut.is/assets/tbr/afangar.json"
 REQUIRES = "abbreviation"
 TRUNCATE_KEYS = set([
     "former_schools",
@@ -24,18 +26,21 @@ TRUNCATE_KEYS = set([
 ])
 
 class DataParser():
-    def __init__(self, data=None, file=None, json_url=None, save_to_path=None):
+    def __init__(self, data=None, file=None, json_url=None, output_file="data.json"):
         """ Parses json data from a provided file or URL that returns JSON data """
         self.file = file
         self.json_url = json_url
         self.data = data
+        self.output_file = output_file
+
+        # Default to using Tölvubraut from Namskra
         if not self.file and not self.json_url and not self.data:
-            self.json_url = TS_URL
+            self.json_url = TOLVUBRAUT2_URL
 
         # Pattern that matches course names that match this format: VESM2VT05BU
         self.COURSE_PATTERN = r"[\u0041-\u00ff]+\d+[\u0041-\u00ff]+\d+[\u0041-\u00ff]*"
 
-        self.save_to_path = save_to_path if save_to_path else os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "instance\\data.json"))
+        self.save_to_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", os.path.join(f"instance", self.output_file)))
 
         # Grab data from url or file if data is not explicitly provided
         if not self.data:
@@ -53,15 +58,16 @@ class DataParser():
             self.data = data
         else:
             if self.file:
-                with open(self.file, "r") as f:
+                with open(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", f"{self.file}")), "r") as f:
                     self.data = json.load(f)
+
             elif self.json_url:
                 self.data = requests.get(self.json_url).json()
 
     def get_data(self):
         return self.data   
     
-    def truncate_data(self, data=None, truncate_keys={}, requires=None):
+    def truncate_data(self, data=None, truncate_keys=set([]), requires=None):
         """ Deep clones a nested object
 
         Performs a deep clone of a nested object 
@@ -70,12 +76,6 @@ class DataParser():
         Also if requires is specified it removes any object
         that does not contain the specified key
         """
-        if not requires:
-            requires = REQUIRES
-
-        if not truncate_keys:
-            truncate_keys = TRUNCATE_KEYS
-
         if not data:
             data = self.get_data()
 
@@ -126,14 +126,87 @@ class DataParser():
         with open(path, "w") as f:
             json.dump(self.get_data(), f, indent=2)
 
-    def main(self):
-        """ Automatically fetches data, cleans it up and then saves it"""
-        self.truncate_data()
+
+    def rename_keys(self, rename_keys={}):
+        for entry in self.data:
+            for k in rename_keys:
+                entry[rename_keys[k]] = entry.pop(k) 
+
+
+    def add_semesters(self, match, key_to_check):
+        """ Specifically crafted to add semesters to existing datasets """
+        for entry in self.data:
+            if entry[key_to_check] in match:
+                entry["semester"] = match[entry[key_to_check]]["semester"]
+
+    def add_keys(self, add_on_match={}, key_to_add={}):
+        """ 
+        Looks for a k:v pair and on matching a key with a specified value
+        it then updates the dictionary with key_to_add.
+        
+        If add_on_match is not specified, it will add key_to_add to every dict item
+        
+        Example usecase:
+
+        dataparser_instance.add_keys(
+        { # add_on_match
+            "course_number" : [
+                "ÍSLE3NB05(CT)",
+                "ÍSLE3LF05(CT)", 
+                "ÍSLE3BF05(CT)"
+            ]
+        },
+        { # key_to_add
+            "group" : {
+                "courses" : [
+                    "ÍSLE3NB05(CT)", 
+                    "ÍSLE3LF05(CT)", 
+                    "ÍSLE3BF05(CT)"
+                ],
+                "credits_required" : 10
+            }
+        })
+        This will look for any matches to course_number and the keys in the list given
+        and add group: {...} to the existing dict object being iterated upon.
+        """
+
+        for entry in self.data:
+            for k, v in add_on_match.items():
+                if isinstance(v, (list, tuple)):
+                    if k in entry and entry[k] in v:
+                        for k, v in key_to_add.items():
+                            entry[k] = v    
+                        continue
+                else:
+                    if k in entry and entry[k] == v:
+                        for k, v in key_to_add.items():
+                            entry[k] = v    
+                        continue
+
+    def extract_keys(self, key_to_match:dict, add_to_dict:str):
+        """ Extracts k:v from dict if all keys_to_extract are matched within an object, 
+            
+            adds any key in add_to_dict as a dict to the value of keys_to_extract.
+
+            function is unfinished can result in unexpected behaviour.
+            
+            ex: parserTS.extract_keys({"course_number": {}}, add_to_dict="semester").
+        """
+            
+        new_data = {}
+        for n in self.data:
+            for k in n:
+                if k in key_to_match and add_to_dict in n:
+                    new_data[n[k]] = {add_to_dict:n[add_to_dict]}
+                    continue
+        return new_data
+
+
+    def main(self, requires=None, truncate=None):
+        """ Automatically fetches data, cleans it up and then saves it
+
+            Only run main if the data was fetched from namskra.is, other sorts of data can result in unexpected results
+        """
+        self.truncate_data(requires=requires, truncate_keys=truncate)
         self.fix_prerequisites()
         self.write_to_json()
-
-    
-
-if __name__ == "__main__":
-    parser = DataParser()
-    parser.main()

@@ -38,6 +38,7 @@ microblog.log*
 
 # Keep db file here
 /instance
+/instance/*
 
 # Use this file to set up environment variables on a per-use case
 .env
