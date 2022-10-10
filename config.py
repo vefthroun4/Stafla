@@ -1,14 +1,13 @@
 import os
-from dotenv import load_dotenv
+
+
+
+
 
 # Gets absolute path to this file
 basedir = os.path.abspath(os.path.dirname(__file__))
 
-# creates .env file if it does not exist
-open(basedir + "\\instance\\.env", "a").close()
 
-# Loads environment variables from .env
-load_dotenv(os.path.join(basedir, ".env"))
 
 
 class Config():
