@@ -1,14 +1,12 @@
 import os
-
-
-
+from dotenv import load_dotenv
 
 
 # Gets absolute path to this file
 basedir = os.path.abspath(os.path.dirname(__file__))
 
-
-
+    # Loads environment variables from .env
+load_dotenv(os.path.join(basedir, "instance", ".env"))
 
 class Config():
     SECRET_KEY = os.environ.get("SECRET_KEY") or "$up3r_dup3r_$3cr3t"
