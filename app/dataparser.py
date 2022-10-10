@@ -35,7 +35,7 @@ class DataParser():
 
         # Default to using Tölvubraut from Namskra
         if not self.file and not self.json_url and not self.data:
-            self.json_url = TOLVUBRAUT_URL
+            self.json_url = TOLVUBRAUT2_URL
 
         # Pattern that matches course names that match this format: VESM2VT05BU
         self.COURSE_PATTERN = r"[\u0041-\u00ff]+\d+[\u0041-\u00ff]+\d+[\u0041-\u00ff]*"
@@ -58,8 +58,9 @@ class DataParser():
             self.data = data
         else:
             if self.file:
-                with open(self.file, "r") as f:
+                with open(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", f"{self.file}")), "r") as f:
                     self.data = json.load(f)
+
             elif self.json_url:
                 self.data = requests.get(self.json_url).json()
 
@@ -131,6 +132,13 @@ class DataParser():
             for k in rename_keys:
                 entry[rename_keys[k]] = entry.pop(k) 
 
+
+    def add_semesters(self, match, key_to_check):
+        """ Specifically crafted to add semesters to existing datasets """
+        for entry in self.data:
+            if entry[key_to_check] in match:
+                entry["semester"] = match[entry[key_to_check]]["semester"]
+
     def add_keys(self, add_on_match={}, key_to_add={}):
         """ 
         Looks for a k:v pair and on matching a key with a specified value
@@ -175,18 +183,30 @@ class DataParser():
                             entry[k] = v    
                         continue
 
+    def extract_keys(self, key_to_match:dict, add_to_dict:str):
+        """ Extracts k:v from dict if all keys_to_extract are matched within an object, 
+            
+            adds any key in add_to_dict as a dict to the value of keys_to_extract.
+
+            function is unfinished can result in unexpected behaviour.
+            
+            ex: parserTS.extract_keys({"course_number": {}}, add_to_dict="semester").
+        """
+            
+        new_data = {}
+        for n in self.data:
+            for k in n:
+                if k in key_to_match and add_to_dict in n:
+                    new_data[n[k]] = {add_to_dict:n[add_to_dict]}
+                    continue
+        return new_data
+
 
     def main(self, requires=None, truncate=None):
-        """ Automatically fetches data, cleans it up and then saves it"""
+        """ Automatically fetches data, cleans it up and then saves it
+
+            Only run main if the data was fetched from namskra.is, other sorts of data can result in unexpected results
+        """
         self.truncate_data(requires=requires, truncate_keys=truncate)
         self.fix_prerequisites()
         self.write_to_json()
-
-
-if __name__ == "__main__":
-    parser = DataParser()
-    parser.main(requires=REQUIRES, truncate=TRUNCATE_KEYS)
-    
-
-
-

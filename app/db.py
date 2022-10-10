@@ -38,22 +38,25 @@ class Database:
         from app.models import CourseGroups
 
         # Create initial data
-        parserTS = DataParser(json_url=TOLVUBRAUT2_URL, output_file="afangar.json")
-        parserTS.rename_keys(rename_keys={
+        # Add a check to not grab data from url if finaldata.json exists
+        dp_semester = DataParser(file="app/static/data/semesters.json")
+        course_data = DataParser(json_url=TOLVUBRAUT2_URL, output_file="finaldata.json")
+        course_data.rename_keys(rename_keys={
             "id" : "course_number",
             "name" : "course_name",
             "parents" : "prerequisites"
         })
-        parserTS.write_to_json()
-        
+        course_data.add_semesters(dp_semester.data, "course_number")
+        course_data.write_to_json()
+        courses = course_data.data
 
         # Insert School
-        schoolTS = Schools(school_name="Tækniskóli", abbreviation="TS")
+        schoolTS = Schools(school_name="Tækniskólinn", abbreviation="TS", active=True)
         self.db.session.add(schoolTS)
         self.db.session.commit()
 
         # Insert Division
-        divisionTS = Divisions(division_name="Upplýsingatækniskólinn", schoolID=Schools.query.filter_by(school_name="Tækniskóli").first().schoolID)
+        divisionTS = Divisions(division_name="Upplýsingatækniskólinn", schoolID=Schools.query.filter_by(school_name="Tækniskólinn").first().schoolID)
         self.db.session.add(divisionTS)
         self.db.session.commit()
         
@@ -68,9 +71,6 @@ class Database:
         self.db.session.commit()
 
         # Insert initial courses
-        courses = None
-        with open(self.app.instance_path+"\\afangar.json", "r", encoding="utf-8") as f:
-            courses = json.load(f) 
 
         for course in courses:
             self.db.session.add(
@@ -122,9 +122,11 @@ class Database:
                 groupID       = CourseGroups.query.first().groupID,
                 course_number = clean_str(course["course_number"], "()"),
                 mandatory     = course["core"],
-                is_active     = course["active"]
+                is_active     = course["active"],
+                semester      = course.get("semester"),
             ))
         self.db.session.commit()
+
 
 
     def init_app(self, app, db):
