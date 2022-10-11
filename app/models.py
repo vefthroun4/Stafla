@@ -6,6 +6,7 @@ from flask import current_app
 from flask_login import UserMixin, AnonymousUserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
+from sqlalchemy.exc import IntegrityError
 
 class Permissions:
     ANONYMOUS = 1
@@ -246,7 +247,7 @@ class CourseGroups(db.Model):
     credits_required = Column("creditsRequired", Integer, nullable=False)
     courses = relationship("TrackCourses", back_populates="group")
     track = relationship("Tracks", back_populates="groups")
-    __table_args__ = tuple(UniqueConstraint("group_name", "trackID", name="group_track_UQ"))
+    __table_args__ = tuple(UniqueConstraint("groupName", "trackID", name="group_track_UQ"))
 
 
 class TrackCourses(db.Model):
@@ -319,21 +320,21 @@ class CourseRegistration(db.Model):
     stateID = Column("state", ForeignKey(CourseState.course_stateID), nullable=False, default=2)
     state = relationship("CourseState")
     users_registration = relationship("UsersRegistration", back_populates="courses") 
-    __table_args__ = tuple(db.UniqueConstraint("course_number", "users_registrationID", "semester", name="CourseRegistration_UQ"))
+    __table_args__ = (
+        db.UniqueConstraint("courseNumber", "usersRegistrationID", "semester", name="CourseRegistration_UQ"),
+    )
 
     def __repr__(self):
         return f"<CourseRegistration: course_number={self.course_number}, semester={self.semester}, users_registrationID={self.users_registrationID}>"   
 
-
+from wtforms.validators import ValidationError
 @db.event.listens_for(CourseRegistration, "before_insert")
 def validate_state(mapper, connection, t):
-    print(mapper)
-    # cs = t.query.filter(
-    #     CourseRegistration.course_number == t.course_number,
-    #     CourseRegistration.users_registrationID== t.users_registrationID,
-    #     CourseRegistration.stateID != States.FAILED 
-    #     ).first()
-    # if cs:
-    #     from sqlalchemy.orm.interfaces import EXT_STOP
-    #     return EXT_STOP
+    cs = t.query.filter(
+        CourseRegistration.course_number == t.course_number,
+        CourseRegistration.users_registrationID== t.users_registrationID,
+        CourseRegistration.stateID != States.FAILED 
+        ).first()
+    if cs:
+        raise ValidationError(f"Can't register course: {cs.course_number} due to it being already registered with the state: {cs.state.name}")
 
