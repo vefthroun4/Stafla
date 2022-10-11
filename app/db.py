@@ -23,6 +23,7 @@ class Database:
         dbname = re.search("\\\\[A-Z|a-z]+\.(db|sqlite)$", self.app.config["SQLALCHEMY_DATABASE_URI"])
         if dbname and not os.path.exists(self.app.instance_path+dbname.group()):
             with self.app.app_context():
+                open(os.path.join(self.app.instance_path, "app.db"), "a").close()
                 from app.models import Role, CourseState
                 # Insert states
                 self.db.create_all()

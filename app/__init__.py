@@ -17,6 +17,7 @@ login.login_view = "auth.login"
 def create_app():
     app = Flask(__name__)
 
+
     # Try to setup instance folder if it does not exist
     try:
         os.makedirs(app.instance_path)
