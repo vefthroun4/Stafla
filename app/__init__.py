@@ -14,7 +14,7 @@ migrate = Migrate()
 login = LoginManager()
 login.login_view = "auth.login"
 
-def create_app():
+def create_app(config=Config):
     app = Flask(__name__)
 
     # Try to setup instance folder if it does not exist
@@ -28,7 +28,7 @@ def create_app():
 
     # Sets up config file
     config_file = os.environ.get("CONFIG") 
-    app.config.from_object(config_file or Config)
+    app.config.from_object(config_file or config)
     
 
     # Init modules        

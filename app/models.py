@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, ForeignKey, CHAR, Boolean, DateTime, CheckConstraint, UniqueConstraint
+from sqlalchemy import Column, Integer, String, ForeignKey, CHAR, Boolean, DateTime, CheckConstraint, UniqueConstraint, event
 from sqlalchemy.orm import relationship
 from sqlalchemy.dialects.mysql import INTEGER
 from app import db, login
@@ -183,6 +183,9 @@ class Schools(db.Model):
     def __repr__(self):
         return f"<Schools - {self.schoolID}: school_name={self.school_name}>"
 
+
+
+
 class Prerequisites(db.Model):
     __tablename__ = "Prerequisites"
     course_number = Column("courseNumber", String(12), ForeignKey("Courses.courseNumber"), primary_key=True, index=True)
@@ -266,12 +269,12 @@ class TrackCourses(db.Model):
 class UsersRegistration(db.Model):
     """ Model used to keep track of users table"""
     __tablename__ = "UsersRegistration"
-    users_registrationID = Column("usersRegistrationID", Integer, autoincrement=True)
+    users_registrationID = Column("usersRegistrationID", Integer, autoincrement=True, primary_key=True)
     current_semester = Column("currentSemester", INTEGER(unsigned=True), default=1)
-    userID = Column("userID", Integer, ForeignKey(User.id), primary_key=True)
-    schoolID = Column("schoolID", Integer, ForeignKey(Schools.schoolID), primary_key=True)
-    divisionID = Column("divisionID", Integer, ForeignKey(Divisions.divisionID), primary_key=True)
-    trackID = Column("trackID", Integer, ForeignKey(Tracks.trackID), primary_key=True)
+    userID = Column("userID", Integer, ForeignKey(User.id), unique=True)
+    schoolID = Column("schoolID", Integer, ForeignKey(Schools.schoolID), unique=True)
+    divisionID = Column("divisionID", Integer, ForeignKey(Divisions.divisionID), unique=True)
+    trackID = Column("trackID", Integer, ForeignKey(Tracks.trackID), unique=True)
     school = relationship("Schools")
     division = relationship("Divisions")
     track = relationship("Tracks")
@@ -309,12 +312,28 @@ class CourseState(db.Model):
 class CourseRegistration(db.Model):
     """ Model used to keep track of courses user has been assigned """
     __tablename__ = "CourseRegistration"
-    course_number = Column("courseNumber", String(12), ForeignKey(Courses.course_number), primary_key=True)
-    users_registrationID = Column("usersRegistrationID", Integer, ForeignKey(UsersRegistration.users_registrationID), primary_key=True)
-    semester = Column("semester", INTEGER(unsigned=True))
-    stateID = Column("state", ForeignKey(CourseState.course_stateID), nullable=False)
+    course_registrationID = Column(Integer, primary_key=True)
+    course_number = Column("courseNumber", String(12), ForeignKey(Courses.course_number))
+    users_registrationID = Column("usersRegistrationID", Integer, ForeignKey(UsersRegistration.users_registrationID))
+    semester = Column("semester", Integer, default=1)
+    stateID = Column("state", ForeignKey(CourseState.course_stateID), nullable=False, default=2)
     state = relationship("CourseState")
     users_registration = relationship("UsersRegistration", back_populates="courses") 
+    __table_args__ = tuple(db.UniqueConstraint("course_number", "users_registrationID", "semester", name="CourseRegistration_UQ"))
 
     def __repr__(self):
         return f"<CourseRegistration: course_number={self.course_number}, semester={self.semester}, users_registrationID={self.users_registrationID}>"   
+
+
+@db.event.listens_for(CourseRegistration, "before_insert")
+def validate_state(mapper, connection, t):
+    print(mapper)
+    # cs = t.query.filter(
+    #     CourseRegistration.course_number == t.course_number,
+    #     CourseRegistration.users_registrationID== t.users_registrationID,
+    #     CourseRegistration.stateID != States.FAILED 
+    #     ).first()
+    # if cs:
+    #     from sqlalchemy.orm.interfaces import EXT_STOP
+    #     return EXT_STOP
+
