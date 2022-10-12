@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block styles %}
+
+{% endblock %}
+
+{% block title %}
+    Table
+{% endblock %}
+
+
+{% block content %}
+{{tc}}
+{% endblock %}
+
+{% block scripts %}
+{{super()}}
+<script type="module" src="{{url_for('static', filename='scripts/namskra/table.js')}}" defer></script>
+{% endblock %}

@@ -194,12 +194,11 @@ class Prerequisites(db.Model):
     simultaneous =  Column("simultaneous", Boolean, default=False)
     CheckConstraint(prerequisite != course_number)
 
-    def to_json(self):
-        return {
-            "continuation": self.course_number,
-            "prerequisite" : self.prerequisite,
-            "simultaneous": self.simultaneous
-        }
+    def to_json(self, prev=True):
+        if prev:
+            return self.prerequisite
+        else:
+            return self.course_number
     
     def __repr__(self):
         return f"<Prerequisites: courseNumber={self.course_number}, prerequisite={self.prerequisite}>"
@@ -231,8 +230,8 @@ class Courses(db.Model):
         }
         #TODO make a custom join to better represent the prerequisites and continuations instead of relying on relationships
         if include_children:
-            resp["prerequisites"] = [prerequisite.to_json() for prerequisite in self.prerequisites]
-            resp["continuations"] = [continuation.to_json() for continuation in self.continuations]
+            resp["prerequisites"] = [prerequisite.to_json(prev=True) for prerequisite in self.prerequisites]
+            resp["continuations"] = [continuation.to_json(prev=False) for continuation in self.continuations]
         return resp
     
     def __repr__(self):
@@ -240,6 +239,7 @@ class Courses(db.Model):
 
 
 class CourseGroups(db.Model):
+    #TODO add constraint to validate that the n*credits does not exceed credits_required where n is number of courses assigned to CG
     __tablename__ = "CourseGroups"
     groupID = Column("groupID",Integer, primary_key=True)
     group_name = Column("groupName", String(30), nullable=False)
@@ -249,6 +249,15 @@ class CourseGroups(db.Model):
     track = relationship("Tracks", back_populates="groups")
     __table_args__ = tuple(UniqueConstraint("groupName", "trackID", name="group_track_UQ"))
 
+    def to_json(self):
+        resp = {
+            "groupID": self.groupID,
+            "group_name": self.group_name,
+            "trackID": self.trackID,
+            "credits_required": self.credits_required,
+            "courses": self.courses
+        }
+        return resp
 
 class TrackCourses(db.Model):
     __tablename__ = "TrackCourses"
@@ -264,6 +273,20 @@ class TrackCourses(db.Model):
     # Get all courses that have a value set in semester column 
     # TrackCourses.query.filter(TrackCourses.semester.isnot(None)).all()
 
+    def to_json(self):
+        resp = {
+            "trackID": self.trackID,
+            "course_number": self.course_number,
+            "mandatory": self.mandatory,
+            "semester": self.semester,
+            "description": self.course.course_description,
+            "credits": self.course.course_credits,
+            "type": self.course.course_type
+        }
+        if self.group:
+            resp["groupID"] = self.groupID
+        return resp
+
     def __repr__(self):
         return f"<TrackCourses - {self.trackID}: groupID={self.groupID}, course_number={self.course_number}, mandatory={self.mandatory}, is_active={self.is_active}, semester={self.semester}>"
 
@@ -272,10 +295,10 @@ class UsersRegistration(db.Model):
     __tablename__ = "UsersRegistration"
     users_registrationID = Column("usersRegistrationID", Integer, autoincrement=True, primary_key=True)
     current_semester = Column("currentSemester", INTEGER(unsigned=True), default=1)
-    userID = Column("userID", Integer, ForeignKey(User.id), unique=True)
-    schoolID = Column("schoolID", Integer, ForeignKey(Schools.schoolID), unique=True)
-    divisionID = Column("divisionID", Integer, ForeignKey(Divisions.divisionID), unique=True)
-    trackID = Column("trackID", Integer, ForeignKey(Tracks.trackID), unique=True)
+    userID = Column("userID", Integer, ForeignKey(User.id))
+    schoolID = Column("schoolID", Integer, ForeignKey(Schools.schoolID))
+    divisionID = Column("divisionID", Integer, ForeignKey(Divisions.divisionID))
+    trackID = Column("trackID", Integer, ForeignKey(Tracks.trackID))
     school = relationship("Schools")
     division = relationship("Divisions")
     track = relationship("Tracks")
@@ -285,6 +308,7 @@ class UsersRegistration(db.Model):
                             cascade="all, delete-orphan",
                             lazy="dynamic"
                             )
+    __table_args__ = (UniqueConstraint("userID", "schoolID", "divisionID", "trackID"),)
     def __repr__(self):
         return f"<UsersRegistration: userID={self.userID}, user={self.user}, school={self.school}, division={self.division}, track={self.track}>"
 
@@ -319,6 +343,7 @@ class CourseRegistration(db.Model):
     semester = Column("semester", Integer, default=1)
     stateID = Column("state", ForeignKey(CourseState.course_stateID), nullable=False, default=2)
     state = relationship("CourseState")
+    course = relationship("Courses")
     users_registration = relationship("UsersRegistration", back_populates="courses") 
     __table_args__ = (
         db.UniqueConstraint("courseNumber", "usersRegistrationID", "semester", name="CourseRegistration_UQ"),

@@ -119,7 +119,7 @@ class Database:
         for course in courses:
             self.db.session.add(TrackCourses(
                 trackID       = track_trackID,
-                groupID       = CourseGroups.query.first().groupID,
+                groupID       = CourseGroups.query.first().groupID if course["course_number"] in group["courses"] else None,
                 course_number = clean_str(course["course_number"], "()"),
                 mandatory     = course["core"],
                 is_active     = course["active"],

@@ -12,6 +12,9 @@ class Testing():
 
     
     def test_CourseRegistration(self):
+        [self.db.session.delete(cs) for cs in CourseRegistration.query.all()]
+        self.db.session.commit()
+        
         try:
             u1 = User(email="asd@asd.com")
             u1.set_password("asd")
@@ -35,6 +38,11 @@ class Testing():
             users_registrationID=1,
             semester=4
         ))
+        self.db.session.add(CourseRegistration(
+            course_number="KEST1VL05AU",
+            users_registrationID=1,
+            semester=4
+        ))
         self.db.session.commit()
 
         print(CourseRegistration.query.filter_by(
@@ -42,6 +50,7 @@ class Testing():
             users_registrationID=1,
             ).all()
         )
+
 
 
 testing = Testing(create_app(Config), db)

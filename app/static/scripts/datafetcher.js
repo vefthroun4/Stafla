@@ -4,6 +4,29 @@ export class DataFetcher {
     constructor() {
     }
 
+    async get_table_data_all() {
+        let resp = await fetch(window.origin+`/api/table/all`).then(resp => {
+            return resp.json()
+        }).then(data => {
+            return data
+        }).catch(err => {
+            console.log(`Error occured: ${err}\n(ﾉ*ФωФ)ﾉ`)
+            return false
+        })
+        return resp
+    }
+
+    async get_table_data_active() {
+        let resp = await fetch(window.origin+`/api/table/active`).then(resp => {
+            return resp.json()
+        }).then(data => {
+            return data
+        }).catch(err => {
+            console.log(`Error occured: ${err}\n(ﾉ*ФωФ)ﾉ`)
+            return false
+        })
+        return resp
+    }
 
     async get_data(resource, identifier) {
         let resp = await fetch(window.origin+`/api/${resource}/${identifier}`).then(resp => {
