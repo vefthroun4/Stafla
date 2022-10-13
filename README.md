@@ -1,6 +1,3 @@
-https://stafla-vef4.herokuapp.com/
-
-
 # Stafla
 
 Sveinn, Karl, Elvar, Fuad
