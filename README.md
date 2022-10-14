@@ -61,5 +61,31 @@ notað fyrir auðkenningu, vinnur mjög vel með sqlalchemy.
 notað var semantic-ui
 
 
+# Gagnagrunnshönnun
+Gagnagrunnurinn var sú flókknasta atriði að útfæra í þessu verkefni. Það eru 12 töflur(e. Tables) í honum og 10 þeirra aðeins fyrir að halda utan um gögninn tengd námsmats töflunni. 
+![mynd](https://github.com/vefthroun4/Stafla/blob/main/Screenshots/database.png)
+
+## útskýring á Tables
+
+### User og Roles
+User taflan heldur utan um notenda og Roles er aðeins fyrir aðgángstýringu, t.d. hvort hann sé anonymous, user eða admin.
+
+### Schools, Divisions og Tracks
+Schools, Divisions og Tracks eru Skólar, undirskólar og brautir, þessar upplýsingar voru grunnupplýsingarnar sem námsmatstaflan mundi byggja upp á, þessar töflur tengjast öðrum töflum með ForeignKey(FK), þessar upplýsingar gera samt ekki neit þangað til að þær eru tengdar við aðrar töflur í gagnagrunninn.
+
+### (Courses, Prerequisites), TrackCourses og CourseGroups
+Courses eru bara allir áfangar sem eru í gagnagrunninn og TrackCourse tengir einhvern af þeim áfanga með FK og Course er bættur í TrackCourses verður hann aðgengilegur að notendum til að vera valinn í gegnum námsmatstöflukerfið þegar viðeigandi Track(Braut) er valinn. annars heldur Prerequisites um undanfara og meiri segja framhalds áfanga af hverjum einasta áfanga í kerfinu og CourseGroups var smíðaður vegna áföngum sem voru kröfu áfangar en þurfti aðeins að klára t.d. 2 af 3 áföngum í það hópi t.d. eins og ÍSL3 áfangarnir á tölvubraut þar sem maður þarf aðeins að klára 2 of 3 áföngum í það hóp.
+
+### UsersRegistration, (CourseRegistration og course_state)
+UsersRegistration er til að skrá töflu á notenda, þannig hann getur valið Skóla, undirskóla og braut og svo gegnum CourseRegistration er hægt að skrá áfangana í UsersRegistration sem svo heldur utan um hvaða önn þeir voru skráðir hversu marga áfanga hefur nemandi hefur tekið, og svo er course_state einfaldlega til að breyta stöðu skráðan áfanga, t.d. notandi fellur á STÆ áfanga þá er hægt að merkja hann sem FAILED og svo er líka hægt að merkja hann sem ACTIVE, FINISHED. Það var haldinn utam um þessa statusa í States töflunna í [models.py línu 287](https://github.com/vefthroun4/Stafla/blob/main/app/models.py#L287)
+
+
+## Næstu skref
+1. Fyrst og fremmst væri það að koma námsmats töfluni til að virka almennilega, þannig að það útfærir áfanga fyrir nemanda og leyfir nemanda að breyti því til að fá einhverja ákveðna töflu eftir þörfum.
+1. Útfæra profile fyrir notanda þannig að notandinn gæti breytt sínum upplýsingum. 
+1. Klára api þannig að hægt er að nota AJAX(J) í staðinn fyrir að endurhlaða síðuna hvert sinn gögninn eru uppfært eða sótt með formi.
+1. Admin dashboard þar sem þeir með Moderator réttindi eða hærri gæta bætt við fleiri gögnum á síðuna og hægt að breyta öllum gögnum sem eru til í gagnagrunninum sem það notandi hafði rétt að.
+1. Lagfæra kóðan, gefa betri villuboð, gera aðgangstýringuna betri, o.s.fr.
+
 
 # Höfundar: Elvar Ágúst, Fuad Poroshtica, Sveinn Óli, Karl Philip
