@@ -88,10 +88,11 @@ Annað stórt vandamál var joins, allar töflur eru tengdar saman með joins og
 
 ## Næstu skref
 1. Fyrst og fremmst væri það að koma námsmats töfluni til að virka almennilega, þannig að það útfærir áfanga fyrir nemanda og leyfir nemanda að breyti því til að fá einhverja ákveðna töflu eftir þörfum.
-1. Útfæra profile fyrir notanda þannig að notandinn gæti breytt sínum upplýsingum. 
-1. Klára api þannig að hægt er að nota AJAX(J) í staðinn fyrir að endurhlaða síðuna hvert sinn gögninn eru uppfært eða sótt með formi.
-1. Admin dashboard þar sem þeir með Moderator réttindi eða hærri gæta bætt við fleiri gögnum á síðuna og hægt að breyta öllum gögnum sem eru til í gagnagrunninum sem það notandi hafði rétt að.
-1. Lagfæra kóðan, gefa betri villuboð, gera aðgangstýringuna betri, o.s.fr.
+2. útfæra Guest user þannig hægt væri að nota kerfið án þess að skrá sig inn, þetta var í raun og veru útfært, bara búa til User og geyma hann í Session en ef Sessionið eyddist(hann clearaði cookies) þá mundi vera dauður User í gagnagrunninum og þá mundi þurfa eyða honum eftir einhvert ákveðið tímabil).
+3. Útfæra profile fyrir notanda þannig að notandinn gæti breytt sínum upplýsingum. 
+4. Klára api þannig að hægt er að nota AJAX(J) í staðinn fyrir að endurhlaða síðuna hvert sinn gögninn eru uppfært eða sótt með formi.
+5. Admin dashboard þar sem þeir með Moderator réttindi eða hærri gæta bætt við fleiri gögnum á síðuna og hægt að breyta öllum gögnum sem eru til í gagnagrunninum sem það notandi hafði rétt að.
+6. Lagfæra kóðan, gefa betri villuboð, gera aðgangstýringuna betri, o.s.fr.
 
 
 # Höfundar: Elvar Ágúst, Fuad Poroshtica, Sveinn Óli, Karl Philip
