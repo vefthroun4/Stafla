@@ -82,7 +82,7 @@ UsersRegistration er til að skrá töflu á notenda, þannig hann getur valið 
 ## Vandamál með gagnagrunn
 Að læra á MYSQLALCHEMY var mjög stórt vesen þar sem það nýtur sér Object-relational mapping, sem í stuttu þýðir að í staðinn fyrir að nota töflur þá er notaða python klassa sem erfða frá mysqlalchemy.model sem er í raun og veru bara Declarative Base, þetta þýðir að syntaxið fyrir mysql fyrirspurnir voru talsvert öðruvísi og í raun og veru flokknari en venjulegar mysql fyrirspurnir. En þegar það var set up á réttan hátt var hægt að gera mjög flóknar fyrirspurnir með því að aðeins kalla í einn attribute(e. Column) sem er tengdur öðrum töflum með svokölluðu Relationship sem framkvæmir þessar flóknar joins. 
 
-Annað stórt vandamál var joins, allar töflur eru tengdar saman með joins og það eru til mjög margar loading-strategies sem eru áætlaðar að optimisea queries og joins og svo þurfti stundum að búa til custom joins, t.d. til að ná í alla áfanga sem nemandi hafði ekki ljúkið við til að sýna honum alla mögulega áfanga sem hann getur valið, (ath. þetta var útfært í gegnum API´Ð en ekki notað vegna ekki náðist að útfæra námsmatstöfluna.)
+Annað stórt vandamál var loading-strategies með joins, allar töflur eru tengdar saman með joins og það eru til mjög margar loading-strategies sem eru áætlaðar að optimisea queries og joins annars gæti það mögulega verið mjög stórt performance-issue og svo þurfti stundum að búa til custom joins, t.d. til að ná í alla áfanga sem nemandi hafði ekki ljúkið við til að sýna honum alla mögulega áfanga sem hann getur valið, (ath. þetta var útfært í gegnum API´Ð en ekki notað vegna ekki náðist að útfæra námsmatstöfluna.)
 
 
 
