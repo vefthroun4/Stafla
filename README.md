@@ -35,4 +35,67 @@ Hérna mun Stafla sýna þér eftir síum bestu áfanga sem eru til að taka og 
 ## Wireflows (Wireframes + flowchart + User story) (60%)
 ![Wireframe](https://github.com/vefthroun4/Stafla/blob/main/wireframe_vefthr4.svg)
 
+## [Screenshots](https://github.com/vefthroun4/Stafla/tree/main/Screenshots)
 
+### Frameworks og Söfn:
+alembic==1.8.1
+
+certifi==2022.9.24
+
+charset-normalizer==2.1.1
+
+click==8.1.3
+
+colorama==0.4.5
+
+dnspython==2.2.1
+
+email-validator==1.3.0
+
+Flask==2.2.2
+
+Flask-Login==0.6.2
+
+Flask-Migrate==3.1.0
+
+Flask-SQLAlchemy==2.5.1
+
+Flask-WTF==1.0.1
+
+greenlet==1.1.3
+
+gunicorn==20.1.0
+
+idna==3.4
+
+importlib-metadata==4.12.0
+
+itsdangerous==2.1.2
+
+Jinja2==3.1.2
+
+Mako==1.2.2
+
+MarkupSafe==2.1.1
+
+python-dotenv==0.21.0
+
+requests==2.28.1
+
+SQLAlchemy==1.4.41
+
+urllib3==1.26.12
+
+Werkzeug==2.2.2
+
+WTForms==3.0.1
+
+WTForms-SQLAlchemy==0.3
+
+zipp==3.8.1
+
+
+
+
+
+### Höfundar: Elvar Ágúst, Fuad Poroshtica, Sveinn Óli, Karl Philip
