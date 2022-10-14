@@ -1,7 +1,4 @@
 # Stafla
-
-Sveinn, Karl, Elvar, Fuad
-
 ## Notendasaga (40%)
 
 ### Hvað er Stafla?
@@ -44,64 +41,24 @@ Hérna mun Stafla sýna þér eftir síum bestu áfanga sem eru til að taka og 
 
 [Projects](https://github.com/orgs/vefthroun4/projects/2/views/1)
 
-### Frameworks og Söfn:
-alembic==1.8.1
+## Frameworks og Söfn:
+### Flask
+Frameworkið sem við notuðum.
 
-certifi==2022.9.24
+### Migrate
+Notað til að uppfæra gagnagrunnin þegar breytingar voru framkvæmdar á Models í sqlalchemy
 
-charset-normalizer==2.1.1
+### sqlalchemy
+Gagnagrunnurinn sem notaður var, notaði SQLITE fyrir development en POSTGRESQL fyrir production
 
-click==8.1.3
+### flask-wtf, wtf-sqlalchemy og wtforms
+Þrjú mismunandi söfn fyrir forms, eitt sérstaklega þannig að queries gæti verið framkvæmdar á runtime þegar er verið að smíða formið og hinn tvö bara fyrir almena virkni á forms
 
-colorama==0.4.5
+### flask-login
+notað fyrir auðkenningu, vinnur mjög vel með sqlalchemy.
 
-dnspython==2.2.1
-
-email-validator==1.3.0
-
-Flask==2.2.2
-
-Flask-Login==0.6.2
-
-Flask-Migrate==3.1.0
-
-Flask-SQLAlchemy==2.5.1
-
-Flask-WTF==1.0.1
-
-greenlet==1.1.3
-
-gunicorn==20.1.0
-
-idna==3.4
-
-importlib-metadata==4.12.0
-
-itsdangerous==2.1.2
-
-Jinja2==3.1.2
-
-Mako==1.2.2
-
-MarkupSafe==2.1.1
-
-python-dotenv==0.21.0
-
-requests==2.28.1
-
-SQLAlchemy==1.4.41
-
-urllib3==1.26.12
-
-Werkzeug==2.2.2
-
-WTForms==3.0.1
-
-WTForms-SQLAlchemy==0.3
-
-zipp==3.8.1
- 
-Svo var einnig notað Semantic og postgresql
+### Framendi
+notað var semantic-ui
 
 
 
