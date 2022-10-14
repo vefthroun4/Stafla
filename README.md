@@ -37,7 +37,7 @@ Hérna mun Stafla sýna þér eftir síum bestu áfanga sem eru til að taka og 
 ## [Youtube](https://youtu.be/3vAFwBt4zrY)
 
 ### Network
-[Network image](https://github.com/vefthroun4/Stafla/blob/main/Screenshots/network.png)
+![Network image](https://github.com/vefthroun4/Stafla/blob/main/Screenshots/network.png)
 
 [Projects](https://github.com/orgs/vefthroun4/projects/2/views/1)
 
