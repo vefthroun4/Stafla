@@ -37,6 +37,12 @@ Hérna mun Stafla sýna þér eftir síum bestu áfanga sem eru til að taka og 
 
 ## [Screenshots](https://github.com/vefthroun4/Stafla/tree/main/Screenshots)
 
+## [Youtube](https://youtu.be/3vAFwBt4zrY)
+
+### Network
+[Nwtwork](https://github.com/vefthroun4/Stafla/blob/main/Screenshots/network.png)
+[Projects](https://github.com/orgs/vefthroun4/projects/2/views/1)
+
 ### Frameworks og Söfn:
 alembic==1.8.1
 
@@ -93,8 +99,8 @@ WTForms==3.0.1
 WTForms-SQLAlchemy==0.3
 
 zipp==3.8.1
-
-
+ 
+Svo var einnig notað Semantic og postgresql
 
 
 
