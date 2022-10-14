@@ -79,6 +79,12 @@ Courses eru bara allir áfangar sem eru í gagnagrunninn og TrackCourse tengir e
 ### UsersRegistration, (CourseRegistration og course_state)
 UsersRegistration er til að skrá töflu á notenda, þannig hann getur valið Skóla, undirskóla og braut og svo gegnum CourseRegistration er hægt að skrá áfangana í UsersRegistration sem svo heldur utan um hvaða önn þeir voru skráðir hversu marga áfanga hefur nemandi hefur tekið, og svo er course_state einfaldlega til að breyta stöðu skráðan áfanga, t.d. notandi fellur á STÆ áfanga þá er hægt að merkja hann sem FAILED og svo er líka hægt að merkja hann sem ACTIVE, FINISHED. Það var haldinn utam um þessa statusa í States töflunna í [models.py línu 287](https://github.com/vefthroun4/Stafla/blob/main/app/models.py#L287)
 
+## Vandamál með gagnagrunn
+Að læra á MYSQLALCHEMY var mjög stór vesen þar sem það nýtur sér Object-relational mapping, sem í stuttu þýðir að í staðinn fyrir að nota töflur þá er notaða python klassa sem erfða frá mysqlalchemy.model sem er í raun og veru bara Declarative Base, þetta þýðir að syntaxið fyrir mysql fyrirspurnir voru talsvert öðruvísi og í raun og veru flokknari en þegar það var set up á réttan hátt var hægt að gera mjög flóknar fyrirspurnir með því að aðeins kalla í einn attribute(e. Column) sem er tengdur öðrum töflum með svokölluðu Relationship sem framkvæmir þessar flóknar joins. 
+
+Annað stórt vandamál var joins, allar töflur eru tengdar saman með joins og það eru til mjög margar loading-strategies sem eru áætlaðar að optimisea queries og joins og svo þurfti stundum að búa til custom joins, t.d. til að ná í alla áfanga sem nemandi hafði ekki ljúkið við til að sýna honum alla mögulega áfanga sem hann getur valið, (ath. þetta var útfært í gegnum API´Ð en ekki notað vegna ekki náðist að útfæra námsmatstöfluna.)
+
+
 
 ## Næstu skref
 1. Fyrst og fremmst væri það að koma námsmats töfluni til að virka almennilega, þannig að það útfærir áfanga fyrir nemanda og leyfir nemanda að breyti því til að fá einhverja ákveðna töflu eftir þörfum.
